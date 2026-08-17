@@ -1,10 +1,10 @@
 {
- "updated_at": "2026-08-17T13:21+00:00",
+ "updated_at": "2026-08-17T13:24+00:00",
  "prices": {
   "btc_usd": 63427,
   "btc_24h_pct": 0.66,
   "btc_mcap_usd": 1273073581665.1106,
-  "brent_usd": 89.05,
+  "brent_usd": 89.02,
   "brent_14d_pct": 6.3,
   "spx": 7786,
   "spx_drawdown_pct": -0.2,
@@ -22,12 +22,13 @@
    "justification": "Recent reports state the ceasefire expired, indicating Iran has not accepted a currently active agreement.",
    "source_url": "https://www.youtube.com/watch?v=fnyAxiNPGuI",
    "source_date": "2026-08-16",
-   "changed": false
+   "changed": false,
+   "error": "HTTPError"
   },
   "gulf_infra": {
    "answer": "NO",
    "confidence": "low",
-   "justification": "No recent reports within the past week of major operational damage to Ras Tanura, Abqaiq, Ruwais, Ras Laffan LNG, or Kharg Island.",
+   "justification": "Recent reports only cover attacks in March–April 2026; no sources within the last 7 days confirm new damage.",
    "source_url": "https://www.france24.com/en/live-news/20260319-key-middle-east-energy-sites-under-fire",
    "source_date": "2026-03-19",
    "changed": false
@@ -38,9 +39,10 @@
    "justification": "The July 29, 2026 FOMC meeting kept rates unchanged and gave no near‑certain cut signal for the next meeting.",
    "source_url": "https://www.cnbc.com/2026/07/29/fed-meeting-today-live-updates.html",
    "source_date": "2026-07-29",
-   "changed": false
+   "changed": false,
+   "error": "HTTPError"
   },
-  "checked_at": "2026-08-17T13:19+00:00",
+  "checked_at": "2026-08-17T13:24+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés"
  },
  "indicators": {
@@ -65,7 +67,7 @@
    "weight": 15,
    "score": 0,
    "state": "bad",
-   "detail": "Brent 89.05 $ (+6.3 % / 14 j) — pression inflation",
+   "detail": "Brent 89.02 $ (+6.3 % / 14 j) — pression inflation",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
