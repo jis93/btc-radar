@@ -24,3 +24,9 @@ jobs:
           git add data.json
           git diff --cached --quiet || git commit -m "data: mise à jour quotidienne"
           git push
+      - name: Email résumé quotidien
+        continue-on-error: true
+        env:
+          MAIL_ADDRESS: ${{ secrets.MAIL_ADDRESS }}
+          MAIL_APP_PASSWORD: ${{ secrets.MAIL_APP_PASSWORD }}
+        run: python3 scripts/send_email.py
