@@ -1,14 +1,14 @@
 {
- "updated_at": "2026-08-17T13:24+00:00",
+ "updated_at": "2026-08-17T14:12+00:00",
  "prices": {
-  "btc_usd": 63427,
-  "btc_24h_pct": 0.66,
-  "btc_mcap_usd": 1273073581665.1106,
+  "btc_usd": 63555,
+  "btc_24h_pct": 0.87,
+  "btc_mcap_usd": 1275470911607.5261,
   "brent_usd": 89.02,
   "brent_14d_pct": 6.3,
-  "spx": 7786,
-  "spx_drawdown_pct": -0.2,
-  "nvda_drawdown_pct": -0.1,
+  "spx": 7778,
+  "spx_drawdown_pct": -0.3,
+  "nvda_drawdown_pct": 0.0,
   "fear_greed": 31,
   "funding_rate_pct": 0.0065,
   "hashrate_30d_pct": 3.3,
@@ -19,16 +19,15 @@
   "ceasefire": {
    "answer": "NO",
    "confidence": "high",
-   "justification": "Recent reports state the ceasefire expired, indicating Iran has not accepted a currently active agreement.",
-   "source_url": "https://www.youtube.com/watch?v=fnyAxiNPGuI",
-   "source_date": "2026-08-16",
-   "changed": false,
-   "error": "HTTPError"
+   "justification": "The last known cease‑fire memorandum expired on 16 August 2026 and no extension has been reported.",
+   "source_url": "https://www.dw.com/en/us-iran-deliver-conflicting-reports-on-fresh-peace-talks/live-77746775",
+   "source_date": "2026-06-29",
+   "changed": false
   },
   "gulf_infra": {
    "answer": "NO",
    "confidence": "low",
-   "justification": "Recent reports only cover attacks in March–April 2026; no sources within the last 7 days confirm new damage.",
+   "justification": "The most recent reports of material damage to Ras Tanura, Abqaiq, Ruwais, Ras Laffan LNG, or Kharg Island are from March 2026, none within the last 7 days.",
    "source_url": "https://www.france24.com/en/live-news/20260319-key-middle-east-energy-sites-under-fire",
    "source_date": "2026-03-19",
    "changed": false
@@ -36,13 +35,12 @@
   "fed_cut": {
    "answer": "NO",
    "confidence": "high",
-   "justification": "The July 29, 2026 FOMC meeting kept rates unchanged and gave no near‑certain cut signal for the next meeting.",
+   "justification": "The latest 2026 FOMC meetings (June and July) left rates unchanged and gave no near‑certain cut signal.",
    "source_url": "https://www.cnbc.com/2026/07/29/fed-meeting-today-live-updates.html",
    "source_date": "2026-07-29",
-   "changed": false,
-   "error": "HTTPError"
+   "changed": false
   },
-  "checked_at": "2026-08-17T13:24+00:00",
+  "checked_at": "2026-08-17T14:12+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés"
  },
  "indicators": {
@@ -91,7 +89,7 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 31, NVDA -0.1 %, S&P -0.2 %)",
+   "detail": "Pas de flush global (F&G 31, NVDA +0.0 %, S&P -0.3 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   }
  },
