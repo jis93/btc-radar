@@ -1,0 +1,26 @@
+name: update-radar
+
+on:
+  schedule:
+    - cron: "20 6 * * *"   # tous les jours 06:20 UTC (~08:20 Paris)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Collecte des indicateurs + juge LLM
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: python3 scripts/update.py
+      - name: Commit data.json si modifié
+        run: |
+          git config user.name "radar-bot"
+          git config user.email "radar-bot@users.noreply.github.com"
+          git add data.json
+          git diff --cached --quiet || git commit -m "data: mise à jour quotidienne"
+          git push

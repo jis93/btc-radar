@@ -5,102 +5,63 @@
 <title>Radar Bottom BTC</title>
 <style>
   :root {
-    --bg: #0d1320;
-    --bg-raised: #131b2c;
-    --bg-inset: #0a0f19;
-    --line: #24304a;
-    --line-soft: #1a2438;
-    --ink: #dfe6f2;
-    --ink-dim: #8b98b3;
-    --ink-faint: #5c6a87;
-    --accent: #e3a63b;
-    --accent-soft: rgba(227, 166, 59, .14);
-    --ok: #46c184;
-    --ok-soft: rgba(70, 193, 132, .13);
-    --warn: #e0a93a;
-    --warn-soft: rgba(224, 169, 58, .13);
-    --bad: #e06456;
-    --bad-soft: rgba(224, 100, 86, .12);
+    --bg: #0d1320; --bg-raised: #131b2c; --bg-inset: #0a0f19;
+    --line: #24304a; --line-soft: #1a2438;
+    --ink: #dfe6f2; --ink-dim: #8b98b3; --ink-faint: #5c6a87;
+    --accent: #e3a63b; --accent-soft: rgba(227,166,59,.14);
+    --ok: #46c184; --ok-soft: rgba(70,193,132,.13);
+    --warn: #e0a93a; --warn-soft: rgba(224,169,58,.13);
+    --bad: #e06456; --bad-soft: rgba(224,100,86,.12);
     --chip-bg: #17202f;
   }
   @media (prefers-color-scheme: light) {
     :root:not([data-theme="dark"]) {
-      --bg: #eef0f4;
-      --bg-raised: #ffffff;
-      --bg-inset: #e4e8ee;
-      --line: #cdd4e0;
-      --line-soft: #dde2ea;
-      --ink: #1d2534;
-      --ink-dim: #55617a;
-      --ink-faint: #7e8aa3;
-      --accent: #b07514;
-      --accent-soft: rgba(176, 117, 20, .12);
-      --ok: #1e8f5a;
-      --ok-soft: rgba(30, 143, 90, .12);
-      --warn: #a37b13;
-      --warn-soft: rgba(163, 123, 19, .13);
-      --bad: #bf4437;
-      --bad-soft: rgba(191, 68, 55, .10);
+      --bg: #eef0f4; --bg-raised: #ffffff; --bg-inset: #e4e8ee;
+      --line: #cdd4e0; --line-soft: #dde2ea;
+      --ink: #1d2534; --ink-dim: #55617a; --ink-faint: #7e8aa3;
+      --accent: #b07514; --accent-soft: rgba(176,117,20,.12);
+      --ok: #1e8f5a; --ok-soft: rgba(30,143,90,.12);
+      --warn: #a37b13; --warn-soft: rgba(163,123,19,.13);
+      --bad: #bf4437; --bad-soft: rgba(191,68,55,.10);
       --chip-bg: #f7f8fa;
     }
   }
   :root[data-theme="light"] {
-    --bg: #eef0f4;
-    --bg-raised: #ffffff;
-    --bg-inset: #e4e8ee;
-    --line: #cdd4e0;
-    --line-soft: #dde2ea;
-    --ink: #1d2534;
-    --ink-dim: #55617a;
-    --ink-faint: #7e8aa3;
-    --accent: #b07514;
-    --accent-soft: rgba(176, 117, 20, .12);
-    --ok: #1e8f5a;
-    --ok-soft: rgba(30, 143, 90, .12);
-    --warn: #a37b13;
-    --warn-soft: rgba(163, 123, 19, .13);
-    --bad: #bf4437;
-    --bad-soft: rgba(191, 68, 55, .10);
+    --bg: #eef0f4; --bg-raised: #ffffff; --bg-inset: #e4e8ee;
+    --line: #cdd4e0; --line-soft: #dde2ea;
+    --ink: #1d2534; --ink-dim: #55617a; --ink-faint: #7e8aa3;
+    --accent: #b07514; --accent-soft: rgba(176,117,20,.12);
+    --ok: #1e8f5a; --ok-soft: rgba(30,143,90,.12);
+    --warn: #a37b13; --warn-soft: rgba(163,123,19,.13);
+    --bad: #bf4437; --bad-soft: rgba(191,68,55,.10);
     --chip-bg: #f7f8fa;
   }
-
   * { box-sizing: border-box; }
-  body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif;
-    line-height: 1.55;
-    margin: 0;
-    padding: 28px 20px 56px;
-  }
-  .wrap { max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
-  .num { font-family: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, monospace; font-variant-numeric: tabular-nums; }
-
-  header { display: flex; flex-direction: column; gap: 14px; }
-  .eyebrow {
-    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
-    color: var(--accent); font-weight: 600;
-  }
-  h1 { font-size: 30px; margin: 0; letter-spacing: -.01em; text-wrap: balance; }
+  body { background: var(--bg); color: var(--ink); margin: 0; padding: 28px 20px 56px;
+         font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif; line-height: 1.55; }
+  .wrap { max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; gap: 26px; }
+  .num { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-variant-numeric: tabular-nums; }
+  header { display: flex; flex-direction: column; gap: 12px; }
+  .eyebrow { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+  h1 { font-size: 30px; margin: 0; letter-spacing: -.01em; }
   .stamp { display: flex; align-items: center; gap: 8px; color: var(--ink-dim); font-size: 13px; }
-  .stamp .pulse {
-    width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
-    animation: pulse 2.4s ease-in-out infinite;
-  }
+  .stamp .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
+                  animation: pulse 2.4s ease-in-out infinite; }
   @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .3; } }
   @media (prefers-reduced-motion: reduce) { .stamp .pulse { animation: none; } }
-
   .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-  .chip {
-    background: var(--chip-bg); border: 1px solid var(--line-soft); border-radius: 6px;
-    padding: 6px 12px; font-size: 13px; display: flex; gap: 8px; align-items: baseline;
-  }
+  .chip { background: var(--chip-bg); border: 1px solid var(--line-soft); border-radius: 6px;
+          padding: 6px 12px; font-size: 13px; display: flex; gap: 8px; align-items: baseline; }
   .chip .lbl { color: var(--ink-faint); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; }
+  .neg { color: var(--bad); } .pos { color: var(--ok); }
 
-  .gauge-card {
-    background: var(--bg-raised); border: 1px solid var(--line); border-radius: 10px;
-    padding: 24px; display: flex; flex-direction: column; gap: 16px;
-  }
+  .alerts { display: flex; flex-direction: column; gap: 8px; }
+  .alert { background: var(--bad-soft); border: 1px solid var(--bad); border-radius: 8px;
+           padding: 12px 16px; font-size: 14px; }
+  .alert a { color: var(--accent); }
+
+  .gauge-card { background: var(--bg-raised); border: 1px solid var(--line); border-radius: 10px;
+                padding: 24px; display: flex; flex-direction: column; gap: 16px; }
   .gauge-top { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
   .gauge-title { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--ink-dim); }
   .gauge-value { font-size: 44px; font-weight: 700; color: var(--accent); }
@@ -108,18 +69,15 @@
   .bar { display: flex; gap: 3px; height: 14px; }
   .bar span { flex: 1; border-radius: 3px; background: var(--bg-inset); border: 1px solid var(--line-soft); }
   .bar span.fill { background: var(--accent); border-color: var(--accent); }
-  .gauge-note { font-size: 13px; color: var(--ink-dim); max-width: 65ch; }
+  .gauge-note { font-size: 13px; color: var(--ink-dim); max-width: 65ch; margin: 0; }
   .gauge-note strong { color: var(--ink); }
 
   h2 { font-size: 15px; text-transform: uppercase; letter-spacing: .1em; margin: 0; color: var(--ink-dim); font-weight: 600; }
   h2 .cond { color: var(--accent); }
   section { display: flex; flex-direction: column; gap: 12px; }
-
   .rows { display: flex; flex-direction: column; gap: 8px; }
-  .row {
-    background: var(--bg-raised); border: 1px solid var(--line-soft); border-radius: 8px;
-    padding: 14px 16px; display: grid; grid-template-columns: 14px 1fr auto; gap: 6px 14px; align-items: start;
-  }
+  .row { background: var(--bg-raised); border: 1px solid var(--line-soft); border-radius: 8px;
+         padding: 14px 16px; display: grid; grid-template-columns: 14px 1fr auto; gap: 6px 14px; align-items: start; }
   .dot { width: 12px; height: 12px; border-radius: 50%; margin-top: 5px; }
   .dot.ok   { background: var(--ok); box-shadow: 0 0 0 4px var(--ok-soft); }
   .dot.warn { background: var(--warn); box-shadow: 0 0 0 4px var(--warn-soft); }
@@ -128,231 +86,199 @@
   .row .weight { color: var(--ink-faint); font-size: 12px; white-space: nowrap; margin-top: 2px; }
   .row .reading { grid-column: 2 / 4; color: var(--ink-dim); font-size: 13.5px; max-width: 70ch; }
   .row .flip { grid-column: 2 / 4; font-size: 13px; color: var(--ink-faint); }
-  .row .flip b { color: var(--ok); font-weight: 600; }
 
-  .trip {
-    background: var(--bg-raised); border: 1px solid var(--line-soft); border-radius: 8px;
-    padding: 12px 16px; display: flex; gap: 12px; align-items: baseline;
-  }
-  .badge {
-    font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
-    padding: 2px 8px; border-radius: 4px; white-space: nowrap;
-  }
-  .badge.acc { background: var(--ok-soft); color: var(--ok); }
-  .badge.ret { background: var(--bad-soft); color: var(--bad); }
-  .trip .txt { font-size: 13.5px; color: var(--ink-dim); }
-  .trip .txt strong { color: var(--ink); }
+  .judge-card { background: var(--bg-raised); border: 1px solid var(--line-soft); border-radius: 8px;
+                padding: 12px 16px; font-size: 13.5px; color: var(--ink-dim);
+                display: flex; gap: 12px; align-items: baseline; }
+  .verdict { font-size: 11px; font-weight: 700; letter-spacing: .06em; padding: 2px 8px;
+             border-radius: 4px; white-space: nowrap; }
+  .verdict.no  { background: var(--chip-bg); color: var(--ink-faint); border: 1px solid var(--line-soft); }
+  .verdict.yes { background: var(--ok-soft); color: var(--ok); }
+  .judge-card a { color: var(--accent); }
+  .judge-card strong { color: var(--ink); }
 
-  .timeline { display: flex; flex-direction: column; gap: 0; }
-  .tl-row {
-    display: grid; grid-template-columns: 110px 70px 1fr; gap: 14px; align-items: baseline;
-    padding: 10px 4px; border-bottom: 1px solid var(--line-soft);
-  }
+  .timeline { display: flex; flex-direction: column; }
+  .tl-row { display: grid; grid-template-columns: 110px 70px 1fr; gap: 14px; align-items: baseline;
+            padding: 10px 4px; border-bottom: 1px solid var(--line-soft); }
   .tl-row:last-child { border-bottom: none; }
   .tl-date { font-weight: 600; font-size: 14px; }
   .tl-days { color: var(--accent); font-size: 12.5px; }
   .tl-what { color: var(--ink-dim); font-size: 13.5px; }
   .tl-row.window { background: var(--accent-soft); border-radius: 6px; border-bottom-color: transparent; }
   .tl-row.window .tl-what { color: var(--ink); }
+  .tl-row.past { opacity: .45; }
 
-  .foot {
-    border-top: 1px solid var(--line); padding-top: 18px;
-    display: flex; flex-direction: column; gap: 12px; font-size: 13px; color: var(--ink-dim);
-  }
+  .foot { border-top: 1px solid var(--line); padding-top: 18px; display: flex; flex-direction: column;
+          gap: 12px; font-size: 13px; color: var(--ink-dim); }
   .foot ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; }
   .foot a { color: var(--accent); text-decoration: none; }
   .foot a:hover, .foot a:focus-visible { text-decoration: underline; }
   a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
   .srcs { display: flex; flex-wrap: wrap; gap: 6px 16px; }
-  .howto {
-    background: var(--accent-soft); border: 1px solid var(--line-soft); border-radius: 8px;
-    padding: 12px 16px; color: var(--ink); font-size: 13.5px;
-  }
-
+  #load-error { background: var(--bad-soft); border: 1px solid var(--bad); border-radius: 8px;
+                padding: 12px 16px; display: none; }
   @media (max-width: 560px) {
     .row { grid-template-columns: 14px 1fr; }
-    .row .weight { grid-column: 2; }
-    .row .reading, .row .flip { grid-column: 2; }
+    .row .weight, .row .reading, .row .flip { grid-column: 2; }
     .tl-row { grid-template-columns: 92px 1fr; }
     .tl-what { grid-column: 1 / 3; }
   }
 </style>
 
 <div class="wrap">
-
   <header>
-    <div class="eyebrow">Instrument de veille · Cycle 2025–2026</div>
+    <div class="eyebrow">Instrument de veille · Cycle 2025–2026 · données quotidiennes automatiques</div>
     <h1>Radar Bottom BTC</h1>
-    <div class="stamp"><span class="pulse"></span>État au <b>&nbsp;17 août 2026&nbsp;</b> — mise à jour manuelle (voir bas de page)</div>
-    <div class="chips">
-      <div class="chip"><span class="lbl">BTC</span><span class="num">$62 900</span></div>
-      <div class="chip"><span class="lbl">Depuis le top</span><span class="num" style="color:var(--bad)">−50 %</span></div>
-      <div class="chip"><span class="lbl">Brent</span><span class="num">$88.74</span></div>
-      <div class="chip"><span class="lbl">S&amp;P 500</span><span class="num">7 815 (record)</span></div>
-      <div class="chip"><span class="lbl">KOSPI</span><span class="num" style="color:var(--bad)">−33 % vs juin</span></div>
-    </div>
+    <div class="stamp"><span class="pulse"></span><span id="stamp">Chargement…</span></div>
+    <div class="chips" id="chips"></div>
   </header>
 
-  <!-- ================= JAUGE ================= -->
+  <div id="load-error">Impossible de charger data.json — le premier run du workflow n'a peut-être pas encore tourné.</div>
+  <div class="alerts" id="alerts"></div>
+
   <div class="gauge-card">
     <div class="gauge-top">
       <div class="gauge-title">Proximité estimée du bottom</div>
-      <div class="gauge-value num">34<small> / 100</small></div>
+      <div class="gauge-value num"><span id="score">—</span><small> / 100</small></div>
     </div>
-    <div class="bar" role="img" aria-label="Jauge de proximité du bottom : 34 sur 100">
-      <span class="fill"></span><span class="fill"></span><span class="fill"></span><span class="fill"></span><span class="fill"></span>
-      <span class="fill"></span><span class="fill"></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span><span></span>
-    </div>
-    <p class="gauge-note">
-      Heuristique pondérée, pas une mesure : moyenne des six indicateurs ci-dessous selon leur poids.
+    <div class="bar" id="bar" role="img" aria-label="Jauge de proximité du bottom"></div>
+    <p class="gauge-note">Heuristique pondérée recalculée chaque jour (cron 06:20 UTC), pas une mesure.
       Le bottom exige que <strong>les deux conditions se réunissent en même temps</strong> —
       l'épuisement des vendeurs forcés <em>et</em> la levée de la pression macro.
-      L'une sans l'autre = faux bottom (précédent : juin 2022, MVRV &lt; 1 sans pivot Fed → 4 mois de baisse en plus).
-    </p>
+      L'une sans l'autre = faux bottom (précédent : juin 2022).</p>
   </div>
 
-  <!-- ================= CONDITION 1 ================= -->
   <section>
     <h2><span class="cond">Condition 1</span> — Épuisement des vendeurs forcés</h2>
-    <div class="rows">
-
-      <div class="row">
-        <span class="dot bad" aria-label="rouge"></span>
-        <span class="name">Flux nets des ETF spot</span>
-        <span class="weight num">poids 25 %</span>
-        <span class="reading">Sorties persistantes : −$390 M sur la semaine du 14 août ; record de 13 jours consécutifs de sorties ($4 Md) début juin. Le vendeur marginal de ce cycle est institutionnel — c'est l'indicateur principal.</span>
-        <span class="flip">Passe au vert : <b>2–3 semaines d'entrées nettes cumulées</b> (pas un jour isolé). Orange quand les sorties s'assèchent vers zéro malgré de mauvaises nouvelles.</span>
-      </div>
-
-      <div class="row">
-        <span class="dot warn" aria-label="orange"></span>
-        <span class="name">Capitulation des mineurs</span>
-        <span class="weight num">poids 10 %</span>
-        <span class="reading">Largement entamée : 32 000 BTC vendus au T1 (record), 3 ajustements de difficulté négatifs consécutifs. Mais $12,7 Md de dette sectorielle et hashprice sous le breakeven des vieilles machines — un dernier flush reste possible.</span>
-        <span class="flip">Passe au vert : <b>ventes minières qui s'assèchent</b>, faillites/restructurations finales absorbées.</span>
-      </div>
-
-      <div class="row">
-        <span class="dot bad" aria-label="rouge"></span>
-        <span class="name">Purge finale du levier</span>
-        <span class="weight num">poids 10 %</span>
-        <span class="reading">La Corée a purgé (KOSPI −33 à −44 %, liquidations forcées) mais le complexe IA américain est intact — le S&amp;P bat des records portés par Nvidia/AMD. Le flush global de risk-off n'a pas eu lieu.</span>
-        <span class="flip">Passe au vert : <b>liquidation majeure réalisée et absorbée</b> (volume record, funding négatif extrême, puis stabilisation).</span>
-      </div>
-
-    </div>
+    <div class="rows" id="cond1"></div>
   </section>
 
-  <!-- ================= CONDITION 2 ================= -->
   <section>
     <h2><span class="cond">Condition 2</span> — Levée de la pression macro</h2>
-    <div class="rows">
-
-      <div class="row">
-        <span class="dot warn" aria-label="orange"></span>
-        <span class="name">Pivot Fed</span>
-        <span class="weight num">poids 25 %</span>
-        <span class="reading">Taux tenus à 3,50–3,75 % toute l'année 2026 (après 3 baisses fin 2025). CPI juillet à 3,3 % (en baisse depuis 3,5 %) → les attentes de baisse montent pour le FOMC des 15–16 sept. Le maillon le plus puissant de la chaîne.</span>
-        <span class="flip">Passe au vert : <b>première baisse effective</b> (ou pricing &gt; 80 % à quelques jours d'un FOMC). Suivre : CME FedWatch.</span>
-      </div>
-
-      <div class="row">
-        <span class="dot bad" aria-label="rouge"></span>
-        <span class="name">Canal pétrole → inflation</span>
-        <span class="weight num">poids 15 %</span>
-        <span class="reading">Brent $88.74, +5 % sur la semaine, siège Iran prolongé (Hormuz à 0–5 transits/jour). Lead documenté de ~2 jours du pétrole sur le BTC dans ce conflit. Tant que le pétrole monte, la Fed reste bloquée.</span>
-        <span class="flip">Passe au vert : <b>Brent stable ou en baisse plusieurs semaines</b> — désescalade actée ou chronicisation intégrée par le marché.</span>
-      </div>
-
-      <div class="row">
-        <span class="dot warn" aria-label="orange — proche du vert"></span>
-        <span class="name">Horloge mécanique du cycle</span>
-        <span class="weight num">poids 15 %</span>
-        <span class="reading">Top du 6 octobre 2025 ($126 296). Bottom historique à 363–384 jours du top sur 3 cycles → fenêtre <b class="num">4–17 octobre 2026</b>. Au 17 août : <span class="num">315 jours</span> écoulés (~84 % du chemin). Zone de prix évoquée par le consensus : $50–55k.</span>
-        <span class="flip">Passe au vert : <b>entrée dans la fenêtre octobre</b> — puis c'est aux deux autres conditions de confirmer.</span>
-      </div>
-
-    </div>
+    <div class="rows" id="cond2"></div>
   </section>
 
-  <!-- ================= DÉCLENCHEURS ================= -->
   <section>
-    <h2>Déclencheurs à surveiller (font bouger la jauge d'un coup)</h2>
-    <div class="rows">
-      <div class="trip">
-        <span class="badge acc">⚡ accélère</span>
-        <span class="txt"><strong>Contagion Corée → IA US.</strong> Si Nvidia/AMD/SOX craquent et cassent les records du S&amp;P → flush de risk-off global, jambe de capitulation rapide, potentiellement sous $50k mais plus tôt. Le déclencheur le plus probable du vrai bottom.</span>
-      </div>
-      <div class="trip">
-        <span class="badge acc">⚡ accélère</span>
-        <span class="txt"><strong>Acceptation d'un cessez-le-feu par l'Iran</strong> (pas une proposition). Pétrole ↓ violent → canal inflation refermé → Fed libérée. Historique round 1 : −30 % sur le Brent en quelques jours.</span>
-      </div>
-      <div class="trip">
-        <span class="badge acc">⚡ accélère</span>
-        <span class="txt"><strong>Dernier flush minier forcé</strong> (faillite d'un gros mineur endetté) — purge la pression de vente structurelle restante.</span>
-      </div>
-      <div class="trip">
-        <span class="badge ret">⏳ retarde</span>
-        <span class="txt"><strong>Frappe sur une infra énergétique majeure du Golfe</strong> (Ras Tanura, Ruwais, LNG Ras Laffan) ou incident USA-Chine sur tanker chargé → pétrole re-spike → Fed bloquée → fenêtre repoussée vers 2027.</span>
-      </div>
-    </div>
+    <h2>Juge LLM (Groq + recherche web, quotidien, règle conservatrice)</h2>
+    <div class="rows" id="judge"></div>
   </section>
 
-  <!-- ================= DATES ================= -->
   <section>
     <h2>Dates clés</h2>
-    <div class="timeline">
-      <div class="tl-row">
-        <span class="tl-date">14 sept.</span><span class="tl-days num">J−28</span>
-        <span class="tl-what">Retour du Sénat — vote CLARITY Act possible (~30 % de chances d'adoption 2026)</span>
-      </div>
-      <div class="tl-row">
-        <span class="tl-date">15–16 sept.</span><span class="tl-days num">J−29</span>
-        <span class="tl-what">FOMC (dot plot) — première vraie fenêtre de baisse de taux</span>
-      </div>
-      <div class="tl-row window">
-        <span class="tl-date">4–17 oct.</span><span class="tl-days num">J−48</span>
-        <span class="tl-what"><strong>Fenêtre mécanique du bottom</strong> (363–384 jours après le top du 6 oct. 2025)</span>
-      </div>
-      <div class="tl-row">
-        <span class="tl-date">Fin oct.</span><span class="tl-days num">J−72</span>
-        <span class="tl-what">FOMC #2 — convergence avec la fenêtre du cycle</span>
-      </div>
-      <div class="tl-row">
-        <span class="tl-date">3 nov.</span><span class="tl-days num">J−78</span>
-        <span class="tl-what">Midterms US — libère Trump de la contrainte électorale sur le pétrole (bascule à double sens)</span>
-      </div>
-      <div class="tl-row">
-        <span class="tl-date">8–9 déc.</span><span class="tl-days num">J−113</span>
-        <span class="tl-what">FOMC #3 (dot plot) — dernière fenêtre de l'année</span>
-      </div>
-    </div>
+    <div class="timeline" id="timeline"></div>
   </section>
 
-  <!-- ================= PIED ================= -->
   <div class="foot">
-    <div class="howto">
-      <strong>Mise à jour :</strong> cette page est un état daté, pas un flux temps réel.
-      Demande à Claude « <em>mets à jour le radar</em> » — les indicateurs sont revérifiés et la page redéployée sur la même adresse.
-    </div>
     <div>
-      <strong>Règles de discernement</strong> (valables en temps de conflit) :
+      <strong>Règles de discernement</strong> (en temps de conflit) :
       <ul>
-        <li>Données dures (prix, flux ETF, comptage tankers, satellite) &gt; déclarations officielles &gt; sources anonymes/Twitter.</li>
-        <li>Date-check systématique — les événements de mars recirculent comme frais (South Pars, imagerie Kharg).</li>
-        <li>Un signal isolé ment (MVRV juin 2022, −20 % weekly) — seule la <strong>convergence</strong> compte.</li>
+        <li>Données dures (prix, flux ETF, hashrate) &gt; déclarations officielles &gt; sources anonymes.</li>
+        <li>Date-check systématique — les événements de mars recirculent comme frais.</li>
+        <li>Un signal isolé ment — seule la <strong>convergence</strong> compte. Un OUI du juge LLM s'affiche en alerte : à vérifier soi-même avant d'y croire.</li>
       </ul>
     </div>
     <div class="srcs">
       <strong>Vérifier soi-même :</strong>
       <a href="https://farside.co.uk/btc/" rel="noopener">Flux ETF (Farside)</a>
       <a href="https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html" rel="noopener">CME FedWatch</a>
-      <a href="https://tradingeconomics.com/commodity/brent-crude-oil" rel="noopener">Brent (TradingEconomics)</a>
-      <a href="https://portwatch.imf.org/" rel="noopener">Transits Hormuz (PortWatch)</a>
+      <a href="https://tradingeconomics.com/commodity/brent-crude-oil" rel="noopener">Brent</a>
+      <a href="https://portwatch.imf.org/" rel="noopener">Transits Hormuz</a>
+      <a href="https://github.com/jis93/btc-radar" rel="noopener">Code source</a>
     </div>
-    <div>Score = Σ (état × poids). États : rouge 0 · orange 50 · vert 100 (horloge du cycle : % du temps écoulé). Construit à partir de l'analyse des cycles 2015/2018/2022, du conflit Iran 2026 et du calendrier Fed — heuristique de veille, pas un modèle prédictif.</div>
+    <div>Score = Σ (état × poids). Rouge 0 · orange 50 · vert 100 (horloge du cycle : % du temps écoulé vers J+373).
+      Données : CoinGecko, Yahoo Finance, alternative.me, Binance, mempool.space, CoinMetrics, Farside.
+      Heuristique de veille, pas un modèle prédictif ni un conseil d'investissement.</div>
   </div>
-
 </div>
+
+<script>
+const COND1 = ["etf_flows", "miners", "leverage_purge"];
+const COND2 = ["fed_pivot", "oil_channel", "cycle_clock"];
+const JUDGE_LABELS = {
+  ceasefire: "Cessez-le-feu accepté par l'Iran ?",
+  gulf_infra: "Infra énergétique majeure du Golfe touchée (7 j) ?",
+  fed_cut: "Baisse de taux Fed actée / quasi-certaine ?",
+};
+const DATES = [
+  { d: "2026-09-14", label: "14 sept.", what: "Retour du Sénat — vote CLARITY Act possible" },
+  { d: "2026-09-16", label: "15–16 sept.", what: "FOMC (dot plot) — première fenêtre de baisse de taux" },
+  { d: "2026-10-17", label: "4–17 oct.", what: "Fenêtre mécanique du bottom (363–384 j après le top)", window: true, start: "2026-10-04" },
+  { d: "2026-10-28", label: "Fin oct.", what: "FOMC #2 — convergence avec la fenêtre du cycle" },
+  { d: "2026-11-03", label: "3 nov.", what: "Midterms US — libère la contrainte électorale sur le pétrole" },
+  { d: "2026-12-09", label: "8–9 déc.", what: "FOMC #3 (dot plot) — dernière fenêtre de l'année" },
+];
+
+function chip(lbl, val, cls) {
+  return `<div class="chip"><span class="lbl">${lbl}</span><span class="num ${cls || ""}">${val}</span></div>`;
+}
+function fmtPct(v) { return v == null ? "—" : (v > 0 ? "+" : "") + v + " %"; }
+
+function render(d) {
+  const p = d.prices || {};
+  document.getElementById("stamp").innerHTML =
+    `État au <b>&nbsp;${new Date(d.updated_at).toLocaleString("fr-FR", { dateStyle: "long", timeStyle: "short" })}&nbsp;</b>(auto, quotidien)`;
+
+  document.getElementById("chips").innerHTML = [
+    chip("BTC", p.btc_usd ? "$" + p.btc_usd.toLocaleString("fr-FR") : "—",
+         (p.btc_24h_pct || 0) < 0 ? "neg" : "pos"),
+    chip("24 h", fmtPct(p.btc_24h_pct), (p.btc_24h_pct || 0) < 0 ? "neg" : "pos"),
+    chip("Brent", p.brent_usd ? "$" + p.brent_usd : "—"),
+    chip("Hashrate 30 j", fmtPct(p.hashrate_30d_pct)),
+    chip("Fear & Greed", p.fear_greed ?? "—", p.fear_greed <= 25 ? "pos" : ""),
+    chip("Funding", p.funding_rate_pct != null ? p.funding_rate_pct + " %" : "—"),
+    chip("ETF 15 j", p.etf_flows_15d_musd != null ? fmtPct(null) === "" ? "" : (p.etf_flows_15d_musd > 0 ? "+" : "") + p.etf_flows_15d_musd + " M$" : "—",
+         (p.etf_flows_15d_musd || 0) < 0 ? "neg" : "pos"),
+  ].join("");
+
+  document.getElementById("score").textContent = d.score ?? "—";
+  const filled = Math.round((d.score || 0) / 5);
+  document.getElementById("bar").innerHTML =
+    Array.from({ length: 20 }, (_, i) => `<span class="${i < filled ? "fill" : ""}"></span>`).join("");
+
+  const row = (ind) => `
+    <div class="row">
+      <span class="dot ${ind.state}"></span>
+      <span class="name">${ind.label}</span>
+      <span class="weight num">poids ${ind.weight} %</span>
+      <span class="reading">${ind.detail}</span>
+      <span class="flip">${ind.flip}</span>
+    </div>`;
+  document.getElementById("cond1").innerHTML = COND1.map(k => d.indicators[k] ? row(d.indicators[k]) : "").join("");
+  document.getElementById("cond2").innerHTML = COND2.map(k => d.indicators[k] ? row(d.indicators[k]) : "").join("");
+
+  document.getElementById("judge").innerHTML = Object.entries(JUDGE_LABELS).map(([k, label]) => {
+    const v = (d.judge || {})[k] || {};
+    const yes = v.answer === "YES";
+    const src = v.source_url ? ` — <a href="${v.source_url}" rel="noopener">source (${v.source_date || "?"})</a>` : "";
+    const err = v.error ? ` <em>(échec du dernier run : ${v.error}, état conservé)</em>` : "";
+    return `<div class="judge-card">
+      <span class="verdict ${yes ? "yes" : "no"}">${yes ? "OUI" : "NON"}</span>
+      <span><strong>${label}</strong> ${v.justification || ""}${src}${err}</span>
+    </div>`;
+  }).join("");
+
+  const alerts = (d.alerts || []).map(a =>
+    `<div class="alert">⚠️ <strong>${a.label}</strong>${a.changed ? " — CHANGEMENT DÉTECTÉ, à vérifier" : ""}
+     ${a.justification || ""} ${a.source ? `<a href="${a.source}" rel="noopener">source</a>` : ""}</div>`);
+  document.getElementById("alerts").innerHTML = alerts.join("");
+
+  const today = new Date();
+  document.getElementById("timeline").innerHTML = DATES.map(e => {
+    const end = new Date(e.d);
+    const start = new Date(e.start || e.d);
+    const days = Math.ceil((start - today) / 864e5);
+    const past = end < today;
+    const inWindow = e.window && today >= start && today <= end;
+    const tag = past ? "passé" : inWindow ? "EN COURS" : days <= 0 ? "aujourd'hui" : "J−" + days;
+    return `<div class="tl-row ${e.window ? "window" : ""} ${past ? "past" : ""}">
+      <span class="tl-date">${e.label}</span><span class="tl-days num">${tag}</span>
+      <span class="tl-what">${e.window ? "<strong>" + e.what + "</strong>" : e.what}</span>
+    </div>`;
+  }).join("");
+}
+
+fetch("data.json", { cache: "no-store" })
+  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then(render)
+  .catch(() => { document.getElementById("load-error").style.display = "block"; });
+</script>
