@@ -1,33 +1,33 @@
 {
- "updated_at": "2026-08-17T14:12+00:00",
+ "updated_at": "2026-08-18T07:11+00:00",
  "prices": {
-  "btc_usd": 63555,
-  "btc_24h_pct": 0.87,
-  "btc_mcap_usd": 1275470911607.5261,
-  "brent_usd": 89.02,
-  "brent_14d_pct": 6.3,
-  "spx": 7778,
-  "spx_drawdown_pct": -0.3,
-  "nvda_drawdown_pct": 0.0,
-  "fear_greed": 31,
+  "btc_usd": 64262,
+  "btc_24h_pct": 1.13,
+  "btc_mcap_usd": 1289829036781.2522,
+  "brent_usd": 91.45,
+  "brent_14d_pct": 15.2,
+  "spx": 7786,
+  "spx_drawdown_pct": -0.2,
+  "nvda_drawdown_pct": -0.1,
+  "fear_greed": 41,
   "funding_rate_pct": 0.0065,
-  "hashrate_30d_pct": 3.3,
-  "etf_last_day_musd": 0.0,
-  "etf_flows_15d_musd": 479.9
+  "hashrate_30d_pct": 3.2,
+  "etf_last_day_musd": 137.3,
+  "etf_flows_15d_musd": 585.1
  },
  "judge": {
   "ceasefire": {
    "answer": "NO",
-   "confidence": "high",
-   "justification": "The last known cease‑fire memorandum expired on 16 August 2026 and no extension has been reported.",
+   "confidence": "low",
+   "justification": "No recent source (within last 7 days) confirms Iran has accepted a ceasefire currently in force.",
    "source_url": "https://www.dw.com/en/us-iran-deliver-conflicting-reports-on-fresh-peace-talks/live-77746775",
    "source_date": "2026-06-29",
    "changed": false
   },
   "gulf_infra": {
    "answer": "NO",
-   "confidence": "low",
-   "justification": "The most recent reports of material damage to Ras Tanura, Abqaiq, Ruwais, Ras Laffan LNG, or Kharg Island are from March 2026, none within the last 7 days.",
+   "confidence": "high",
+   "justification": "No reports of recent damage to Ras Tanura, Abqaiq, Ruwais, Ras Laffan LNG or Kharg Island in the past week.",
    "source_url": "https://www.france24.com/en/live-news/20260319-key-middle-east-energy-sites-under-fire",
    "source_date": "2026-03-19",
    "changed": false
@@ -35,21 +35,21 @@
   "fed_cut": {
    "answer": "NO",
    "confidence": "high",
-   "justification": "The latest 2026 FOMC meetings (June and July) left rates unchanged and gave no near‑certain cut signal.",
+   "justification": "The July 2026 FOMC meeting kept rates unchanged and did not signal a near‑certain cut.",
    "source_url": "https://www.cnbc.com/2026/07/29/fed-meeting-today-live-updates.html",
    "source_date": "2026-07-29",
    "changed": false
   },
-  "checked_at": "2026-08-17T14:12+00:00",
+  "checked_at": "2026-08-18T07:11+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés"
  },
  "indicators": {
   "etf_flows": {
    "label": "Flux nets des ETF spot",
    "weight": 25,
-   "score": 50,
-   "state": "warn",
-   "detail": "Flux 15 j proches de zéro : +480 M$",
+   "score": 100,
+   "state": "ok",
+   "detail": "Entrées nettes 15 j : +585 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -65,15 +65,15 @@
    "weight": 15,
    "score": 0,
    "state": "bad",
-   "detail": "Brent 89.02 $ (+6.3 % / 14 j) — pression inflation",
+   "detail": "Brent 91.45 $ (+15.2 % / 14 j) — pression inflation",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
    "label": "Horloge mécanique du cycle",
    "weight": 15,
-   "score": 84,
+   "score": 85,
    "state": "ok",
-   "detail": "J+315 depuis le top (fenêtre 363-384 j : dans 48 j)",
+   "detail": "J+316 depuis le top (fenêtre 363-384 j : dans 47 j)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
@@ -81,7 +81,7 @@
    "weight": 10,
    "score": 100,
    "state": "ok",
-   "detail": "Hashrate +3.3 % / 30 j — reprise, capitulation derrière",
+   "detail": "Hashrate +3.2 % / 30 j — reprise, capitulation derrière",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -89,10 +89,10 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 31, NVDA +0.0 %, S&P -0.3 %)",
+   "detail": "Pas de flush global (F&G 41, NVDA -0.1 %, S&P -0.2 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   }
  },
- "score": 48,
+ "score": 60,
  "alerts": []
 }
