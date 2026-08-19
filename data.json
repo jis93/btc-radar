@@ -1,60 +1,59 @@
 {
- "updated_at": "2026-08-19T12:55+00:00",
+ "updated_at": "2026-08-19T22:58+00:00",
  "prices": {
-  "btc_usd": 64908,
-  "btc_24h_pct": 1.12,
-  "btc_mcap_usd": 1302415495271.4827,
-  "brent_usd": 90.72,
-  "brent_14d_pct": 14.2,
-  "spx": 7692,
-  "spx_drawdown_pct": -1.4,
-  "nvda_drawdown_pct": -2.5,
+  "btc_usd": 69132,
+  "btc_24h_pct": 7.06,
+  "btc_mcap_usd": 1387830072922.78,
+  "brent_usd": 91.39,
+  "brent_14d_pct": 15.0,
+  "spx": 7708,
+  "spx_drawdown_pct": -1.2,
+  "nvda_drawdown_pct": -3.4,
   "fear_greed": 46,
-  "funding_rate_pct": 0.0041,
+  "funding_rate_pct": 0.01,
   "hashrate_30d_pct": 2.7,
-  "etf_last_day_musd": 0.0,
-  "etf_flows_15d_musd": 701.5
+  "etf_last_day_musd": 164.2,
+  "etf_flows_15d_musd": 865.7
  },
  "judge": {
   "ceasefire": {
    "answer": "NO",
-   "confidence": "low",
-   "justification": "No source within the last 7 days confirms Iran has accepted a ceasefire currently in force.",
-   "source_url": "https://apnews.com/article/iran-us-israel-war-oil-deal-june-17-2026-19652f4611b704c0a991bf1f5bc9a4b9",
-   "source_date": "2026-06-17",
-   "changed": false,
-   "error": "HTTPError"
+   "confidence": "high",
+   "justification": "The 60‑day ceasefire expired on August 17, 2026.",
+   "source_url": "https://www.youtube.com/watch?v=1oyL1J4GEkI",
+   "source_date": "2026-08-17",
+   "changed": false
   },
   "gulf_infra": {
    "answer": "NO",
-   "confidence": "high",
-   "justification": "No major operational Gulf energy facility has been reported hit in the past week",
-   "source_url": "https://www.lemonde.fr/en/international/article/2026/03/19/attacks-on-gulf-energy-facilities-intensify-fueling-fears-of-a-gas-war_6751601_4.html",
-   "source_date": "2026-03-19",
+   "confidence": "low",
+   "justification": "No recent reports within the last 7 days of a major operational Gulf energy facility being materially damaged.",
+   "source_url": "N/A",
+   "source_date": "N/A",
    "changed": false
   },
   "fed_cut": {
    "answer": "NO",
-   "confidence": "low",
-   "justification": "No recent official Fed announcement shows a rate cut or near‑certain cut signal.",
-   "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm",
-   "source_date": "2026-06-17",
+   "confidence": "high",
+   "justification": "The most recent 2026 FOMC meetings kept rates unchanged and did not officially signal a near‑certain cut",
+   "source_url": "https://www.cnbc.com/2026/07/29/fed-meeting-today-live-updates.html",
+   "source_date": "2026-07-29",
    "changed": false
   },
-  "checked_at": "2026-08-19T12:55+00:00",
+  "checked_at": "2026-08-19T22:58+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
-   "sentiment": "capitulation",
-   "evidence": "The Crypto Fear & Greed Index fell to a 'Fear' level of 24 and the Bitcoin Unified Santiment Index entered the 'extreme bearish' zone, indicating capitulation among retail investors.",
-   "evidence_date": "2026-08-13",
+   "sentiment": "fear",
+   "evidence": "The Crypto Fear & Greed Index fell to a 'Fear' level of 24, indicating a decline in retail interest and a bearish sentiment among investors.",
+   "evidence_date": "2026-08-18",
    "confidence": "high"
   },
   "sentiment_posts": {
    "sentiment": "euphoria",
-   "evidence": "Titles like \"I AM FOMOING INTO BITCOIN (TICKER: BTC)\", \"Day 612 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\", and \"We doing this god candle and 65k rejection shit two days in a row? 🤣\" show strong FOMO and hype.",
+   "evidence": "Titles like \"We're Back Baby!!\", \"We are so back. Up 7% in a day, reclaiming $70K 🔥\" and \"Bear market is over\" dominate the feed, showing strong FOMO and price‑target chatter.",
    "confidence": "high",
    "sample_size": 38,
-   "stocktwits_bull_pct": 85
+   "stocktwits_bull_pct": 100
   }
  },
  "indicators": {
@@ -63,7 +62,7 @@
    "weight": 20,
    "score": 100,
    "state": "ok",
-   "detail": "Entrées nettes 15 j : +702 M$",
+   "detail": "Entrées nettes 15 j : +866 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -79,7 +78,7 @@
    "weight": 15,
    "score": 0,
    "state": "bad",
-   "detail": "Brent 90.72 $ (+14.2 % / 14 j) — pression inflation",
+   "detail": "Brent 91.39 $ (+15.0 % / 14 j) — pression inflation",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -87,7 +86,7 @@
    "weight": 15,
    "score": 85,
    "state": "ok",
-   "detail": "J+317 depuis le top (fenêtre 363-384 j : dans 46 j)",
+   "detail": "J+318 depuis le top (fenêtre 363-384 j : dans 45 j)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
@@ -103,15 +102,15 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 46, NVDA -2.5 %, S&P -1.4 %)",
+   "detail": "Pas de flush global (F&G 46, NVDA -3.4 %, S&P -1.2 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
    "label": "Sentiment réseaux (contrarien)",
    "weight": 10,
-   "score": 45,
-   "state": "warn",
-   "detail": "Presse : capitulation · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 85% bullish — Titles like \"I AM FOMOING INTO BITCOIN (TICKER: BTC)\", \"Day 612 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\", and \"We doing this god candle and 65k rejection shit two days in a row? 🤣\" show strong FOMO and hype.",
+   "score": 30,
+   "state": "bad",
+   "detail": "Presse : peur · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 100% bullish — Titles like \"We're Back Baby!!\", \"We are so back. Up 7% in a day, reclaiming $70K 🔥\" and \"Bear market is over\" dominate the feed, showing strong FOMO and price‑target chatter.",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },

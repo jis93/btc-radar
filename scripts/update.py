@@ -157,23 +157,37 @@ JUDGE_SYSTEM = (
 )
 
 
+def groq_chat(models, messages, api_key):
+    """Appel Groq avec repli de modèle — les modèles se font déprécier
+    sans préavis (llama-3.3 : mort le 19/08), le radar doit survivre."""
+    import urllib.error
+    last_err = None
+    for model in models:
+        body = json.dumps({"model": model, "messages": messages,
+                           "temperature": 0}).encode()
+        req = urllib.request.Request(
+            "https://api.groq.com/openai/v1/chat/completions",
+            data=body,
+            headers={"Authorization": f"Bearer {api_key}",
+                     "Content-Type": "application/json", **UA},
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=120) as r:
+                return json.loads(r.read().decode())["choices"][0]["message"]["content"]
+        except urllib.error.HTTPError as e:
+            if e.code == 404:          # modèle déprécié → repli suivant
+                print(f"[warn] modèle {model} indisponible (404), repli",
+                      file=sys.stderr)
+                last_err = e
+                continue
+            raise
+    raise last_err
+
+
 def ask_groq(question, api_key):
-    body = json.dumps({
-        "model": "groq/compound-mini",
-        "messages": [
-            {"role": "system", "content": JUDGE_SYSTEM},
-            {"role": "user", "content": question},
-        ],
-        "temperature": 0,
-    }).encode()
-    req = urllib.request.Request(
-        "https://api.groq.com/openai/v1/chat/completions",
-        data=body,
-        headers={"Authorization": f"Bearer {api_key}",
-                 "Content-Type": "application/json", **UA},
-    )
-    with urllib.request.urlopen(req, timeout=120) as r:
-        content = json.loads(r.read().decode())["choices"][0]["message"]["content"]
+    content = groq_chat(("groq/compound-mini", "groq/compound"),
+                        [{"role": "system", "content": JUDGE_SYSTEM},
+                         {"role": "user", "content": question}], api_key)
     m = re.search(r"\{.*\}", content, re.S)
     verdict = json.loads(m.group(0))
     assert verdict.get("answer") in ("YES", "NO")
@@ -263,26 +277,15 @@ def fetch_social_posts():
 
 
 def ask_posts_sentiment(titles, st_ratio, api_key):
-    body = json.dumps({
-        "model": "openai/gpt-oss-120b",
-        "messages": [
-            {"role": "system", "content": POSTS_SYSTEM},
-            {"role": "user", "content":
-             (f"Context: on StockTwits, {st_ratio}% of self-tagged posts are "
-              "Bullish right now.\n" if st_ratio is not None else "")
-             + "Classify the retail mood in these current posts from "
-             "Reddit, StockTwits and 4chan /biz/:\n" + "\n".join(titles)},
-        ],
-        "temperature": 0,
-    }).encode()
-    req = urllib.request.Request(
-        "https://api.groq.com/openai/v1/chat/completions",
-        data=body,
-        headers={"Authorization": f"Bearer {api_key}",
-                 "Content-Type": "application/json", **UA},
-    )
-    with urllib.request.urlopen(req, timeout=90) as r:
-        content = json.loads(r.read().decode())["choices"][0]["message"]["content"]
+    user_msg = (
+        (f"Context: on StockTwits, {st_ratio}% of self-tagged posts are "
+         "Bullish right now.\n" if st_ratio is not None else "")
+        + "Classify the retail mood in these current posts from "
+        "Reddit, StockTwits and 4chan /biz/:\n" + "\n".join(titles))
+    content = groq_chat(
+        ("openai/gpt-oss-120b", "openai/gpt-oss-20b", "qwen/qwen3.6-27b"),
+        [{"role": "system", "content": POSTS_SYSTEM},
+         {"role": "user", "content": user_msg}], api_key)
     m = re.search(r"\{.*\}", content, re.S)
     verdict = json.loads(m.group(0))
     assert verdict.get("sentiment") in SENTIMENT_LEVELS
@@ -292,22 +295,10 @@ def ask_posts_sentiment(titles, st_ratio, api_key):
 
 def ask_sentiment(api_key):
     # compound (complet) : meilleure recherche web que mini pour ce scan
-    body = json.dumps({
-        "model": "groq/compound",
-        "messages": [
-            {"role": "system", "content": SENTIMENT_SYSTEM},
-            {"role": "user", "content": SENTIMENT_QUESTION},
-        ],
-        "temperature": 0,
-    }).encode()
-    req = urllib.request.Request(
-        "https://api.groq.com/openai/v1/chat/completions",
-        data=body,
-        headers={"Authorization": f"Bearer {api_key}",
-                 "Content-Type": "application/json", **UA},
-    )
-    with urllib.request.urlopen(req, timeout=120) as r:
-        content = json.loads(r.read().decode())["choices"][0]["message"]["content"]
+    content = groq_chat(("groq/compound", "groq/compound-mini"),
+                        [{"role": "system", "content": SENTIMENT_SYSTEM},
+                         {"role": "user", "content": SENTIMENT_QUESTION}],
+                        api_key)
     m = re.search(r"\{.*\}", content, re.S)
     verdict = json.loads(m.group(0))
     assert verdict.get("sentiment") in SENTIMENT_LEVELS
