@@ -1,11 +1,11 @@
 {
- "updated_at": "2026-08-19T12:51+00:00",
+ "updated_at": "2026-08-19T12:55+00:00",
  "prices": {
-  "btc_usd": 64880,
-  "btc_24h_pct": 1.08,
-  "btc_mcap_usd": 1302060355939.402,
-  "brent_usd": 90.6,
-  "brent_14d_pct": 14.0,
+  "btc_usd": 64908,
+  "btc_24h_pct": 1.12,
+  "btc_mcap_usd": 1302415495271.4827,
+  "brent_usd": 90.72,
+  "brent_14d_pct": 14.2,
   "spx": 7692,
   "spx_drawdown_pct": -1.4,
   "nvda_drawdown_pct": -2.5,
@@ -22,38 +22,39 @@
    "justification": "No source within the last 7 days confirms Iran has accepted a ceasefire currently in force.",
    "source_url": "https://apnews.com/article/iran-us-israel-war-oil-deal-june-17-2026-19652f4611b704c0a991bf1f5bc9a4b9",
    "source_date": "2026-06-17",
-   "changed": false
+   "changed": false,
+   "error": "HTTPError"
   },
   "gulf_infra": {
    "answer": "NO",
-   "confidence": "low",
-   "justification": "No recent reports of material damage to those facilities in the past week",
-   "source_url": "https://www.reuters.com/business/energy/saudi-aramco-shuts-ras-tanura-refinery-after-drone-strike-source-says-2026-03-02",
-   "source_date": "2026-03-02",
+   "confidence": "high",
+   "justification": "No major operational Gulf energy facility has been reported hit in the past week",
+   "source_url": "https://www.lemonde.fr/en/international/article/2026/03/19/attacks-on-gulf-energy-facilities-intensify-fueling-fears-of-a-gas-war_6751601_4.html",
+   "source_date": "2026-03-19",
    "changed": false
   },
   "fed_cut": {
    "answer": "NO",
    "confidence": "low",
-   "justification": "Fed kept rates steady at the July 2026 meeting and gave no near‑certain cut signal.",
-   "source_url": "https://www.cnbc.com/2026/07/29/fed-meeting-today-live-updates.html",
-   "source_date": "2026-07-29",
+   "justification": "No recent official Fed announcement shows a rate cut or near‑certain cut signal.",
+   "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm",
+   "source_date": "2026-06-17",
    "changed": false
   },
-  "checked_at": "2026-08-19T12:51+00:00",
+  "checked_at": "2026-08-19T12:55+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
-   "sentiment": "fear",
-   "evidence": "The Crypto Fear & Greed Index fell to a \"Fear\" level of 24 and Google global search interest for \"Bitcoin\" dropped to 19 last week, coinciding with Bitcoin's flash crash.",
+   "sentiment": "capitulation",
+   "evidence": "The Crypto Fear & Greed Index fell to a 'Fear' level of 24 and the Bitcoin Unified Santiment Index entered the 'extreme bearish' zone, indicating capitulation among retail investors.",
    "evidence_date": "2026-08-13",
    "confidence": "high"
   },
   "sentiment_posts": {
    "sentiment": "euphoria",
-   "evidence": "Examples like \"I AM FOMOING INTO BITCOIN (TICKER: BTC)\", \"$BTC.X to the moon 🌕\", and \"Day 612 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\" show strong FOMO and price‑target hype.",
+   "evidence": "Titles like \"I AM FOMOING INTO BITCOIN (TICKER: BTC)\", \"Day 612 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\", and \"We doing this god candle and 65k rejection shit two days in a row? 🤣\" show strong FOMO and hype.",
    "confidence": "high",
    "sample_size": 38,
-   "stocktwits_bull_pct": 81
+   "stocktwits_bull_pct": 85
   }
  },
  "indicators": {
@@ -78,7 +79,7 @@
    "weight": 15,
    "score": 0,
    "state": "bad",
-   "detail": "Brent 90.6 $ (+14.0 % / 14 j) — pression inflation",
+   "detail": "Brent 90.72 $ (+14.2 % / 14 j) — pression inflation",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -108,12 +109,12 @@
   "sentiment": {
    "label": "Sentiment réseaux (contrarien)",
    "weight": 10,
-   "score": 30,
-   "state": "bad",
-   "detail": "Presse : peur · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 81% bullish — Examples like \"I AM FOMOING INTO BITCOIN (TICKER: BTC)\", \"$BTC.X to the moon 🌕\", and \"Day 612 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\" show strong FOMO and price‑target hype.",
+   "score": 45,
+   "state": "warn",
+   "detail": "Presse : capitulation · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 85% bullish — Titles like \"I AM FOMOING INTO BITCOIN (TICKER: BTC)\", \"Day 612 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\", and \"We doing this god candle and 65k rejection shit two days in a row? 🤣\" show strong FOMO and hype.",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
- "score": 56,
+ "score": 57,
  "alerts": []
 }
