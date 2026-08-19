@@ -181,18 +181,20 @@ def ask_groq(question, api_key):
 
 
 SENTIMENT_SYSTEM = (
-    "You are a contrarian market-psychology analyst. Search the web for the "
-    "CURRENT retail sentiment about Bitcoin on social media (X/Twitter, "
-    "Reddit r/Bitcoin and r/CryptoCurrency, YouTube, mainstream headlines). "
-    "Look for: euphoria/greed posts, 'buy the dip' optimism, fear/panic, "
-    "capitulation stories (forced selling, 'I sold everything'), or apathy "
-    "('Bitcoin is dead', nobody talks about it anymore). "
-    "STRICT DATE RULE: your evidence MUST come from sources dated within the "
-    "last 7 days — old viral posts recirculate constantly. If you cannot find "
-    "clearly recent evidence, answer neutral with low confidence. "
+    "You are a contrarian market-psychology analyst. You cannot browse X or "
+    "Reddit directly, so instead search the web for RECENT (last 7 days) "
+    "dated coverage that MEASURES or DESCRIBES crypto retail sentiment: "
+    "Fear & Greed index commentary, Santiment/social-volume analyses, "
+    "articles about 'crypto sentiment', funding-rate and long/short "
+    "positioning commentary, Google-Trends pieces, exchange-flow mood "
+    "reports. Synthesize what they say about the retail crowd's mood. "
+    "Classification guide: euphoria = greed/FOMO everywhere; capitulation = "
+    "forced selling, despair stories; apathy = 'Bitcoin is dead', nobody "
+    "talks about it. STRICT DATE RULE: evidence must be dated within the "
+    "last 7 days; otherwise answer neutral with low confidence. "
     "Answer ONLY with JSON: "
     '{"sentiment":"euphoria"|"optimism"|"neutral"|"fear"|"capitulation"|"apathy",'
-    '"evidence":"one short sentence citing what you saw",'
+    '"evidence":"one sentence citing the coverage you found",'
     '"evidence_date":"YYYY-MM-DD","confidence":"high"|"low"}'
 )
 
@@ -206,8 +208,9 @@ SENTIMENT_LEVELS = ("euphoria", "optimism", "neutral", "fear",
 
 
 def ask_sentiment(api_key):
+    # compound (complet) : meilleure recherche web que mini pour ce scan
     body = json.dumps({
-        "model": "groq/compound-mini",
+        "model": "groq/compound",
         "messages": [
             {"role": "system", "content": SENTIMENT_SYSTEM},
             {"role": "user", "content": SENTIMENT_QUESTION},
