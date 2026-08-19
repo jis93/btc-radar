@@ -1,11 +1,11 @@
 {
- "updated_at": "2026-08-19T12:19+00:00",
+ "updated_at": "2026-08-19T12:30+00:00",
  "prices": {
-  "btc_usd": 64454,
-  "btc_24h_pct": 0.33,
-  "btc_mcap_usd": 1293680625224.1367,
-  "brent_usd": 91.62,
-  "brent_14d_pct": 15.3,
+  "btc_usd": 64444,
+  "btc_24h_pct": 0.31,
+  "btc_mcap_usd": 1293495343264.5593,
+  "brent_usd": 91.54,
+  "brent_14d_pct": 15.2,
   "spx": 7692,
   "spx_drawdown_pct": -1.4,
   "nvda_drawdown_pct": -2.5,
@@ -18,35 +18,35 @@
  "judge": {
   "ceasefire": {
    "answer": "NO",
-   "confidence": "low",
-   "justification": "No source dated within the last 7 days confirms a currently active ceasefire accepted by Iran.",
-   "source_url": "https://www.aljazeera.com/news/2026/6/17/iran-confirms-that-mou-has-been-signed-electronically-by-both-sides",
-   "source_date": "2026-06-17",
+   "confidence": "high",
+   "justification": "Latest reports show the ceasefire broke down in July 2026 and no current agreement is in force.",
+   "source_url": "https://www.britannica.com/event/2026-Iran-war",
+   "source_date": "2026-07-06",
    "changed": false
   },
   "gulf_infra": {
    "answer": "NO",
-   "confidence": "low",
-   "justification": "No recent reports indicate a major operational Gulf energy facility was hit and materially damaged in the past week.",
-   "source_url": "https://www.reuters.com/world/middle-east/gulf-energy-facilities-operational-2026-08-14",
-   "source_date": "2026-08-14",
+   "confidence": "high",
+   "justification": "No reports of a major operational Gulf energy facility being hit and materially damaged in the past 7 days.",
+   "source_url": "https://www.france24.com/en/live-news/20260319-key-middle-east-energy-sites-under-fire",
+   "source_date": "2026-03-19",
    "changed": false
   },
   "fed_cut": {
    "answer": "NO",
    "confidence": "high",
-   "justification": "The latest FOMC meeting kept rates unchanged and gave no near‑certain signal of a cut at the next meeting.",
+   "justification": "The July 29, 2026 Fed meeting kept rates steady with no cut and no near‑certain cut signaled.",
    "source_url": "https://www.cnbc.com/2026/07/29/fed-meeting-today-live-updates.html",
    "source_date": "2026-07-29",
    "changed": false
   },
-  "checked_at": "2026-08-19T12:19+00:00",
+  "checked_at": "2026-08-19T12:30+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
-   "sentiment": "neutral",
-   "evidence": "No verifiable retail posts about Bitcoin from X, Reddit, or YouTube were found dated within the last 7 days.",
-   "evidence_date": "2026-08-19",
-   "confidence": "low"
+   "sentiment": "fear",
+   "evidence": "The Crypto Fear & Greed Index fell to a \"Fear\" level of 24, a drop of 47 points from the previous \"Greed\" reading of 71, and Google search interest for \"Bitcoin\" fell to 19 last week.",
+   "evidence_date": "2026-08-14",
+   "confidence": "high"
   }
  },
  "indicators": {
@@ -71,7 +71,7 @@
    "weight": 15,
    "score": 0,
    "state": "bad",
-   "detail": "Brent 91.62 $ (+15.3 % / 14 j) — pression inflation",
+   "detail": "Brent 91.54 $ (+15.2 % / 14 j) — pression inflation",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -101,12 +101,12 @@
   "sentiment": {
    "label": "Sentiment réseaux (contrarien)",
    "weight": 10,
-   "score": 40,
+   "score": 60,
    "state": "warn",
-   "detail": "Réseaux : neutre — No verifiable retail posts about Bitcoin from X, Reddit, or YouTube were found dated within the last 7 days.",
+   "detail": "Réseaux : peur — The Crypto Fear & Greed Index fell to a \"Fear\" level of 24, a drop of 47 points from the previous \"Greed\" reading of 71, and Google search interest for \"Bitcoin\" fell to 19 last week.",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
- "score": 57,
+ "score": 59,
  "alerts": []
 }
