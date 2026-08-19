@@ -17,7 +17,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 STATE_ICON = {"ok": "🟢", "warn": "🟠", "bad": "🔴"}
 ORDER = ["etf_flows", "fed_pivot", "oil_channel", "cycle_clock",
-         "miners", "leverage_purge"]
+         "miners", "leverage_purge", "sentiment"]
 JUDGE_LABELS = {
     "ceasefire": "Cessez-le-feu accepté par l'Iran",
     "gulf_infra": "Infra énergétique majeure du Golfe touchée (7 j)",

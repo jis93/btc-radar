@@ -180,11 +180,59 @@ def ask_groq(question, api_key):
     return verdict
 
 
-def ask_groq_retry(question, api_key, tries=3):
+SENTIMENT_SYSTEM = (
+    "You are a contrarian market-psychology analyst. Search the web for the "
+    "CURRENT retail sentiment about Bitcoin on social media (X/Twitter, "
+    "Reddit r/Bitcoin and r/CryptoCurrency, YouTube, mainstream headlines). "
+    "Look for: euphoria/greed posts, 'buy the dip' optimism, fear/panic, "
+    "capitulation stories (forced selling, 'I sold everything'), or apathy "
+    "('Bitcoin is dead', nobody talks about it anymore). "
+    "STRICT DATE RULE: your evidence MUST come from sources dated within the "
+    "last 7 days — old viral posts recirculate constantly. If you cannot find "
+    "clearly recent evidence, answer neutral with low confidence. "
+    "Answer ONLY with JSON: "
+    '{"sentiment":"euphoria"|"optimism"|"neutral"|"fear"|"capitulation"|"apathy",'
+    '"evidence":"one short sentence citing what you saw",'
+    '"evidence_date":"YYYY-MM-DD","confidence":"high"|"low"}'
+)
+
+SENTIMENT_QUESTION = (
+    "What is the prevailing retail sentiment about Bitcoin on social networks "
+    "right now (this week)? Classify it."
+)
+
+SENTIMENT_LEVELS = ("euphoria", "optimism", "neutral", "fear",
+                    "capitulation", "apathy")
+
+
+def ask_sentiment(api_key):
+    body = json.dumps({
+        "model": "groq/compound-mini",
+        "messages": [
+            {"role": "system", "content": SENTIMENT_SYSTEM},
+            {"role": "user", "content": SENTIMENT_QUESTION},
+        ],
+        "temperature": 0,
+    }).encode()
+    req = urllib.request.Request(
+        "https://api.groq.com/openai/v1/chat/completions",
+        data=body,
+        headers={"Authorization": f"Bearer {api_key}",
+                 "Content-Type": "application/json", **UA},
+    )
+    with urllib.request.urlopen(req, timeout=120) as r:
+        content = json.loads(r.read().decode())["choices"][0]["message"]["content"]
+    m = re.search(r"\{.*\}", content, re.S)
+    verdict = json.loads(m.group(0))
+    assert verdict.get("sentiment") in SENTIMENT_LEVELS
+    return verdict
+
+
+def ask_groq_retry(fn, api_key, tries=3):
     import time
     for i in range(tries):
         try:
-            return ask_groq(question, api_key)
+            return fn(api_key)
         except Exception:
             if i == tries - 1:
                 raise
@@ -201,7 +249,7 @@ def run_judge(prev_judge):
     for key, q in JUDGE_QUESTIONS.items():
         try:
             time.sleep(5)   # espacement entre questions (rate limit)
-            v = ask_groq_retry(q, api_key)
+            v = ask_groq_retry(lambda k: ask_groq(q, k), api_key)
             # conservateur : un YES à confiance basse est rétrogradé en NO
             if v["answer"] == "YES" and v.get("confidence") != "high":
                 v["answer"] = "NO"
@@ -214,6 +262,13 @@ def run_judge(prev_judge):
             old = (prev_judge or {}).get(key, {"answer": "NO"})
             old["error"] = f"{type(e).__name__}"
             judge[key] = old
+    try:
+        time.sleep(5)
+        judge["sentiment"] = ask_groq_retry(ask_sentiment, api_key)
+    except Exception as e:
+        old = (prev_judge or {}).get("sentiment", {"sentiment": "neutral"})
+        old["error"] = f"{type(e).__name__}"
+        judge["sentiment"] = old
     judge["checked_at"] = datetime.now(timezone.utc).isoformat(timespec="minutes")
     return judge
 
@@ -238,7 +293,7 @@ def compute(prices, judge, prev):
         s, detail = 50, f"Flux 15 j proches de zéro : {flows:+.0f} M$"
     else:
         s, detail = 0, f"Sorties nettes 15 j : {flows:+.0f} M$"
-    ind["etf_flows"] = {"label": "Flux nets des ETF spot", "weight": 25,
+    ind["etf_flows"] = {"label": "Flux nets des ETF spot", "weight": 20,
                         "score": s, "state": state_of(s), "detail": detail,
                         "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"}
 
@@ -248,7 +303,7 @@ def compute(prices, judge, prev):
         s, detail = 100, "Baisse actée/quasi-certaine — " + fed.get("justification", "")
     else:
         s, detail = 50, "Taux tenus ; CPI en baisse → attentes pour les FOMC de sept/oct/déc"
-    ind["fed_pivot"] = {"label": "Pivot Fed", "weight": 25, "score": s,
+    ind["fed_pivot"] = {"label": "Pivot Fed", "weight": 20, "score": s,
                         "state": state_of(s), "detail": detail,
                         "flip": "Vert : première baisse effective (juge LLM + FedWatch)"}
 
@@ -308,6 +363,34 @@ def compute(prices, judge, prev):
     ind["leverage_purge"] = {"label": "Purge finale du levier", "weight": 10,
                              "score": s, "state": state_of(s), "detail": detail,
                              "flip": "Vert : liquidation majeure réalisée et absorbée"}
+
+    # 7. Sentiment réseaux (10 %) — contrarien : euphorie = loin du bottom,
+    #    apathie ("BTC est mort") = signature classique du creux final
+    SENTIMENT_SCORES = {"euphoria": 0, "optimism": 25, "neutral": 40,
+                        "fear": 60, "capitulation": 90, "apathy": 100}
+    sen = judge.get("sentiment", {})
+    level = sen.get("sentiment", "neutral")
+    stale = False
+    ed = sen.get("evidence_date")
+    if ed:
+        try:
+            from datetime import timedelta
+            stale = (date.today() - date.fromisoformat(ed)) > timedelta(days=7)
+        except ValueError:
+            stale = True
+    # conservateur : confiance basse ou evidence périmée → neutre
+    if sen.get("confidence") != "high" or stale:
+        level = "neutral"
+    s = SENTIMENT_SCORES.get(level, 40)
+    labels_fr = {"euphoria": "euphorie", "optimism": "optimisme",
+                 "neutral": "neutre", "fear": "peur",
+                 "capitulation": "capitulation", "apathy": "apathie"}
+    detail = f"Réseaux : {labels_fr.get(level, level)}" + \
+        (f" — {sen['evidence']}" if sen.get("evidence") else "") + \
+        (" (échec du dernier scan, état conservé)" if sen.get("error") else "")
+    ind["sentiment"] = {"label": "Sentiment réseaux (contrarien)", "weight": 10,
+                        "score": s, "state": state_of(s), "detail": detail,
+                        "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"}
 
     score = round(sum(i["score"] * i["weight"] for i in ind.values()) / 100)
 
