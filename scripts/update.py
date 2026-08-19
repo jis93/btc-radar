@@ -206,6 +206,89 @@ SENTIMENT_QUESTION = (
 SENTIMENT_LEVELS = ("euphoria", "optimism", "neutral", "fear",
                     "capitulation", "apathy")
 
+POSTS_SYSTEM = (
+    "You are a contrarian market-psychology analyst. You receive ACTUAL hot "
+    "post titles from Bitcoin/crypto forums (with upvote counts). Classify "
+    "the prevailing retail mood they express. Guide: euphoria = FOMO, price "
+    "targets, 'we're so back'; optimism = confident dip-buying; fear = "
+    "worry, 'is it over?' posts; capitulation = 'I sold everything', loss "
+    "stories, anger; apathy = few market posts, disengagement, 'nobody "
+    "cares anymore'. Answer ONLY with JSON: "
+    '{"sentiment":"euphoria"|"optimism"|"neutral"|"fear"|"capitulation"|"apathy",'
+    '"evidence":"one sentence quoting 2-3 representative titles",'
+    '"confidence":"high"|"low"}'
+)
+
+
+def fetch_social_posts():
+    """Vrais posts retail : RSS Reddit + StockTwits (avec ratio bull/bear
+    auto-déclaré) + 4chan /biz/. Chaque source est indépendante."""
+    import html as htmllib
+    posts, st_ratio = [], None
+    for sub in ("Bitcoin", "CryptoCurrency"):
+        try:
+            raw = http_text(f"https://www.reddit.com/r/{sub}/hot.rss?limit=15")
+            titles = re.findall(r"<title>(.*?)</title>", raw, re.S)
+            posts += [f"[r/{sub}] {htmllib.unescape(t.strip())}"
+                      for t in titles[1:15]]
+        except Exception as e:
+            print(f"[warn] reddit rss r/{sub}: {type(e).__name__}", file=sys.stderr)
+    try:
+        d = http_json("https://api.stocktwits.com/api/2/streams/symbol/BTC.X.json")
+        msgs = d.get("messages", [])
+        tags = [(m.get("entities", {}).get("sentiment") or {}).get("basic")
+                for m in msgs]
+        bulls, bears = tags.count("Bullish"), tags.count("Bearish")
+        if bulls + bears >= 5:
+            st_ratio = round(100 * bulls / (bulls + bears))
+        for m in msgs[:12]:
+            body = re.sub(r"\s+", " ", m.get("body") or "").strip()
+            if body:
+                posts.append(f"[StockTwits] {body[:120]}")
+    except Exception as e:
+        print(f"[warn] stocktwits: {type(e).__name__}", file=sys.stderr)
+    try:
+        d = http_json("https://a.4cdn.org/biz/catalog.json")
+        threads = [t for page in d for t in page.get("threads", [])]
+        kept = 0
+        for t in threads:
+            txt = (t.get("sub") or "") + " " + \
+                re.sub(r"<[^>]+>", " ", t.get("com") or "")
+            if re.search(r"\b(btc|bitcoin)\b", txt, re.I) and kept < 12:
+                posts.append("[biz] " + re.sub(r"\s+", " ", txt).strip()[:120])
+                kept += 1
+    except Exception as e:
+        print(f"[warn] 4chan biz: {type(e).__name__}", file=sys.stderr)
+    return posts[:60], st_ratio
+
+
+def ask_posts_sentiment(titles, st_ratio, api_key):
+    body = json.dumps({
+        "model": "openai/gpt-oss-120b",
+        "messages": [
+            {"role": "system", "content": POSTS_SYSTEM},
+            {"role": "user", "content":
+             (f"Context: on StockTwits, {st_ratio}% of self-tagged posts are "
+              "Bullish right now.\n" if st_ratio is not None else "")
+             + "Classify the retail mood in these current posts from "
+             "Reddit, StockTwits and 4chan /biz/:\n" + "\n".join(titles)},
+        ],
+        "temperature": 0,
+    }).encode()
+    req = urllib.request.Request(
+        "https://api.groq.com/openai/v1/chat/completions",
+        data=body,
+        headers={"Authorization": f"Bearer {api_key}",
+                 "Content-Type": "application/json", **UA},
+    )
+    with urllib.request.urlopen(req, timeout=90) as r:
+        content = json.loads(r.read().decode())["choices"][0]["message"]["content"]
+    m = re.search(r"\{.*\}", content, re.S)
+    verdict = json.loads(m.group(0))
+    assert verdict.get("sentiment") in SENTIMENT_LEVELS
+    verdict["sample_size"] = len(titles)
+    return verdict
+
 
 def ask_sentiment(api_key):
     # compound (complet) : meilleure recherche web que mini pour ce scan
@@ -272,6 +355,21 @@ def run_judge(prev_judge):
         old = (prev_judge or {}).get("sentiment", {"sentiment": "neutral"})
         old["error"] = f"{type(e).__name__}"
         judge["sentiment"] = old
+    try:
+        time.sleep(5)
+        titles, st_ratio = fetch_social_posts()
+        if len(titles) >= 10:
+            v = ask_groq_retry(
+                lambda k: ask_posts_sentiment(titles, st_ratio, k), api_key)
+            if st_ratio is not None:
+                v["stocktwits_bull_pct"] = st_ratio
+            judge["sentiment_posts"] = v
+        else:
+            raise RuntimeError(f"seulement {len(titles)} posts collectés")
+    except Exception as e:
+        old = (prev_judge or {}).get("sentiment_posts", {"sentiment": "neutral"})
+        old["error"] = f"{type(e).__name__}"
+        judge["sentiment_posts"] = old
     judge["checked_at"] = datetime.now(timezone.utc).isoformat(timespec="minutes")
     return judge
 
@@ -371,8 +469,13 @@ def compute(prices, judge, prev):
     #    apathie ("BTC est mort") = signature classique du creux final
     SENTIMENT_SCORES = {"euphoria": 0, "optimism": 25, "neutral": 40,
                         "fear": 60, "capitulation": 90, "apathy": 100}
+    labels_fr = {"euphoria": "euphorie", "optimism": "optimisme",
+                 "neutral": "neutre", "fear": "peur",
+                 "capitulation": "capitulation", "apathy": "apathie"}
+
+    # sous-signal presse (compound + recherche web, règle de date stricte)
     sen = judge.get("sentiment", {})
-    level = sen.get("sentiment", "neutral")
+    press_level = sen.get("sentiment", "neutral")
     stale = False
     ed = sen.get("evidence_date")
     if ed:
@@ -381,16 +484,32 @@ def compute(prices, judge, prev):
             stale = (date.today() - date.fromisoformat(ed)) > timedelta(days=7)
         except ValueError:
             stale = True
-    # conservateur : confiance basse ou evidence périmée → neutre
     if sen.get("confidence") != "high" or stale:
-        level = "neutral"
-    s = SENTIMENT_SCORES.get(level, 40)
-    labels_fr = {"euphoria": "euphorie", "optimism": "optimisme",
-                 "neutral": "neutre", "fear": "peur",
-                 "capitulation": "capitulation", "apathy": "apathie"}
-    detail = f"Réseaux : {labels_fr.get(level, level)}" + \
-        (f" — {sen['evidence']}" if sen.get("evidence") else "") + \
-        (" (échec du dernier scan, état conservé)" if sen.get("error") else "")
+        press_level = "neutral"
+
+    # sous-signal forums (vrais posts Reddit hot — frais par construction)
+    posts = judge.get("sentiment_posts", {})
+    posts_level = posts.get("sentiment") if not posts.get("error") else None
+
+    scores = [SENTIMENT_SCORES.get(press_level, 40)]
+    if posts_level:
+        scores.append(SENTIMENT_SCORES.get(posts_level, 40))
+    s = round(sum(scores) / len(scores))
+    level = press_level  # pour compat affichage
+
+    detail = f"Presse : {labels_fr.get(press_level, press_level)}"
+    if posts_level:
+        detail += f" · Forums ({posts.get('sample_size', '?')} posts " \
+                  "Reddit/StockTwits/biz) : " \
+                  f"{labels_fr.get(posts_level, posts_level)}"
+        if posts.get("stocktwits_bull_pct") is not None:
+            detail += f" · StockTwits {posts['stocktwits_bull_pct']}% bullish"
+        if posts.get("evidence"):
+            detail += f" — {posts['evidence']}"
+    elif posts.get("error"):
+        detail += " · Forums : scan indisponible (état conservé)"
+    if sen.get("evidence") and not posts_level:
+        detail += f" — {sen['evidence']}"
     ind["sentiment"] = {"label": "Sentiment réseaux (contrarien)", "weight": 10,
                         "score": s, "state": state_of(s), "detail": detail,
                         "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"}
