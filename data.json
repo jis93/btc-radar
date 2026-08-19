@@ -1,46 +1,46 @@
 {
- "updated_at": "2026-08-18T07:11+00:00",
+ "updated_at": "2026-08-19T07:13+00:00",
  "prices": {
-  "btc_usd": 64262,
-  "btc_24h_pct": 1.13,
-  "btc_mcap_usd": 1289829036781.2522,
-  "brent_usd": 91.45,
+  "btc_usd": 64234,
+  "btc_24h_pct": -0.05,
+  "btc_mcap_usd": 1289455191081.1816,
+  "brent_usd": 91.52,
   "brent_14d_pct": 15.2,
-  "spx": 7786,
-  "spx_drawdown_pct": -0.2,
+  "spx": 7692,
+  "spx_drawdown_pct": -1.4,
   "nvda_drawdown_pct": -0.1,
-  "fear_greed": 41,
+  "fear_greed": 46,
   "funding_rate_pct": 0.0065,
-  "hashrate_30d_pct": 3.2,
-  "etf_last_day_musd": 137.3,
-  "etf_flows_15d_musd": 585.1
+  "hashrate_30d_pct": 2.7,
+  "etf_last_day_musd": 189.3,
+  "etf_flows_15d_musd": 701.5
  },
  "judge": {
   "ceasefire": {
    "answer": "NO",
    "confidence": "low",
-   "justification": "No recent source (within last 7 days) confirms Iran has accepted a ceasefire currently in force.",
-   "source_url": "https://www.dw.com/en/us-iran-deliver-conflicting-reports-on-fresh-peace-talks/live-77746775",
-   "source_date": "2026-06-29",
+   "justification": "No recent source shows Iran has formally accepted a ceasefire or peace agreement that is currently in force.",
+   "source_url": "https://www.bbc.com/news/articles/c872rjw17qpo",
+   "source_date": "2026-06-22",
    "changed": false
   },
   "gulf_infra": {
    "answer": "NO",
-   "confidence": "high",
-   "justification": "No reports of recent damage to Ras Tanura, Abqaiq, Ruwais, Ras Laffan LNG or Kharg Island in the past week.",
-   "source_url": "https://www.france24.com/en/live-news/20260319-key-middle-east-energy-sites-under-fire",
-   "source_date": "2026-03-19",
+   "confidence": "low",
+   "justification": "No recent reports within the last 7 days of material damage to Ras Tanura, Abqaiq, Ruwais, Ras Laffan LNG, or Kharg Island.",
+   "source_url": "https://www.oilandgasmiddleeast.com/news/gulf-energy-infrastructure-damaged-in-war",
+   "source_date": "2026-04-05",
    "changed": false
   },
   "fed_cut": {
    "answer": "NO",
    "confidence": "high",
-   "justification": "The July 2026 FOMC meeting kept rates unchanged and did not signal a near‑certain cut.",
-   "source_url": "https://www.cnbc.com/2026/07/29/fed-meeting-today-live-updates.html",
+   "justification": "The July 29, 2026 FOMC statement kept the policy rate unchanged and did not signal a near‑certain cut at the next meeting.",
+   "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a.htm",
    "source_date": "2026-07-29",
    "changed": false
   },
-  "checked_at": "2026-08-18T07:11+00:00",
+  "checked_at": "2026-08-19T07:13+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés"
  },
  "indicators": {
@@ -49,7 +49,7 @@
    "weight": 25,
    "score": 100,
    "state": "ok",
-   "detail": "Entrées nettes 15 j : +585 M$",
+   "detail": "Entrées nettes 15 j : +702 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -65,7 +65,7 @@
    "weight": 15,
    "score": 0,
    "state": "bad",
-   "detail": "Brent 91.45 $ (+15.2 % / 14 j) — pression inflation",
+   "detail": "Brent 91.52 $ (+15.2 % / 14 j) — pression inflation",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -73,7 +73,7 @@
    "weight": 15,
    "score": 85,
    "state": "ok",
-   "detail": "J+316 depuis le top (fenêtre 363-384 j : dans 47 j)",
+   "detail": "J+317 depuis le top (fenêtre 363-384 j : dans 46 j)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
@@ -81,7 +81,7 @@
    "weight": 10,
    "score": 100,
    "state": "ok",
-   "detail": "Hashrate +3.2 % / 30 j — reprise, capitulation derrière",
+   "detail": "Hashrate +2.7 % / 30 j — reprise, capitulation derrière",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -89,7 +89,7 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 41, NVDA -0.1 %, S&P -0.2 %)",
+   "detail": "Pas de flush global (F&G 46, NVDA -0.1 %, S&P -1.4 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   }
  },
