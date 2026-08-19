@@ -1,52 +1,58 @@
 {
- "updated_at": "2026-08-19T07:13+00:00",
+ "updated_at": "2026-08-19T12:19+00:00",
  "prices": {
-  "btc_usd": 64234,
-  "btc_24h_pct": -0.05,
-  "btc_mcap_usd": 1289455191081.1816,
-  "brent_usd": 91.52,
-  "brent_14d_pct": 15.2,
+  "btc_usd": 64454,
+  "btc_24h_pct": 0.33,
+  "btc_mcap_usd": 1293680625224.1367,
+  "brent_usd": 91.62,
+  "brent_14d_pct": 15.3,
   "spx": 7692,
   "spx_drawdown_pct": -1.4,
-  "nvda_drawdown_pct": -0.1,
+  "nvda_drawdown_pct": -2.5,
   "fear_greed": 46,
   "funding_rate_pct": 0.0065,
   "hashrate_30d_pct": 2.7,
-  "etf_last_day_musd": 189.3,
+  "etf_last_day_musd": 0.0,
   "etf_flows_15d_musd": 701.5
  },
  "judge": {
   "ceasefire": {
    "answer": "NO",
    "confidence": "low",
-   "justification": "No recent source shows Iran has formally accepted a ceasefire or peace agreement that is currently in force.",
-   "source_url": "https://www.bbc.com/news/articles/c872rjw17qpo",
-   "source_date": "2026-06-22",
+   "justification": "No source dated within the last 7 days confirms a currently active ceasefire accepted by Iran.",
+   "source_url": "https://www.aljazeera.com/news/2026/6/17/iran-confirms-that-mou-has-been-signed-electronically-by-both-sides",
+   "source_date": "2026-06-17",
    "changed": false
   },
   "gulf_infra": {
    "answer": "NO",
    "confidence": "low",
-   "justification": "No recent reports within the last 7 days of material damage to Ras Tanura, Abqaiq, Ruwais, Ras Laffan LNG, or Kharg Island.",
-   "source_url": "https://www.oilandgasmiddleeast.com/news/gulf-energy-infrastructure-damaged-in-war",
-   "source_date": "2026-04-05",
+   "justification": "No recent reports indicate a major operational Gulf energy facility was hit and materially damaged in the past week.",
+   "source_url": "https://www.reuters.com/world/middle-east/gulf-energy-facilities-operational-2026-08-14",
+   "source_date": "2026-08-14",
    "changed": false
   },
   "fed_cut": {
    "answer": "NO",
    "confidence": "high",
-   "justification": "The July 29, 2026 FOMC statement kept the policy rate unchanged and did not signal a near‑certain cut at the next meeting.",
-   "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a.htm",
+   "justification": "The latest FOMC meeting kept rates unchanged and gave no near‑certain signal of a cut at the next meeting.",
+   "source_url": "https://www.cnbc.com/2026/07/29/fed-meeting-today-live-updates.html",
    "source_date": "2026-07-29",
    "changed": false
   },
-  "checked_at": "2026-08-19T07:13+00:00",
-  "note": "GROQ_API_KEY absent — jugements inchangés"
+  "checked_at": "2026-08-19T12:19+00:00",
+  "note": "GROQ_API_KEY absent — jugements inchangés",
+  "sentiment": {
+   "sentiment": "neutral",
+   "evidence": "No verifiable retail posts about Bitcoin from X, Reddit, or YouTube were found dated within the last 7 days.",
+   "evidence_date": "2026-08-19",
+   "confidence": "low"
+  }
  },
  "indicators": {
   "etf_flows": {
    "label": "Flux nets des ETF spot",
-   "weight": 25,
+   "weight": 20,
    "score": 100,
    "state": "ok",
    "detail": "Entrées nettes 15 j : +702 M$",
@@ -54,7 +60,7 @@
   },
   "fed_pivot": {
    "label": "Pivot Fed",
-   "weight": 25,
+   "weight": 20,
    "score": 50,
    "state": "warn",
    "detail": "Taux tenus ; CPI en baisse → attentes pour les FOMC de sept/oct/déc",
@@ -65,7 +71,7 @@
    "weight": 15,
    "score": 0,
    "state": "bad",
-   "detail": "Brent 91.52 $ (+15.2 % / 14 j) — pression inflation",
+   "detail": "Brent 91.62 $ (+15.3 % / 14 j) — pression inflation",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -89,10 +95,18 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 46, NVDA -0.1 %, S&P -1.4 %)",
+   "detail": "Pas de flush global (F&G 46, NVDA -2.5 %, S&P -1.4 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
+  },
+  "sentiment": {
+   "label": "Sentiment réseaux (contrarien)",
+   "weight": 10,
+   "score": 40,
+   "state": "warn",
+   "detail": "Réseaux : neutre — No verifiable retail posts about Bitcoin from X, Reddit, or YouTube were found dated within the last 7 days.",
+   "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
- "score": 60,
+ "score": 57,
  "alerts": []
 }
