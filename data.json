@@ -1,59 +1,60 @@
 {
- "updated_at": "2026-08-19T22:58+00:00",
+ "updated_at": "2026-08-20T07:14+00:00",
  "prices": {
-  "btc_usd": 69132,
-  "btc_24h_pct": 7.06,
-  "btc_mcap_usd": 1387830072922.78,
-  "brent_usd": 91.39,
-  "brent_14d_pct": 15.0,
+  "btc_usd": 69879,
+  "btc_24h_pct": 8.77,
+  "btc_mcap_usd": 1402676461821.0725,
+  "brent_usd": 92.3,
+  "brent_14d_pct": 11.9,
   "spx": 7708,
   "spx_drawdown_pct": -1.2,
   "nvda_drawdown_pct": -3.4,
-  "fear_greed": 46,
+  "fear_greed": 62,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": 2.7,
+  "hashrate_30d_pct": 1.3,
   "etf_last_day_musd": 164.2,
-  "etf_flows_15d_musd": 865.7
+  "etf_flows_15d_musd": 1131.1
  },
  "judge": {
   "ceasefire": {
    "answer": "NO",
-   "confidence": "high",
-   "justification": "The 60‑day ceasefire expired on August 17, 2026.",
-   "source_url": "https://www.youtube.com/watch?v=1oyL1J4GEkI",
-   "source_date": "2026-08-17",
+   "confidence": "low",
+   "justification": "No recent source (within the last 7 days) confirms Iran has accepted a ceasefire currently in force.",
+   "source_url": "https://www.aljazeera.com/news/2026/6/17/iran-confirms-that-mou-has-been-signed-electronically-by-both-sides",
+   "source_date": "2026-06-17",
    "changed": false
   },
   "gulf_infra": {
    "answer": "NO",
-   "confidence": "low",
-   "justification": "No recent reports within the last 7 days of a major operational Gulf energy facility being materially damaged.",
-   "source_url": "N/A",
-   "source_date": "N/A",
+   "confidence": "high",
+   "justification": "No reports of major facility damage in the past week",
+   "source_url": "https://www.france24.com/en/live-news/20260319-key-middle-east-energy-sites-under-fire",
+   "source_date": "2026-03-19",
    "changed": false
   },
   "fed_cut": {
    "answer": "NO",
    "confidence": "high",
-   "justification": "The most recent 2026 FOMC meetings kept rates unchanged and did not officially signal a near‑certain cut",
+   "justification": "The July 29, 2026 meeting left the policy rate unchanged and provided no near‑certain signal of a cut.",
    "source_url": "https://www.cnbc.com/2026/07/29/fed-meeting-today-live-updates.html",
    "source_date": "2026-07-29",
    "changed": false
   },
-  "checked_at": "2026-08-19T22:58+00:00",
+  "checked_at": "2026-08-20T07:14+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "fear",
    "evidence": "The Crypto Fear & Greed Index fell to a 'Fear' level of 24, indicating a decline in retail interest and a bearish sentiment among investors.",
    "evidence_date": "2026-08-18",
-   "confidence": "high"
+   "confidence": "high",
+   "error": "HTTPError"
   },
   "sentiment_posts": {
    "sentiment": "euphoria",
-   "evidence": "Titles like \"We're Back Baby!!\", \"We are so back. Up 7% in a day, reclaiming $70K 🔥\" and \"Bear market is over\" dominate the feed, showing strong FOMO and price‑target chatter.",
+   "evidence": "“We are so back. Up 7% in a day, reclaiming $70K 🔥”, “$BTC.X Burns the shorters‼️‼️‼️🔥🔥🔥”, “$BTC.X Only up ⬆️”",
    "confidence": "high",
    "sample_size": 38,
-   "stocktwits_bull_pct": 100
+   "stocktwits_bull_pct": 92
   }
  },
  "indicators": {
@@ -62,7 +63,7 @@
    "weight": 20,
    "score": 100,
    "state": "ok",
-   "detail": "Entrées nettes 15 j : +866 M$",
+   "detail": "Entrées nettes 15 j : +1131 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -78,7 +79,7 @@
    "weight": 15,
    "score": 0,
    "state": "bad",
-   "detail": "Brent 91.39 $ (+15.0 % / 14 j) — pression inflation",
+   "detail": "Brent 92.3 $ (+11.9 % / 14 j) — pression inflation",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -92,9 +93,9 @@
   "miners": {
    "label": "Capitulation des mineurs",
    "weight": 10,
-   "score": 100,
-   "state": "ok",
-   "detail": "Hashrate +2.7 % / 30 j — reprise, capitulation derrière",
+   "score": 50,
+   "state": "warn",
+   "detail": "Hashrate +1.3 % / 30 j — purge en cours de stabilisation",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -102,7 +103,7 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 46, NVDA -3.4 %, S&P -1.2 %)",
+   "detail": "Pas de flush global (F&G 62, NVDA -3.4 %, S&P -1.2 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
@@ -110,10 +111,10 @@
    "weight": 10,
    "score": 30,
    "state": "bad",
-   "detail": "Presse : peur · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 100% bullish — Titles like \"We're Back Baby!!\", \"We are so back. Up 7% in a day, reclaiming $70K 🔥\" and \"Bear market is over\" dominate the feed, showing strong FOMO and price‑target chatter.",
+   "detail": "Presse : peur · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 92% bullish — “We are so back. Up 7% in a day, reclaiming $70K 🔥”, “$BTC.X Burns the shorters‼️‼️‼️🔥🔥🔥”, “$BTC.X Only up ⬆️”",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
- "score": 57,
+ "score": 51,
  "alerts": []
 }
