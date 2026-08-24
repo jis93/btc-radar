@@ -394,7 +394,8 @@ def compute(prices, judge, prev):
     if fed.get("answer") == "YES":
         s, detail = 100, "Baisse actée/quasi-certaine — " + fed.get("justification", "")
     else:
-        s, detail = 50, "Taux tenus ; CPI en baisse → attentes pour les FOMC de sept/oct/déc"
+        s, detail = 50, ("Fed Warsh (hawkish) : marché price statu quo, "
+                         "risque de HAUSSE lié au pétrole — baisse quasi exclue à court terme")
     ind["fed_pivot"] = {"label": "Pivot Fed", "weight": 20, "score": s,
                         "state": state_of(s), "detail": detail,
                         "flip": "Vert : première baisse effective (juge LLM + FedWatch)"}
