@@ -1,33 +1,33 @@
 {
- "updated_at": "2026-08-23T07:10+00:00",
+ "updated_at": "2026-08-24T07:35+00:00",
  "prices": {
-  "btc_usd": 76054,
-  "btc_24h_pct": -1.93,
-  "btc_mcap_usd": 1526359163632.8547,
-  "brent_usd": 94.39,
-  "brent_14d_pct": 13.0,
+  "btc_usd": 77576,
+  "btc_24h_pct": 1.79,
+  "btc_mcap_usd": 1556736700228.2925,
+  "brent_usd": 92.8,
+  "brent_14d_pct": 5.8,
   "spx": 7674,
   "spx_drawdown_pct": -1.6,
   "nvda_drawdown_pct": -4.7,
-  "fear_greed": 66,
+  "fear_greed": 73,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": 2.2,
+  "hashrate_30d_pct": -3.5,
   "etf_last_day_musd": 307.5,
-  "etf_flows_15d_musd": 2227.8
+  "etf_flows_15d_musd": 2016.3
  },
  "judge": {
   "ceasefire": {
    "answer": "NO",
    "confidence": "low",
-   "justification": "No recent source (within the last 7 days) confirms that Iran has accepted a ceasefire or peace agreement currently in force.",
-   "source_url": "https://apnews.com/article/2026-07-09-iran-us-ceasefire-breakdown",
-   "source_date": "2026-07-09",
+   "justification": "The June 2026 cease‑fire extension expired in mid‑August and no recent source confirms a new agreement in force.",
+   "source_url": "https://www.britannica.com/event/2026-Iran-war",
+   "source_date": "2026-07-10",
    "changed": false
   },
   "gulf_infra": {
    "answer": "NO",
-   "confidence": "low",
-   "justification": "No recent reports (within the last 7 days) of material damage to Ras Tanura, Abqaiq, Ruwais, Ras Laffan LNG, or Kharg Island facilities.",
+   "confidence": "high",
+   "justification": "No reports of a major operational Gulf facility being hit in the past week.",
    "source_url": "https://www.reuters.com/business/energy/saudi-aramco-shuts-ras-tanura-refinery-after-drone-strike-source-says-2026-03-02",
    "source_date": "2026-03-02",
    "changed": false
@@ -38,22 +38,23 @@
    "justification": "No recent (within 7 days) source shows a cut or near‑certain cut signal; the latest meeting (July 29 2026) held rates steady.",
    "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20260729.htm",
    "source_date": "2026-07-29",
-   "changed": false
+   "changed": false,
+   "error": "HTTPError"
   },
-  "checked_at": "2026-08-23T07:10+00:00",
+  "checked_at": "2026-08-24T07:35+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
-   "sentiment": "fear",
-   "evidence": "Crypto Fear & Greed Index fell to a \"Fear\" level of 24, indicating a decline in sentiment.",
-   "evidence_date": "2026-08-23",
-   "confidence": "high"
+   "sentiment": "neutral",
+   "evidence": "No recent coverage (within the past 7 days) measuring or describing crypto retail sentiment for Bitcoin was found.",
+   "evidence_date": "2026-08-24",
+   "confidence": "low"
   },
   "sentiment_posts": {
-   "sentiment": "fear",
-   "evidence": "StockTwits posts like \"will it hit 0 before or after 2030?\" and \"20 bil long liquidations to the downside\" alongside /biz/ sarcasm such as \"Why do people cry when a major BTC holder sells?\" dominate the feed, indicating worry and doubt.",
+   "sentiment": "euphoria",
+   "evidence": "Titles like \"78k Resistance break\", \"Chat, my favorite twitch streamer just said Bitcoin is ripping right now\" and \"Day 617 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\" show a dominant hype and FOMO vibe.",
    "confidence": "high",
    "sample_size": 38,
-   "stocktwits_bull_pct": 65
+   "stocktwits_bull_pct": 93
   }
  },
  "indicators": {
@@ -62,7 +63,7 @@
    "weight": 20,
    "score": 100,
    "state": "ok",
-   "detail": "Entrées nettes 15 j : +2228 M$",
+   "detail": "Entrées nettes 15 j : +2016 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -78,7 +79,7 @@
    "weight": 15,
    "score": 0,
    "state": "bad",
-   "detail": "Brent 94.39 $ (+13.0 % / 14 j) — pression inflation",
+   "detail": "Brent 92.8 $ (+5.8 % / 14 j) — pression inflation",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -86,15 +87,15 @@
    "weight": 15,
    "score": 86,
    "state": "ok",
-   "detail": "J+321 depuis le top (fenêtre 363-384 j : dans 42 j)",
+   "detail": "J+322 depuis le top (fenêtre 363-384 j : dans 41 j)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
    "label": "Capitulation des mineurs",
    "weight": 10,
-   "score": 100,
-   "state": "ok",
-   "detail": "Hashrate +2.2 % / 30 j — reprise, capitulation derrière",
+   "score": 50,
+   "state": "warn",
+   "detail": "Hashrate -3.5 % / 30 j — purge en cours de stabilisation",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -102,18 +103,18 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 66, NVDA -4.7 %, S&P -1.6 %)",
+   "detail": "Pas de flush global (F&G 73, NVDA -4.7 %, S&P -1.6 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
    "label": "Sentiment réseaux (contrarien)",
    "weight": 10,
-   "score": 60,
-   "state": "warn",
-   "detail": "Presse : peur · Forums (38 posts Reddit/StockTwits/biz) : peur · StockTwits 65% bullish — StockTwits posts like \"will it hit 0 before or after 2030?\" and \"20 bil long liquidations to the downside\" alongside /biz/ sarcasm such as \"Why do people cry when a major BTC holder sells?\" dominate the feed, indicating worry and doubt.",
+   "score": 20,
+   "state": "bad",
+   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 93% bullish — Titles like \"78k Resistance break\", \"Chat, my favorite twitch streamer just said Bitcoin is ripping right now\" and \"Day 617 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\" show a dominant hype and FOMO vibe.",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
- "score": 59,
+ "score": 50,
  "alerts": []
 }
