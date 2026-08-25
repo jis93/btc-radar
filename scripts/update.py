@@ -627,19 +627,22 @@ def compute_model(prices, judge):
     return m
 
 
-# --- Corridor Power Law (Santostasi) : prix ≈ K × jours_depuis_genèse^N ---
-# Curve-fit, PAS une loi. Calibré sur les projections publiées 2029/2032.
+# --- Corridor Power Law : prix ≈ K × jours_depuis_genèse^N ---
+# Curve-fit, PAS une loi. Recalibré par régression log-log sur les PRIX RÉELS
+# (moyenne géométrique sommet/creux des 4 cycles), pas sur des projections
+# publiées. Donne fair ~$114k aujourd'hui (≈ ATH), exposant ~4.64.
+# Bande inhérente ~6x : outil de CONTEXTE (zone chère/bon marché), pas de niveaux.
 PL_GENESIS = date(2009, 1, 3)
-PL_K = 1.41e-17
-PL_N = 5.8
-PL_SUPPORT_MULT = 0.42     # plancher = 0.42 × fair value
-PL_RESIST_MULT = 3.0       # résistance = 3.0 × fair value
+PL_K = 2.336e-13
+PL_N = 4.643
+PL_SUPPORT_MULT = 0.41     # plancher observé ≈ 0.41 × fair (creux 2022)
+PL_RESIST_MULT = 2.63      # résistance observée ≈ 2.63 × fair (sommet 2021)
 
-# Projections publiées / dérivées, par cycle de halving (bandes larges = incertitude)
+# Projections dérivées de CETTE calibration, par cycle (bandes larges = incertitude)
 PL_CYCLE_PROJ = [
-    {"cycle": "HC4 · halving 2024", "top": "$126k (réalisé)", "bottom": "~$58k (candidat)"},
-    {"cycle": "HC5 · halving ~2028", "top": "$250-550k (~2029)", "bottom": "$150-280k (~2030)"},
-    {"cycle": "HC6 · halving ~2032", "top": "$0,7-1,3M (~2033)", "bottom": "$400-550k (~2034)"},
+    {"cycle": "HC4 · halving 2024", "top": "$126k (réalisé, 66% du corridor)", "bottom": "~$58k (candidat, 14%)"},
+    {"cycle": "HC5 · halving ~2028", "top": "$250-450k (~2029)", "bottom": "$130-190k (~2030)"},
+    {"cycle": "HC6 · halving ~2032", "top": "$550k-1M (~2033)", "bottom": "$280-400k (~2034)"},
 ]
 
 
@@ -650,15 +653,16 @@ def compute_corridor(prices):
     resist = PL_RESIST_MULT * fair
     c = {"support": round(support), "fair": round(fair), "resistance": round(resist),
          "projections": PL_CYCLE_PROJ,
-         "note": "Modèle Power Law (curve-fit, pas une loi). Le corridor (adoption) "
-                 "est la partie robuste ; le timing des swings (halving) s'affaiblit."}
+         "note": "Power Law recalibré sur les prix réels (fair ≈ ATH). Bande ~6x "
+                 "inhérente au modèle → outil de CONTEXTE (zone chère/bon marché), "
+                 "pas de niveaux précis. Curve-fit, pas une loi."}
     btc = prices.get("btc_usd")
     if btc and resist > support:
         pos = (math.log(btc) - math.log(support)) / (math.log(resist) - math.log(support))
         c["position_pct"] = round(max(0, min(1, pos)) * 100)
-        if pos < 0.15:
+        if pos < 0.20:
             c["zone"] = "bas du corridor (historiquement bon marché)"
-        elif pos > 0.75:
+        elif pos > 0.68:
             c["zone"] = "haut du corridor (historiquement cher)"
         else:
             c["zone"] = "milieu du corridor"

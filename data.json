@@ -141,28 +141,28 @@
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
  },
  "corridor": {
-  "support": 73313,
-  "fair": 174554,
-  "resistance": 523663,
+  "support": 46436,
+  "fair": 113258,
+  "resistance": 297869,
   "projections": [
    {
     "cycle": "HC4 · halving 2024",
-    "top": "$126k (réalisé)",
-    "bottom": "~$58k (candidat)"
+    "top": "$126k (réalisé, 66% du corridor)",
+    "bottom": "~$58k (candidat, 14%)"
    },
    {
     "cycle": "HC5 · halving ~2028",
-    "top": "$250-550k (~2029)",
-    "bottom": "$150-280k (~2030)"
+    "top": "$250-450k (~2029)",
+    "bottom": "$130-190k (~2030)"
    },
    {
     "cycle": "HC6 · halving ~2032",
-    "top": "$0,7-1,3M (~2033)",
-    "bottom": "$400-550k (~2034)"
+    "top": "$550k-1M (~2033)",
+    "bottom": "$280-400k (~2034)"
    }
   ],
-  "note": "Modèle Power Law (curve-fit, pas une loi). Le corridor (adoption) est la partie robuste ; le timing des swings (halving) s'affaiblit.",
-  "position_pct": 4,
-  "zone": "bas du corridor (historiquement bon marché)"
+  "note": "Power Law recalibré sur les prix réels (fair ≈ ATH). Bande ~6x inhérente au modèle → outil de CONTEXTE (zone chère/bon marché), pas de niveaux précis. Curve-fit, pas une loi.",
+  "position_pct": 29,
+  "zone": "milieu du corridor"
  }
 }
