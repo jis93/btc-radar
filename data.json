@@ -1,11 +1,11 @@
 {
- "updated_at": "2026-08-25T08:05+00:00",
+ "updated_at": "2026-08-25T10:23+00:00",
  "prices": {
-  "btc_usd": 79735,
-  "btc_24h_pct": 3.14,
-  "btc_mcap_usd": 1600370693234.788,
-  "brent_usd": 90.02,
-  "brent_14d_pct": 1.2,
+  "btc_usd": 79291,
+  "btc_24h_pct": 1.95,
+  "btc_mcap_usd": 1591474652589.312,
+  "brent_usd": 88.05,
+  "brent_14d_pct": -1.0,
   "spx": 7653,
   "spx_drawdown_pct": -1.9,
   "nvda_drawdown_pct": -7.5,
@@ -22,14 +22,15 @@
    "justification": "No source within the past 7 days confirms a currently active ceasefire accepted by Iran.",
    "source_url": "https://www.aljazeera.com/news/2026/6/18/world-reacts-to-us-iran-deal-to-extend-ceasefire-begin-negotations",
    "source_date": "2026-06-18",
-   "changed": false
+   "changed": false,
+   "error": "HTTPError"
   },
   "gulf_infra": {
    "answer": "NO",
    "confidence": "low",
-   "justification": "No recent reports in the past week of a major operational Gulf energy facility being hit and materially damaged.",
-   "source_url": "https://www.thenational.ae/business/2026/03/02/saudi-aramco-shuts-down-ras-tanura-refinery-following-drone-attack",
-   "source_date": "2026-03-02",
+   "justification": "No recent reports of major operational damage to those facilities in the past 7 days",
+   "source_url": "",
+   "source_date": "",
    "changed": false
   },
   "fed_cut": {
@@ -41,20 +42,21 @@
    "changed": false,
    "error": "HTTPError"
   },
-  "checked_at": "2026-08-25T08:05+00:00",
+  "checked_at": "2026-08-25T10:23+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "optimism",
    "evidence": "The Crypto Fear & Greed Index is at 62, indicating 'Greed', up from 46 yesterday, according to Alternative.me.",
    "evidence_date": "2026-08-24",
-   "confidence": "high"
+   "confidence": "high",
+   "error": "HTTPError"
   },
   "sentiment_posts": {
    "sentiment": "euphoria",
-   "evidence": "BItcoin hitting 80K for the first time since May 🚀; $BTC.X it sliced through $77k resistance, I see it taking out $96k next; $BTC.X SECURE THE BAG!🎒",
+   "evidence": "BItcoin hitting 80K for the first time since May 🚀; Me on the toilet at work making $12 an hour watching btc gain 20% in a week; $BTC.X buy buy last chances",
    "confidence": "high",
    "sample_size": 38,
-   "stocktwits_bull_pct": 93
+   "stocktwits_bull_pct": 62
   }
  },
  "indicators": {
@@ -79,7 +81,7 @@
    "weight": 15,
    "score": 50,
    "state": "warn",
-   "detail": "Brent 90.02 $ (+1.2 % / 14 j) — stabilisé",
+   "detail": "Brent 88.05 $ (-1.0 % / 14 j) — stabilisé",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -111,7 +113,7 @@
    "weight": 10,
    "score": 12,
    "state": "bad",
-   "detail": "Presse : optimisme · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 93% bullish — BItcoin hitting 80K for the first time since May 🚀; $BTC.X it sliced through $77k resistance, I see it taking out $96k next; $BTC.X SECURE THE BAG!🎒",
+   "detail": "Presse : optimisme · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 62% bullish — BItcoin hitting 80K for the first time since May 🚀; Me on the toilet at work making $12 an hour watching btc gain 20% in a week; $BTC.X buy buy last chances",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
@@ -129,14 +131,14 @@
   ],
   "shallow_bottom": 57950,
   "shallow_drawdown_pct": -54.1,
-  "current_drawdown_pct": -36.1,
+  "current_drawdown_pct": -37.2,
   "days_since_ath": 323,
   "calendar_norm_days": 390,
   "low_seen_days": 268,
   "v1_excess": "re-gonflé",
-  "v1_detail": "rallye +39% depuis $58k, funding 0.01%",
+  "v1_detail": "rallye +37% depuis $58k, funding 0.01%",
   "v2_buyer": "institutionnel actif (entrées ETF)",
-  "v3_shock": "guerre Iran / pétrole $91",
+  "v3_shock": "guerre Iran / pétrole $88",
   "verdict": "Excès re-gonflé PENDANT un choc actif → un second choc peut forcer un plus-bas vers la zone maturation ($28,627-38,731).",
   "lean": "plus-bas possible",
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
