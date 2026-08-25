@@ -1,11 +1,11 @@
 {
- "updated_at": "2026-08-25T07:17+00:00",
+ "updated_at": "2026-08-25T08:05+00:00",
  "prices": {
-  "btc_usd": 80701,
-  "btc_24h_pct": 3.86,
-  "btc_mcap_usd": 1620065704497.8875,
-  "brent_usd": 91.35,
-  "brent_14d_pct": 2.7,
+  "btc_usd": 79735,
+  "btc_24h_pct": 3.14,
+  "btc_mcap_usd": 1600370693234.788,
+  "brent_usd": 90.02,
+  "brent_14d_pct": 1.2,
   "spx": 7653,
   "spx_drawdown_pct": -1.9,
   "nvda_drawdown_pct": -7.5,
@@ -19,7 +19,7 @@
   "ceasefire": {
    "answer": "NO",
    "confidence": "low",
-   "justification": "No source within the last 7 days confirms a currently in‑force ceasefire accepted by Iran.",
+   "justification": "No source within the past 7 days confirms a currently active ceasefire accepted by Iran.",
    "source_url": "https://www.aljazeera.com/news/2026/6/18/world-reacts-to-us-iran-deal-to-extend-ceasefire-begin-negotations",
    "source_date": "2026-06-18",
    "changed": false
@@ -27,9 +27,9 @@
   "gulf_infra": {
    "answer": "NO",
    "confidence": "low",
-   "justification": "No major operational Gulf energy facility has been reported hit in the past week.",
-   "source_url": "https://www.lemonde.fr/en/international/article/2026/03/19/attacks-on-gulf-energy-facilities-intensify-fueling-fears-of-a-gas-war_6751601_4.html",
-   "source_date": "2026-03-19",
+   "justification": "No recent reports in the past week of a major operational Gulf energy facility being hit and materially damaged.",
+   "source_url": "https://www.thenational.ae/business/2026/03/02/saudi-aramco-shuts-down-ras-tanura-refinery-following-drone-attack",
+   "source_date": "2026-03-02",
    "changed": false
   },
   "fed_cut": {
@@ -38,23 +38,23 @@
    "justification": "The July 29, 2026 FOMC statement confirms the Fed kept the policy rate unchanged and gave no near‑certain cut signal.",
    "source_url": "https://www.federalreserve.gov/monetarypolicy/files/monetary20260729a1.pdf",
    "source_date": "2026-07-29",
-   "changed": false
+   "changed": false,
+   "error": "HTTPError"
   },
-  "checked_at": "2026-08-25T07:17+00:00",
+  "checked_at": "2026-08-25T08:05+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
-   "sentiment": "neutral",
-   "evidence": "No recent coverage (within the past 7 days) measuring or describing crypto retail sentiment for Bitcoin was found.",
+   "sentiment": "optimism",
+   "evidence": "The Crypto Fear & Greed Index is at 62, indicating 'Greed', up from 46 yesterday, according to Alternative.me.",
    "evidence_date": "2026-08-24",
-   "confidence": "low",
-   "error": "HTTPError"
+   "confidence": "high"
   },
   "sentiment_posts": {
    "sentiment": "euphoria",
-   "evidence": "BItcoin hitting 80K for the first time since May 🚀; $BTC.X this feels like this time around it might break 81k could go straight to 90k; $BTC.X BTC to 125k!!SPELL goes exponentially to .01 to .02 then $1 retire early!",
+   "evidence": "BItcoin hitting 80K for the first time since May 🚀; $BTC.X it sliced through $77k resistance, I see it taking out $96k next; $BTC.X SECURE THE BAG!🎒",
    "confidence": "high",
    "sample_size": 38,
-   "stocktwits_bull_pct": 100
+   "stocktwits_bull_pct": 93
   }
  },
  "indicators": {
@@ -79,7 +79,7 @@
    "weight": 15,
    "score": 50,
    "state": "warn",
-   "detail": "Brent 91.35 $ (+2.7 % / 14 j) — stabilisé",
+   "detail": "Brent 90.02 $ (+1.2 % / 14 j) — stabilisé",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -109,9 +109,9 @@
   "sentiment": {
    "label": "Sentiment réseaux (contrarien)",
    "weight": 10,
-   "score": 20,
+   "score": 12,
    "state": "bad",
-   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 100% bullish — BItcoin hitting 80K for the first time since May 🚀; $BTC.X this feels like this time around it might break 81k could go straight to 90k; $BTC.X BTC to 125k!!SPELL goes exponentially to .01 to .02 then $1 retire early!",
+   "detail": "Presse : optimisme · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 93% bullish — BItcoin hitting 80K for the first time since May 🚀; $BTC.X it sliced through $77k resistance, I see it taking out $96k next; $BTC.X SECURE THE BAG!🎒",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
