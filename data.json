@@ -142,5 +142,30 @@
   "verdict": "Excès re-gonflé PENDANT un choc actif → un second choc peut forcer un plus-bas vers la zone maturation ($28,627-38,731).",
   "lean": "plus-bas possible",
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
+ },
+ "corridor": {
+  "support": 73313,
+  "fair": 174554,
+  "resistance": 523663,
+  "projections": [
+   {
+    "cycle": "HC4 · halving 2024",
+    "top": "$126k (réalisé)",
+    "bottom": "~$58k (candidat)"
+   },
+   {
+    "cycle": "HC5 · halving ~2028",
+    "top": "$250-550k (~2029)",
+    "bottom": "$150-280k (~2030)"
+   },
+   {
+    "cycle": "HC6 · halving ~2032",
+    "top": "$0,7-1,3M (~2033)",
+    "bottom": "$400-550k (~2034)"
+   }
+  ],
+  "note": "Modèle Power Law (curve-fit, pas une loi). Le corridor (adoption) est la partie robuste ; le timing des swings (halving) s'affaiblit.",
+  "position_pct": 4,
+  "zone": "bas du corridor (historiquement bon marché)"
  }
 }

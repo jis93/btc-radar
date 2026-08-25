@@ -217,6 +217,21 @@
   </section>
 
   <section>
+    <h2>Corridor de cycle (Power Law · long terme)</h2>
+    <div class="gauge-card" style="gap:14px">
+      <p class="gauge-note" style="margin:0">Où se situe le prix dans le corridor d'adoption historique
+        (support / fair value / résistance). Le corridor monte avec l'adoption ; les cycles de halving
+        oscillent dedans avec une amplitude qui rétrécit. <strong>Curve-fit, pas une loi.</strong></p>
+      <div id="corridor-bar" style="position:relative;height:46px;border-radius:8px;
+           background:linear-gradient(90deg,var(--ok-soft),var(--bg-inset),var(--bad-soft));
+           border:1px solid var(--line-soft)"></div>
+      <div id="corridor-est" style="display:flex;flex-wrap:wrap;gap:10px"></div>
+      <div id="corridor-proj" class="rows"></div>
+      <div style="font-size:12px;color:var(--ink-faint)" id="corridor-note"></div>
+    </div>
+  </section>
+
+  <section>
     <h2>Dates clés</h2>
     <div class="timeline" id="timeline"></div>
   </section>
@@ -311,6 +326,7 @@ function render(d) {
   }).join("");
 
   renderModel(d.model);
+  renderCorridor(d.corridor, d.prices);
 
   const alerts = (d.alerts || []).map(a =>
     `<div class="alert">⚠️ <strong>${a.label}</strong>${a.changed ? " — CHANGEMENT DÉTECTÉ, à vérifier" : ""}
@@ -330,6 +346,38 @@ function render(d) {
       <span class="tl-what">${e.window ? "<strong>" + e.what + "</strong>" : e.what}</span>
     </div>`;
   }).join("");
+}
+
+function renderCorridor(c, prices) {
+  if (!c) return;
+  const usd = v => v == null ? "—" : "$" + Number(v).toLocaleString("fr-FR");
+  const btc = (prices || {}).btc_usd;
+  const bar = document.getElementById("corridor-bar");
+  const mark = (leftPct, label, color, top) =>
+    `<div style="position:absolute;left:${leftPct}%;top:0;bottom:0;width:2px;background:${color}">
+       <span style="position:absolute;${top ? 'top:-2px' : 'bottom:-2px'};left:4px;white-space:nowrap;
+       font-size:11px;color:${color};font-family:ui-monospace,monospace">${label}</span></div>`;
+  let html = "";
+  if (btc != null && c.position_pct != null) {
+    html += mark(c.position_pct, "▲ " + usd(btc) + " (" + c.position_pct + "%)", "var(--accent)", true);
+  }
+  html += `<span style="position:absolute;left:4px;bottom:3px;font-size:11px;color:var(--ok)">support ${usd(c.support)}</span>`;
+  html += `<span style="position:absolute;right:4px;bottom:3px;font-size:11px;color:var(--bad)">résist. ${usd(c.resistance)}</span>`;
+  bar.innerHTML = html;
+
+  document.getElementById("corridor-est").innerHTML = [
+    ["Support (plancher)", usd(c.support)],
+    ["Fair value", usd(c.fair)],
+    ["Résistance (plafond)", usd(c.resistance)],
+    ["Position", (c.position_pct ?? "—") + "% · " + (c.zone || "")],
+  ].map(([l, v]) => `<div class="chip" style="flex-direction:column;align-items:flex-start;gap:2px">
+      <span class="lbl">${l}</span><span class="num">${v}</span></div>`).join("");
+
+  document.getElementById("corridor-proj").innerHTML = (c.projections || []).map(p =>
+    `<div class="row"><span class="dot warn" style="visibility:hidden"></span>
+       <span class="name">${p.cycle}</span><span class="weight"></span>
+       <span class="reading">Sommet ${p.top} · Creux ${p.bottom}</span></div>`).join("");
+  document.getElementById("corridor-note").textContent = c.note || "";
 }
 
 function renderModel(m) {

@@ -8,6 +8,7 @@ est conservateur : OUI seulement si confiance haute + source < 7 jours,
 sinon état inchangé.
 """
 import json
+import math
 import os
 import re
 import sys
@@ -626,6 +627,44 @@ def compute_model(prices, judge):
     return m
 
 
+# --- Corridor Power Law (Santostasi) : prix ≈ K × jours_depuis_genèse^N ---
+# Curve-fit, PAS une loi. Calibré sur les projections publiées 2029/2032.
+PL_GENESIS = date(2009, 1, 3)
+PL_K = 1.41e-17
+PL_N = 5.8
+PL_SUPPORT_MULT = 0.42     # plancher = 0.42 × fair value
+PL_RESIST_MULT = 3.0       # résistance = 3.0 × fair value
+
+# Projections publiées / dérivées, par cycle de halving (bandes larges = incertitude)
+PL_CYCLE_PROJ = [
+    {"cycle": "HC4 · halving 2024", "top": "$126k (réalisé)", "bottom": "~$58k (candidat)"},
+    {"cycle": "HC5 · halving ~2028", "top": "$250-550k (~2029)", "bottom": "$150-280k (~2030)"},
+    {"cycle": "HC6 · halving ~2032", "top": "$0,7-1,3M (~2033)", "bottom": "$400-550k (~2034)"},
+]
+
+
+def compute_corridor(prices):
+    days = (date.today() - PL_GENESIS).days
+    fair = PL_K * days ** PL_N
+    support = PL_SUPPORT_MULT * fair
+    resist = PL_RESIST_MULT * fair
+    c = {"support": round(support), "fair": round(fair), "resistance": round(resist),
+         "projections": PL_CYCLE_PROJ,
+         "note": "Modèle Power Law (curve-fit, pas une loi). Le corridor (adoption) "
+                 "est la partie robuste ; le timing des swings (halving) s'affaiblit."}
+    btc = prices.get("btc_usd")
+    if btc and resist > support:
+        pos = (math.log(btc) - math.log(support)) / (math.log(resist) - math.log(support))
+        c["position_pct"] = round(max(0, min(1, pos)) * 100)
+        if pos < 0.15:
+            c["zone"] = "bas du corridor (historiquement bon marché)"
+        elif pos > 0.75:
+            c["zone"] = "haut du corridor (historiquement cher)"
+        else:
+            c["zone"] = "milieu du corridor"
+    return c
+
+
 def main():
     prev = load_previous()
     prices = dict(prev.get("prices", {}))
@@ -639,6 +678,7 @@ def main():
     judge = run_judge(prev.get("judge"))
     indicators, score, alerts = compute(prices, judge, prev)
     model = compute_model(prices, judge)
+    corridor = compute_corridor(prices)
 
     data = {
         "updated_at": datetime.now(timezone.utc).isoformat(timespec="minutes"),
@@ -648,6 +688,7 @@ def main():
         "score": score,
         "alerts": alerts,
         "model": model,
+        "corridor": corridor,
     }
     with open(DATA_PATH, "w") as f:
         json.dump(data, f, ensure_ascii=False, indent=1)
