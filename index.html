@@ -174,6 +174,16 @@
   </section>
 
   <section>
+    <h2>Modèle génératif (V1 excès · V2 acheteur · V3 choc)</h2>
+    <div class="gauge-card" id="modelcard" style="gap:14px">
+      <div id="model-verdict" style="font-size:15px"></div>
+      <div id="model-est" style="display:flex;flex-wrap:wrap;gap:10px"></div>
+      <div id="model-vars" class="rows"></div>
+      <div style="font-size:12px;color:var(--ink-faint)" id="model-conf"></div>
+    </div>
+  </section>
+
+  <section>
     <h2>Dates clés</h2>
     <div class="timeline" id="timeline"></div>
   </section>
@@ -267,6 +277,8 @@ function render(d) {
     </div>`;
   }).join("");
 
+  renderModel(d.model);
+
   const alerts = (d.alerts || []).map(a =>
     `<div class="alert">⚠️ <strong>${a.label}</strong>${a.changed ? " — CHANGEMENT DÉTECTÉ, à vérifier" : ""}
      ${a.justification || ""} ${a.source ? `<a href="${a.source}" rel="noopener">source</a>` : ""}</div>`);
@@ -285,6 +297,40 @@ function render(d) {
       <span class="tl-what">${e.window ? "<strong>" + e.what + "</strong>" : e.what}</span>
     </div>`;
   }).join("");
+}
+
+function renderModel(m) {
+  if (!m) return;
+  const usd = v => v == null ? "—" : "$" + Number(v).toLocaleString("fr-FR");
+  const leanColor = { "plus-bas possible": "var(--bad)", "bottom en place": "var(--ok)",
+    "consolidation / repli": "var(--warn)", "indéterminé": "var(--ink-dim)" }[m.lean] || "var(--accent)";
+  document.getElementById("model-verdict").innerHTML =
+    `<span style="color:${leanColor};font-weight:600;text-transform:uppercase;font-size:12px;letter-spacing:.06em">${m.lean}</span><br>${m.verdict}`;
+
+  const estChip = (lbl, val, sub) =>
+    `<div class="chip" style="flex-direction:column;align-items:flex-start;gap:2px">
+       <span class="lbl">${lbl}</span><span class="num">${val}</span>
+       <span style="font-size:11px;color:var(--ink-faint)">${sub || ""}</span></div>`;
+  document.getElementById("model-est").innerHTML = [
+    estChip("Prix actuel", usd(m.ath_price && m.current_drawdown_pct != null
+      ? Math.round(m.ath_price * (1 + m.current_drawdown_pct / 100)) : null),
+      (m.current_drawdown_pct ?? "?") + "% vs ATH"),
+    estChip("Creux vu (1 juil)", usd(m.shallow_bottom), m.shallow_drawdown_pct + "% · hyp. institutionnelle"),
+    estChip("Zone maturation", usd(m.trend_band ? m.trend_band[0] : null) + "–" + usd(m.trend_band ? m.trend_band[1] : null),
+      m.trend_drawdown_pct + "% · si le trend historique tient"),
+    estChip("Timing", "J+" + m.days_since_ath, "norme ~" + m.calendar_norm_days + "j · creux vu à J+" + m.low_seen_days),
+  ].join("");
+
+  const vrow = (v, label, val) =>
+    `<div class="row"><span class="dot warn" style="visibility:hidden"></span>
+       <span class="name">${v} — ${label}</span><span class="weight"></span>
+       <span class="reading">${val}</span></div>`;
+  document.getElementById("model-vars").innerHTML = [
+    vrow("V1", "Excès", m.v1_excess + (m.v1_detail ? " · " + m.v1_detail : "")),
+    vrow("V2", "Acheteur marginal", m.v2_buyer),
+    vrow("V3", "Choc actif", m.v3_shock),
+  ].join("");
+  document.getElementById("model-conf").textContent = "Confiance : " + m.confidence;
 }
 
 function renderHistory(hist) {

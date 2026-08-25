@@ -116,5 +116,29 @@
   }
  },
  "score": 57,
- "alerts": []
+ "alerts": [],
+ "model": {
+  "n_cycles": 4,
+  "ath_price": 126296,
+  "low_seen": 57950,
+  "trend_drawdown_pct": -73.3,
+  "trend_bottom": 33679,
+  "trend_band": [
+   28627,
+   38731
+  ],
+  "shallow_bottom": 57950,
+  "shallow_drawdown_pct": -54.1,
+  "current_drawdown_pct": -36.1,
+  "days_since_ath": 323,
+  "calendar_norm_days": 390,
+  "low_seen_days": 268,
+  "v1_excess": "re-gonflé",
+  "v1_detail": "rallye +39% depuis $58k, funding 0.01%",
+  "v2_buyer": "institutionnel actif (entrées ETF)",
+  "v3_shock": "guerre Iran / pétrole $91",
+  "verdict": "Excès re-gonflé PENDANT un choc actif → un second choc peut forcer un plus-bas vers la zone maturation ($28,627-38,731).",
+  "lean": "plus-bas possible",
+  "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
+ }
 }

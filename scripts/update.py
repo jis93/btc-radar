@@ -20,7 +20,19 @@ DATA_PATH = os.path.join(ROOT, "data.json")
 UA = {"User-Agent": "Mozilla/5.0 (btc-radar; +https://github.com/jis93/btc-radar)"}
 
 CYCLE_TOP = date(2025, 10, 6)          # ATH $126,296
+CYCLE_TOP_PRICE = 126296
 CYCLE_BOTTOM_DAYS = (363, 384)         # fenêtre historique sur 3 cycles
+CYCLE_LOW_SEEN = 57950                 # creux du 1er juillet 2026
+
+# Table historique — modèle génératif à 3 variables (V1 excès, V2 acheteur, V3 choc).
+# Le cycle de 4 ans émerge quand V2=retail + V3=endogène ; 2026 = mêmes équations,
+# V2 institutionnalisé + V3 exogène → bottom plus tôt et moins profond.
+HIST_CYCLES = [
+    {"label": "2011", "drawdown": -93, "days": 163, "shock": "endogène"},
+    {"label": "2015", "drawdown": -86, "days": 410, "shock": "Mt.Gox (endogène)"},
+    {"label": "2018", "drawdown": -84, "days": 385, "shock": "endogène"},
+    {"label": "2022", "drawdown": -77, "days": 376, "shock": "FTX/Luna (endogène)"},
+]
 
 
 def http_json(url, headers=None, timeout=25):
@@ -524,6 +536,96 @@ def compute(prices, judge, prev):
     return ind, score, alerts
 
 
+def _linfit(xs, ys):
+    """Régression linéaire simple (moindres carrés) → (pente, ordonnée)."""
+    n = len(xs)
+    mx, my = sum(xs) / n, sum(ys) / n
+    denom = sum((x - mx) ** 2 for x in xs) or 1
+    slope = sum((x - mx) * (y - my) for x, y in zip(xs, ys)) / denom
+    return slope, my - slope * mx
+
+
+def compute_model(prices, judge):
+    """Applique le modèle génératif à 3 variables aux données du jour.
+    Sort une estimation de PROFONDEUR (via maturation du drawdown) et de
+    TIMING, plus l'état de l'excès (V1) et du choc (V3). n=4 cycles →
+    incertitude énorme, affichée explicitement."""
+    m = {"n_cycles": len(HIST_CYCLES), "ath_price": CYCLE_TOP_PRICE,
+         "low_seen": CYCLE_LOW_SEEN}
+
+    # --- PROFONDEUR : maturation du drawdown sur les 3 cycles "modernes" ---
+    modern = HIST_CYCLES[-3:]                       # 2015, 2018, 2022
+    slope, intc = _linfit([1, 2, 3], [c["drawdown"] for c in modern])
+    trend_dd = slope * 4 + intc                     # cycle 5 (2026)
+    m["trend_drawdown_pct"] = round(trend_dd, 1)
+    m["trend_bottom"] = round(CYCLE_TOP_PRICE * (1 + trend_dd / 100))
+    band = (CYCLE_TOP_PRICE * (1 + (trend_dd - 4) / 100),
+            CYCLE_TOP_PRICE * (1 + (trend_dd + 4) / 100))
+    m["trend_band"] = [round(band[0]), round(band[1])]
+    m["shallow_bottom"] = CYCLE_LOW_SEEN            # hypothèse institutionnalisation
+    m["shallow_drawdown_pct"] = round((CYCLE_LOW_SEEN / CYCLE_TOP_PRICE - 1) * 100, 1)
+
+    btc = prices.get("btc_usd")
+    if btc:
+        m["current_drawdown_pct"] = round((btc / CYCLE_TOP_PRICE - 1) * 100, 1)
+
+    # --- TIMING : norme calendaire vs institutionnalisation ---
+    days = (date.today() - CYCLE_TOP).days
+    norm = sum(c["days"] for c in modern) // 3      # ~390 j
+    m["days_since_ath"] = days
+    m["calendar_norm_days"] = norm
+    m["low_seen_days"] = 268                        # 1er juil = 268 j (précoce)
+
+    # --- V1 : excès purgé ou re-gonflé ? (funding + rallye depuis le creux) ---
+    funding = prices.get("funding_rate_pct")
+    rally = (btc / CYCLE_LOW_SEEN - 1) * 100 if btc else 0
+    froth = rally > 20 and (funding or 0) > 0
+    m["v1_excess"] = "re-gonflé" if froth else "purgé/neutre"
+    m["v1_detail"] = f"rallye +{rally:.0f}% depuis $58k, funding {funding}%" if btc else ""
+
+    # --- V2 : acheteur marginal (flux ETF = proxy institutionnel) ---
+    flows = prices.get("etf_flows_15d_musd")
+    if flows is None:
+        m["v2_buyer"] = "inconnu"
+    elif flows > 0:
+        m["v2_buyer"] = "institutionnel actif (entrées ETF)"
+    else:
+        m["v2_buyer"] = "institutionnel en retrait (sorties ETF)"
+
+    # --- V3 : choc actif ? (guerre via juge + pétrole + contagion IA) ---
+    war = judge.get("ceasefire", {}).get("answer") != "YES"
+    brent = prices.get("brent_usd") or 0
+    nvda = prices.get("nvda_drawdown_pct") or 0
+    shocks = []
+    if war and brent > 85:
+        shocks.append(f"guerre Iran / pétrole ${brent:.0f}")
+    if nvda < -15:
+        shocks.append(f"contagion IA (NVDA {nvda:.0f}%)")
+    m["v3_shock"] = " + ".join(shocks) if shocks else "pas de choc aigu actif"
+
+    # --- SYNTHÈSE : quelle branche du modèle ? ---
+    if froth and shocks:
+        verdict = (f"Excès re-gonflé PENDANT un choc actif → un second choc "
+                   f"peut forcer un plus-bas vers la zone maturation "
+                   f"(${m['trend_band'][0]:,}-{m['trend_band'][1]:,}).")
+        lean = "plus-bas possible"
+    elif froth and not shocks:
+        verdict = ("Excès re-gonflé mais pas de choc aigu → tension : le froth "
+                   "doit se purger, mais sans déclencheur immédiat. Fragile.")
+        lean = "consolidation / repli"
+    elif flows and flows > 0 and not froth:
+        verdict = (f"Excès purgé + acheteur institutionnel actif → hypothèse "
+                   f"institutionnalisation validée, $58k (−54%) crédible comme creux.")
+        lean = "bottom en place"
+    else:
+        verdict = "Configuration mixte — le modèle n'a pas de branche dominante."
+        lean = "indéterminé"
+    m["verdict"] = verdict
+    m["lean"] = lean
+    m["confidence"] = "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
+    return m
+
+
 def main():
     prev = load_previous()
     prices = dict(prev.get("prices", {}))
@@ -536,6 +638,7 @@ def main():
 
     judge = run_judge(prev.get("judge"))
     indicators, score, alerts = compute(prices, judge, prev)
+    model = compute_model(prices, judge)
 
     data = {
         "updated_at": datetime.now(timezone.utc).isoformat(timespec="minutes"),
@@ -544,6 +647,7 @@ def main():
         "indicators": indicators,
         "score": score,
         "alerts": alerts,
+        "model": model,
     }
     with open(DATA_PATH, "w") as f:
         json.dump(data, f, ensure_ascii=False, indent=1)
