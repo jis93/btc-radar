@@ -1,60 +1,60 @@
 {
- "updated_at": "2026-08-24T07:35+00:00",
+ "updated_at": "2026-08-25T07:17+00:00",
  "prices": {
-  "btc_usd": 77576,
-  "btc_24h_pct": 1.79,
-  "btc_mcap_usd": 1556736700228.2925,
-  "brent_usd": 92.8,
-  "brent_14d_pct": 5.8,
-  "spx": 7674,
-  "spx_drawdown_pct": -1.6,
-  "nvda_drawdown_pct": -4.7,
-  "fear_greed": 73,
+  "btc_usd": 80701,
+  "btc_24h_pct": 3.86,
+  "btc_mcap_usd": 1620065704497.8875,
+  "brent_usd": 91.35,
+  "brent_14d_pct": 2.7,
+  "spx": 7653,
+  "spx_drawdown_pct": -1.9,
+  "nvda_drawdown_pct": -7.5,
+  "fear_greed": 74,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": -3.5,
-  "etf_last_day_musd": 307.5,
-  "etf_flows_15d_musd": 2016.3
+  "hashrate_30d_pct": -2.8,
+  "etf_last_day_musd": 337.6,
+  "etf_flows_15d_musd": 2109.5
  },
  "judge": {
   "ceasefire": {
    "answer": "NO",
    "confidence": "low",
-   "justification": "The June 2026 cease‑fire extension expired in mid‑August and no recent source confirms a new agreement in force.",
-   "source_url": "https://www.britannica.com/event/2026-Iran-war",
-   "source_date": "2026-07-10",
+   "justification": "No source within the last 7 days confirms a currently in‑force ceasefire accepted by Iran.",
+   "source_url": "https://www.aljazeera.com/news/2026/6/18/world-reacts-to-us-iran-deal-to-extend-ceasefire-begin-negotations",
+   "source_date": "2026-06-18",
    "changed": false
   },
   "gulf_infra": {
    "answer": "NO",
-   "confidence": "high",
-   "justification": "No reports of a major operational Gulf facility being hit in the past week.",
-   "source_url": "https://www.reuters.com/business/energy/saudi-aramco-shuts-ras-tanura-refinery-after-drone-strike-source-says-2026-03-02",
-   "source_date": "2026-03-02",
+   "confidence": "low",
+   "justification": "No major operational Gulf energy facility has been reported hit in the past week.",
+   "source_url": "https://www.lemonde.fr/en/international/article/2026/03/19/attacks-on-gulf-energy-facilities-intensify-fueling-fears-of-a-gas-war_6751601_4.html",
+   "source_date": "2026-03-19",
    "changed": false
   },
   "fed_cut": {
    "answer": "NO",
-   "confidence": "low",
-   "justification": "No recent (within 7 days) source shows a cut or near‑certain cut signal; the latest meeting (July 29 2026) held rates steady.",
-   "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20260729.htm",
+   "confidence": "high",
+   "justification": "The July 29, 2026 FOMC statement confirms the Fed kept the policy rate unchanged and gave no near‑certain cut signal.",
+   "source_url": "https://www.federalreserve.gov/monetarypolicy/files/monetary20260729a1.pdf",
    "source_date": "2026-07-29",
-   "changed": false,
-   "error": "HTTPError"
+   "changed": false
   },
-  "checked_at": "2026-08-24T07:35+00:00",
+  "checked_at": "2026-08-25T07:17+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "neutral",
    "evidence": "No recent coverage (within the past 7 days) measuring or describing crypto retail sentiment for Bitcoin was found.",
    "evidence_date": "2026-08-24",
-   "confidence": "low"
+   "confidence": "low",
+   "error": "HTTPError"
   },
   "sentiment_posts": {
    "sentiment": "euphoria",
-   "evidence": "Titles like \"78k Resistance break\", \"Chat, my favorite twitch streamer just said Bitcoin is ripping right now\" and \"Day 617 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\" show a dominant hype and FOMO vibe.",
+   "evidence": "BItcoin hitting 80K for the first time since May 🚀; $BTC.X this feels like this time around it might break 81k could go straight to 90k; $BTC.X BTC to 125k!!SPELL goes exponentially to .01 to .02 then $1 retire early!",
    "confidence": "high",
    "sample_size": 38,
-   "stocktwits_bull_pct": 93
+   "stocktwits_bull_pct": 100
   }
  },
  "indicators": {
@@ -63,7 +63,7 @@
    "weight": 20,
    "score": 100,
    "state": "ok",
-   "detail": "Entrées nettes 15 j : +2016 M$",
+   "detail": "Entrées nettes 15 j : +2110 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -71,15 +71,15 @@
    "weight": 20,
    "score": 50,
    "state": "warn",
-   "detail": "Taux tenus ; CPI en baisse → attentes pour les FOMC de sept/oct/déc",
+   "detail": "Fed Warsh (hawkish) : marché price statu quo, risque de HAUSSE lié au pétrole — baisse quasi exclue à court terme",
    "flip": "Vert : première baisse effective (juge LLM + FedWatch)"
   },
   "oil_channel": {
    "label": "Canal pétrole → inflation",
    "weight": 15,
-   "score": 0,
-   "state": "bad",
-   "detail": "Brent 92.8 $ (+5.8 % / 14 j) — pression inflation",
+   "score": 50,
+   "state": "warn",
+   "detail": "Brent 91.35 $ (+2.7 % / 14 j) — stabilisé",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -87,7 +87,7 @@
    "weight": 15,
    "score": 86,
    "state": "ok",
-   "detail": "J+322 depuis le top (fenêtre 363-384 j : dans 41 j)",
+   "detail": "J+323 depuis le top (fenêtre 363-384 j : dans 40 j)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
@@ -95,7 +95,7 @@
    "weight": 10,
    "score": 50,
    "state": "warn",
-   "detail": "Hashrate -3.5 % / 30 j — purge en cours de stabilisation",
+   "detail": "Hashrate -2.8 % / 30 j — purge en cours de stabilisation",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -103,7 +103,7 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 73, NVDA -4.7 %, S&P -1.6 %)",
+   "detail": "Pas de flush global (F&G 74, NVDA -7.5 %, S&P -1.9 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
@@ -111,10 +111,10 @@
    "weight": 10,
    "score": 20,
    "state": "bad",
-   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 93% bullish — Titles like \"78k Resistance break\", \"Chat, my favorite twitch streamer just said Bitcoin is ripping right now\" and \"Day 617 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\" show a dominant hype and FOMO vibe.",
+   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 100% bullish — BItcoin hitting 80K for the first time since May 🚀; $BTC.X this feels like this time around it might break 81k could go straight to 90k; $BTC.X BTC to 125k!!SPELL goes exponentially to .01 to .02 then $1 retire early!",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
- "score": 50,
+ "score": 57,
  "alerts": []
 }
