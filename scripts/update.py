@@ -547,7 +547,36 @@ def main():
     }
     with open(DATA_PATH, "w") as f:
         json.dump(data, f, ensure_ascii=False, indent=1)
+
+    append_history(data)
     print(f"score={score} | " + " ".join(f"{k}:{v['score']}" for k, v in indicators.items()))
+
+
+HISTORY_PATH = os.path.join(ROOT, "history.json")
+
+
+def append_history(data):
+    """Ajoute (ou remplace) le point du jour dans history.json — une ligne
+    compacte par jour, pour tracer la courbe du score dans le temps."""
+    try:
+        with open(HISTORY_PATH) as f:
+            hist = json.load(f)
+    except Exception:
+        hist = []
+    day = data["updated_at"][:10]           # AAAA-MM-JJ
+    p = data.get("prices", {})
+    point = {
+        "date": day,
+        "score": data.get("score"),
+        "btc": p.get("btc_usd"),
+        "brent": p.get("brent_usd"),
+        "ind": {k: v["score"] for k, v in data.get("indicators", {}).items()},
+    }
+    hist = [h for h in hist if h.get("date") != day]   # 1 point/jour, on écrase
+    hist.append(point)
+    hist = hist[-400:]                       # garde ~13 mois
+    with open(HISTORY_PATH, "w") as f:
+        json.dump(hist, f, ensure_ascii=False, separators=(",", ":"))
 
 
 if __name__ == "__main__":

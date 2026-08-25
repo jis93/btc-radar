@@ -142,6 +142,16 @@
       <div class="gauge-value num"><span id="score">—</span><small> / 100</small></div>
     </div>
     <div class="bar" id="bar" role="img" aria-label="Jauge de proximité du bottom"></div>
+    <div id="histwrap" style="display:none">
+      <svg id="histchart" viewBox="0 0 600 130" preserveAspectRatio="none"
+           style="width:100%;height:110px" role="img"
+           aria-label="Historique du score et du prix BTC"></svg>
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--ink-faint)">
+        <span><span style="color:var(--accent)">●</span> score /100
+              &nbsp;·&nbsp; <span style="color:var(--ink-dim)">●</span> BTC</span>
+        <span id="histrange"></span>
+      </div>
+    </div>
     <p class="gauge-note">Heuristique pondérée recalculée chaque jour (cron 06:20 UTC), pas une mesure.
       Le bottom exige que <strong>les deux conditions se réunissent en même temps</strong> —
       l'épuisement des vendeurs forcés <em>et</em> la levée de la pression macro.
@@ -277,8 +287,40 @@ function render(d) {
   }).join("");
 }
 
-fetch("data.json", { cache: "no-store" })
-  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
-  .then(render)
-  .catch(() => { document.getElementById("load-error").style.display = "block"; });
+function renderHistory(hist) {
+  if (!Array.isArray(hist) || hist.length < 2) return;
+  const wrap = document.getElementById("histwrap");
+  wrap.style.display = "block";
+  const W = 600, H = 130, pad = 6;
+  const xs = hist.map((_, i) => pad + i * (W - 2 * pad) / (hist.length - 1));
+  const scoreY = s => H - pad - (s / 100) * (H - 2 * pad);
+  const btcs = hist.map(h => h.btc).filter(v => v != null);
+  const lo = Math.min(...btcs), hi = Math.max(...btcs);
+  const btcY = b => H - pad - ((b - lo) / (hi - lo || 1)) * (H - 2 * pad);
+  const path = (pts, yf) => pts.map((h, i) =>
+    (i ? "L" : "M") + xs[i].toFixed(1) + "," + yf(h).toFixed(1)).join(" ");
+  const css = getComputedStyle(document.documentElement);
+  const accent = css.getPropertyValue("--accent").trim();
+  const dim = css.getPropertyValue("--ink-dim").trim();
+  const grid = css.getPropertyValue("--line-soft").trim();
+  let svg = "";
+  // ligne des 50 (mi-jauge)
+  svg += `<line x1="${pad}" y1="${scoreY(50)}" x2="${W - pad}" y2="${scoreY(50)}" stroke="${grid}" stroke-width="1" stroke-dasharray="3 3"/>`;
+  svg += `<path d="${path(hist.filter(h => h.btc != null), btcY)}" fill="none" stroke="${dim}" stroke-width="1.5" opacity="0.7"/>`;
+  svg += `<path d="${path(hist, scoreY)}" fill="none" stroke="${accent}" stroke-width="2"/>`;
+  hist.forEach((h, i) => {
+    svg += `<circle cx="${xs[i].toFixed(1)}" cy="${scoreY(h.score).toFixed(1)}" r="2.5" fill="${accent}"/>`;
+  });
+  document.getElementById("histchart").innerHTML = svg;
+  document.getElementById("histrange").textContent =
+    hist[0].date + " → " + hist[hist.length - 1].date;
+}
+
+Promise.all([
+  fetch("data.json", { cache: "no-store" }).then(r => r.ok ? r.json() : Promise.reject(r.status)),
+  fetch("history.json", { cache: "no-store" }).then(r => r.ok ? r.json() : []).catch(() => []),
+]).then(([data, hist]) => {
+  render(data);
+  renderHistory(hist);
+}).catch(() => { document.getElementById("load-error").style.display = "block"; });
 </script>

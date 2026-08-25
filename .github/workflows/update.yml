@@ -21,7 +21,7 @@ jobs:
         run: |
           git config user.name "radar-bot"
           git config user.email "radar-bot@users.noreply.github.com"
-          git add data.json
+          git add data.json history.json
           git diff --cached --quiet || git commit -m "data: mise à jour quotidienne"
           git push
       - name: Email résumé quotidien
