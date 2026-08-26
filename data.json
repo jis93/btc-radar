@@ -1,33 +1,33 @@
 {
- "updated_at": "2026-08-25T11:54+00:00",
+ "updated_at": "2026-08-26T07:16+00:00",
  "prices": {
-  "btc_usd": 79129,
-  "btc_24h_pct": 1.22,
-  "btc_mcap_usd": 1588558832421.007,
-  "brent_usd": 87.97,
-  "brent_14d_pct": -1.1,
-  "spx": 7653,
-  "spx_drawdown_pct": -1.9,
-  "nvda_drawdown_pct": -7.5,
-  "fear_greed": 74,
+  "btc_usd": 78971,
+  "btc_24h_pct": -2.13,
+  "btc_mcap_usd": 1584662721544.6824,
+  "brent_usd": 85.61,
+  "brent_14d_pct": -3.8,
+  "spx": 7677,
+  "spx_drawdown_pct": -1.6,
+  "nvda_drawdown_pct": -5.4,
+  "fear_greed": 65,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": -2.8,
-  "etf_last_day_musd": 337.6,
-  "etf_flows_15d_musd": 2109.5
+  "hashrate_30d_pct": -1.4,
+  "etf_last_day_musd": 314.3,
+  "etf_flows_15d_musd": 2286.2
  },
  "judge": {
   "ceasefire": {
    "answer": "NO",
-   "confidence": "low",
-   "justification": "No recent source (within last 7 days) confirms a currently active ceasefire or peace agreement accepted by Iran.",
-   "source_url": "https://www.aljazeera.com/news/2026/6/18/world-reacts-to-us-iran-deal-to-extend-ceasefire-begin-negotations",
-   "source_date": "2026-06-18",
+   "confidence": "high",
+   "justification": "The ceasefire collapsed on 8 July 2026 and no recent source shows it has been reinstated.",
+   "source_url": "https://en.wikipedia.org/wiki/2026_Iran_war_ceasefire",
+   "source_date": "2026-07-08",
    "changed": false
   },
   "gulf_infra": {
    "answer": "NO",
    "confidence": "low",
-   "justification": "No reports of recent major damage to those facilities in the past week",
+   "justification": "No source within the past 7 days confirms a recent major damage event at those facilities.",
    "source_url": "https://www.france24.com/en/live-news/20260319-key-middle-east-energy-sites-under-fire",
    "source_date": "2026-03-19",
    "changed": false
@@ -38,22 +38,23 @@
    "justification": "The latest FOMC meeting in July 2026 kept rates unchanged and gave no near‑certain cut signal.",
    "source_url": "https://www.cnbc.com/2026/07/29/fed-meeting-today-live-updates.html",
    "source_date": "2026-07-29",
-   "changed": false
+   "changed": false,
+   "error": "HTTPError"
   },
-  "checked_at": "2026-08-25T11:54+00:00",
+  "checked_at": "2026-08-26T07:16+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "fear",
-   "evidence": "The Crypto Fear & Greed Index stood at 35 on August 16, categorized as Fear, and social sentiment is bearish-to-cautious with discussions shifting toward risk management and downside protection.",
+   "evidence": "The Crypto Fear & Greed Index stood at 35 on August 16, categorized as Fear, with social sentiment being bearish-to-cautious and discussions shifting toward risk management and downside protection.",
    "evidence_date": "2026-08-20",
    "confidence": "high"
   },
   "sentiment_posts": {
    "sentiment": "euphoria",
-   "evidence": "BItcoin hitting 80K for the first time since May 🚀; $BTC.X working as planned! Wait for market opens and this will soar! 🚀; $BTC.X $80K break will be a violent one",
+   "evidence": "‘Still waiting for 40K? 😜’, ‘Day 619 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$’, ‘The fringe phase is officially over.’",
    "confidence": "high",
    "sample_size": 38,
-   "stocktwits_bull_pct": 100
+   "stocktwits_bull_pct": 92
   }
  },
  "indicators": {
@@ -62,7 +63,7 @@
    "weight": 20,
    "score": 100,
    "state": "ok",
-   "detail": "Entrées nettes 15 j : +2110 M$",
+   "detail": "Entrées nettes 15 j : +2286 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -76,17 +77,17 @@
   "oil_channel": {
    "label": "Canal pétrole → inflation",
    "weight": 15,
-   "score": 50,
-   "state": "warn",
-   "detail": "Brent 87.97 $ (-1.1 % / 14 j) — stabilisé",
+   "score": 100,
+   "state": "ok",
+   "detail": "Brent 85.61 $ (-3.8 % / 14 j) — détente",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
    "label": "Horloge mécanique du cycle",
    "weight": 15,
-   "score": 86,
+   "score": 87,
    "state": "ok",
-   "detail": "J+323 depuis le top (fenêtre 363-384 j : dans 40 j)",
+   "detail": "J+324 depuis le top (fenêtre 363-384 j : dans 39 j)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
@@ -94,7 +95,7 @@
    "weight": 10,
    "score": 50,
    "state": "warn",
-   "detail": "Hashrate -2.8 % / 30 j — purge en cours de stabilisation",
+   "detail": "Hashrate -1.4 % / 30 j — purge en cours de stabilisation",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -102,7 +103,7 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 74, NVDA -7.5 %, S&P -1.9 %)",
+   "detail": "Pas de flush global (F&G 65, NVDA -5.4 %, S&P -1.6 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
@@ -110,11 +111,11 @@
    "weight": 10,
    "score": 30,
    "state": "bad",
-   "detail": "Presse : peur · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 100% bullish — BItcoin hitting 80K for the first time since May 🚀; $BTC.X working as planned! Wait for market opens and this will soar! 🚀; $BTC.X $80K break will be a violent one",
+   "detail": "Presse : peur · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 92% bullish — ‘Still waiting for 40K? 😜’, ‘Day 619 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$’, ‘The fringe phase is officially over.’",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
- "score": 58,
+ "score": 66,
  "alerts": [],
  "model": {
   "n_cycles": 4,
@@ -128,22 +129,22 @@
   ],
   "shallow_bottom": 57950,
   "shallow_drawdown_pct": -54.1,
-  "current_drawdown_pct": -37.3,
-  "days_since_ath": 323,
+  "current_drawdown_pct": -37.5,
+  "days_since_ath": 324,
   "calendar_norm_days": 390,
   "low_seen_days": 268,
   "v1_excess": "re-gonflé",
-  "v1_detail": "rallye +37% depuis $58k, funding 0.01%",
+  "v1_detail": "rallye +36% depuis $58k, funding 0.01%",
   "v2_buyer": "institutionnel actif (entrées ETF)",
-  "v3_shock": "guerre Iran / pétrole $88",
+  "v3_shock": "guerre Iran / pétrole $86",
   "verdict": "Excès re-gonflé PENDANT un choc actif → un second choc peut forcer un plus-bas vers la zone maturation ($28,627-38,731).",
   "lean": "plus-bas possible",
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
  },
  "corridor": {
-  "support": 46436,
-  "fair": 113258,
-  "resistance": 297869,
+  "support": 46469,
+  "fair": 113340,
+  "resistance": 298083,
   "projections": [
    {
     "cycle": "HC4 · halving 2024",
