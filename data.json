@@ -1,62 +1,59 @@
 {
- "updated_at": "2026-08-27T17:46+00:00",
+ "updated_at": "2026-08-28T18:53+00:00",
  "prices": {
-  "btc_usd": 80666,
-  "btc_24h_pct": 2.71,
-  "btc_mcap_usd": 1619539171226.2676,
-  "brent_usd": 87.74,
-  "brent_14d_pct": 0.8,
-  "spx": 7736,
-  "spx_drawdown_pct": -0.8,
-  "nvda_drawdown_pct": 0.0,
-  "fear_greed": 71,
+  "btc_usd": 77335,
+  "btc_24h_pct": -3.33,
+  "btc_mcap_usd": 1552608517416.7544,
+  "brent_usd": 87.91,
+  "brent_14d_pct": -0.7,
+  "spx": 7705,
+  "spx_drawdown_pct": -1.2,
+  "nvda_drawdown_pct": -4.5,
+  "fear_greed": 73,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": 2.1,
+  "hashrate_30d_pct": 4.9,
   "etf_last_day_musd": 0.0,
-  "etf_flows_15d_musd": 2416.7
+  "etf_flows_15d_musd": 2659.0
  },
  "judge": {
   "ceasefire": {
    "answer": "NO",
    "confidence": "high",
-   "justification": "The ceasefire collapsed on 8 July 2026 and no recent source shows it has been reinstated.",
+   "justification": "No source from the past week confirms Iran has accepted a ceasefire that is currently in force; the last known ceasefire collapsed on 8 July 2026.",
    "source_url": "https://en.wikipedia.org/wiki/2026_Iran_war_ceasefire",
    "source_date": "2026-07-08",
-   "changed": false,
-   "error": "HTTPError"
+   "changed": false
   },
   "gulf_infra": {
    "answer": "NO",
    "confidence": "low",
-   "justification": "No recent reports within the last 7 days confirm a major operational Gulf facility was hit and materially damaged.",
-   "source_url": "N/A",
-   "source_date": "N/A",
+   "justification": "No reports of a major operational Gulf facility being hit in the past week",
+   "source_url": "https://www.aljazeera.com/news/2026/3/4/which-oil-and-gas-facilities-in-the-gulf-have-been-attacked",
+   "source_date": "2026-03-04",
    "changed": false
   },
   "fed_cut": {
    "answer": "NO",
-   "confidence": "low",
-   "justification": "The latest FOMC meeting in July 2026 kept rates unchanged and gave no near‑certain cut signal.",
-   "source_url": "https://www.cnbc.com/2026/07/29/fed-meeting-today-live-updates.html",
+   "confidence": "high",
+   "justification": "The July 28‑29, 2026 FOMC meeting left rates unchanged and did not signal a near‑certain cut at the next meeting.",
+   "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20260729.htm",
    "source_date": "2026-07-29",
-   "changed": false,
-   "error": "HTTPError"
+   "changed": false
   },
-  "checked_at": "2026-08-27T17:46+00:00",
+  "checked_at": "2026-08-28T18:53+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
-   "sentiment": "fear",
-   "evidence": "The Crypto Fear & Greed Index stood at 35 on August 16, categorized as Fear, with social sentiment being bearish-to-cautious and discussions shifting toward risk management and downside protection.",
-   "evidence_date": "2026-08-20",
-   "confidence": "high",
-   "error": "HTTPError"
+   "sentiment": "euphoria",
+   "evidence": "JPMorgan's retail sentiment score for BTC and BTC‑tied assets hit a record high last week, indicating a frenzied sentiment among retail investors.",
+   "evidence_date": "2026-08-25",
+   "confidence": "high"
   },
   "sentiment_posts": {
-   "sentiment": "euphoria",
-   "evidence": "Titles like \"Woo hooo!!! Crossed the critical barrier\", \"I’m in love with what I see. Next stop $125k\", and \"Jack Mallers explains Bitcoin's most powerful feature: absolute scarcity 🚀\" showcase extreme bullish excitement.",
+   "sentiment": "optimism",
+   "evidence": "Titles like \"81k now boys\", \"You have to be insane to not buy BTC now\" and \"and just like that, BTC will never be under $80k again\" show confident bullish sentiment despite some fear‑laden posts.",
    "confidence": "high",
    "sample_size": 38,
-   "stocktwits_bull_pct": 88
+   "stocktwits_bull_pct": 45
   }
  },
  "indicators": {
@@ -65,7 +62,7 @@
    "weight": 20,
    "score": 100,
    "state": "ok",
-   "detail": "Entrées nettes 15 j : +2417 M$",
+   "detail": "Entrées nettes 15 j : +2659 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -81,7 +78,7 @@
    "weight": 15,
    "score": 50,
    "state": "warn",
-   "detail": "Brent 87.74 $ (+0.8 % / 14 j) — stabilisé",
+   "detail": "Brent 87.91 $ (-0.7 % / 14 j) — stabilisé",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -89,7 +86,7 @@
    "weight": 15,
    "score": 87,
    "state": "ok",
-   "detail": "J+325 depuis le top (fenêtre 363-384 j : dans 38 j)",
+   "detail": "J+326 depuis le top (fenêtre 363-384 j : dans 37 j)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
@@ -97,7 +94,7 @@
    "weight": 10,
    "score": 100,
    "state": "ok",
-   "detail": "Hashrate +2.1 % / 30 j — reprise, capitulation derrière",
+   "detail": "Hashrate +4.9 % / 30 j — reprise, capitulation derrière",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -105,19 +102,19 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 71, NVDA +0.0 %, S&P -0.8 %)",
+   "detail": "Pas de flush global (F&G 73, NVDA -4.5 %, S&P -1.2 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
    "label": "Sentiment réseaux (contrarien)",
    "weight": 10,
-   "score": 30,
+   "score": 12,
    "state": "bad",
-   "detail": "Presse : peur · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 88% bullish — Titles like \"Woo hooo!!! Crossed the critical barrier\", \"I’m in love with what I see. Next stop $125k\", and \"Jack Mallers explains Bitcoin's most powerful feature: absolute scarcity 🚀\" showcase extreme bullish excitement.",
+   "detail": "Presse : euphorie · Forums (38 posts Reddit/StockTwits/biz) : optimisme · StockTwits 45% bullish — Titles like \"81k now boys\", \"You have to be insane to not buy BTC now\" and \"and just like that, BTC will never be under $80k again\" show confident bullish sentiment despite some fear‑laden posts.",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
- "score": 64,
+ "score": 62,
  "alerts": [],
  "model": {
   "n_cycles": 4,
@@ -131,12 +128,12 @@
   ],
   "shallow_bottom": 57950,
   "shallow_drawdown_pct": -54.1,
-  "current_drawdown_pct": -36.1,
-  "days_since_ath": 325,
+  "current_drawdown_pct": -38.8,
+  "days_since_ath": 326,
   "calendar_norm_days": 390,
   "low_seen_days": 268,
   "v1_excess": "re-gonflé",
-  "v1_detail": "rallye +39% depuis $58k, funding 0.01%",
+  "v1_detail": "rallye +33% depuis $58k, funding 0.01%",
   "v2_buyer": "institutionnel actif (entrées ETF)",
   "v3_shock": "guerre Iran / pétrole $88",
   "verdict": "Excès re-gonflé PENDANT un choc actif → un second choc peut forcer un plus-bas vers la zone maturation ($28,627-38,731).",
@@ -144,9 +141,9 @@
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
  },
  "corridor": {
-  "support": 46503,
-  "fair": 113421,
-  "resistance": 298298,
+  "support": 46536,
+  "fair": 113503,
+  "resistance": 298513,
   "projections": [
    {
     "cycle": "HC4 · halving 2024",
@@ -165,7 +162,7 @@
    }
   ],
   "note": "Power Law recalibré sur les prix réels (fair ≈ ATH). Bande ~6x inhérente au modèle → outil de CONTEXTE (zone chère/bon marché), pas de niveaux précis. Curve-fit, pas une loi.",
-  "position_pct": 30,
+  "position_pct": 27,
   "zone": "milieu du corridor"
  }
 }
