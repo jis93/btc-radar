@@ -1,19 +1,19 @@
 {
- "updated_at": "2026-08-29T12:47+00:00",
+ "updated_at": "2026-08-30T12:06+00:00",
  "prices": {
-  "btc_usd": 77572,
-  "btc_24h_pct": -2.23,
-  "btc_mcap_usd": 1557393237734.4834,
-  "brent_usd": 89.7,
-  "brent_14d_pct": 3.0,
-  "spx": 7731,
-  "spx_drawdown_pct": -0.9,
-  "nvda_drawdown_pct": 0.0,
-  "fear_greed": 68,
+  "btc_usd": 78147,
+  "btc_24h_pct": 0.73,
+  "btc_mcap_usd": 1568970240560.8528,
+  "brent_usd": 88.1,
+  "brent_14d_pct": -0.5,
+  "spx": 7712,
+  "spx_drawdown_pct": -1.1,
+  "nvda_drawdown_pct": -4.6,
+  "fear_greed": 69,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": 1.5,
+  "hashrate_30d_pct": -1.0,
   "etf_last_day_musd": -201.9,
-  "etf_flows_15d_musd": 2457.1
+  "etf_flows_15d_musd": 2601.7
  },
  "judge": {
   "ceasefire": {
@@ -22,7 +22,8 @@
    "justification": "The last known ceasefire/MOU expired on 16 August 2026 and no newer agreement has been reported.",
    "source_url": "https://www.aljazeera.com/news/2026/8/16/us-iran-mou-is-set-to-expire-what-to-know",
    "source_date": "2026-08-16",
-   "changed": false
+   "changed": false,
+   "error": "HTTPError"
   },
   "gulf_infra": {
    "answer": "NO",
@@ -30,7 +31,8 @@
    "justification": "No credible reports of material damage to Ras Tanura, Abqaiq, Ruwais, Ras Laffan LNG, or Kharg Island in the past 7 days",
    "source_url": "https://www.aljazeera.com/news/2026/3/4/which-oil-and-gas-facilities-in-the-gulf-have-been-attacked",
    "source_date": "2026-03-04",
-   "changed": false
+   "changed": false,
+   "error": "HTTPError"
   },
   "fed_cut": {
    "answer": "NO",
@@ -38,22 +40,24 @@
    "justification": "The July 29, 2026 FOMC decision kept rates unchanged and gave no near‑certain cut signal.",
    "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a1.htm",
    "source_date": "2026-07-29",
-   "changed": false
+   "changed": false,
+   "error": "HTTPError"
   },
-  "checked_at": "2026-08-29T12:47+00:00",
+  "checked_at": "2026-08-30T12:06+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "euphoria",
    "evidence": "JPMorgan's retail sentiment score for Bitcoin hit a record high and the Crypto Fear & Greed Index was reported at 74, indicating greed.",
    "evidence_date": "2026-08-27",
-   "confidence": "high"
+   "confidence": "high",
+   "error": "HTTPError"
   },
   "sentiment_posts": {
    "sentiment": "euphoria",
-   "evidence": "\"Guys!!! We are in a bull run...\", \"NEVER BE MORE BULLISH!\", \"Former Binance CEO CZ believes Bitcoin will eventually hit $1,000,000\"",
+   "evidence": "Titles like \"Guys!!! We are in a bull run...\", \"$BTC.X Love to see $BTC.X at $250K...\", and \"Former Binance CEO CZ believes Bitcoin will eventually hit $1,000,000\" showcase rampant optimism and price‑target hype.",
    "confidence": "high",
    "sample_size": 38,
-   "stocktwits_bull_pct": 50
+   "stocktwits_bull_pct": 100
   }
  },
  "indicators": {
@@ -62,7 +66,7 @@
    "weight": 20,
    "score": 100,
    "state": "ok",
-   "detail": "Entrées nettes 15 j : +2457 M$",
+   "detail": "Entrées nettes 15 j : +2602 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -78,7 +82,7 @@
    "weight": 15,
    "score": 50,
    "state": "warn",
-   "detail": "Brent 89.7 $ (+3.0 % / 14 j) — stabilisé",
+   "detail": "Brent 88.1 $ (-0.5 % / 14 j) — stabilisé",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -86,7 +90,7 @@
    "weight": 15,
    "score": 88,
    "state": "ok",
-   "detail": "J+327 depuis le top (fenêtre 363-384 j : dans 36 j)",
+   "detail": "J+328 depuis le top (fenêtre 363-384 j : dans 35 j)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
@@ -94,7 +98,7 @@
    "weight": 10,
    "score": 50,
    "state": "warn",
-   "detail": "Hashrate +1.5 % / 30 j — purge en cours de stabilisation",
+   "detail": "Hashrate -1.0 % / 30 j — purge en cours de stabilisation",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -102,7 +106,7 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 68, NVDA +0.0 %, S&P -0.9 %)",
+   "detail": "Pas de flush global (F&G 69, NVDA -4.6 %, S&P -1.1 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
@@ -110,7 +114,7 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Presse : euphorie · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 50% bullish — \"Guys!!! We are in a bull run...\", \"NEVER BE MORE BULLISH!\", \"Former Binance CEO CZ believes Bitcoin will eventually hit $1,000,000\"",
+   "detail": "Presse : euphorie · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 100% bullish — Titles like \"Guys!!! We are in a bull run...\", \"$BTC.X Love to see $BTC.X at $250K...\", and \"Former Binance CEO CZ believes Bitcoin will eventually hit $1,000,000\" showcase rampant optimism and price‑target hype.",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
@@ -128,22 +132,22 @@
   ],
   "shallow_bottom": 57950,
   "shallow_drawdown_pct": -54.1,
-  "current_drawdown_pct": -38.6,
-  "days_since_ath": 327,
+  "current_drawdown_pct": -38.1,
+  "days_since_ath": 328,
   "calendar_norm_days": 390,
   "low_seen_days": 268,
   "v1_excess": "re-gonflé",
-  "v1_detail": "rallye +34% depuis $58k, funding 0.01%",
+  "v1_detail": "rallye +35% depuis $58k, funding 0.01%",
   "v2_buyer": "institutionnel actif (entrées ETF)",
-  "v3_shock": "guerre Iran / pétrole $90",
+  "v3_shock": "guerre Iran / pétrole $88",
   "verdict": "Excès re-gonflé PENDANT un choc actif → un second choc peut forcer un plus-bas vers la zone maturation ($28,627-38,731).",
   "lean": "plus-bas possible",
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
  },
  "corridor": {
-  "support": 46570,
-  "fair": 113585,
-  "resistance": 298728,
+  "support": 46603,
+  "fair": 113667,
+  "resistance": 298943,
   "projections": [
    {
     "cycle": "HC4 · halving 2024",
@@ -162,7 +166,7 @@
    }
   ],
   "note": "Power Law recalibré sur les prix réels (fair ≈ ATH). Bande ~6x inhérente au modèle → outil de CONTEXTE (zone chère/bon marché), pas de niveaux précis. Curve-fit, pas une loi.",
-  "position_pct": 27,
+  "position_pct": 28,
   "zone": "milieu du corridor"
  }
 }
