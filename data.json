@@ -1,19 +1,19 @@
 {
- "updated_at": "2026-08-31T14:11+00:00",
+ "updated_at": "2026-09-01T11:53+00:00",
  "prices": {
-  "btc_usd": 77900,
-  "btc_24h_pct": -1.26,
-  "btc_mcap_usd": 1563170076495.3894,
-  "brent_usd": 88.78,
-  "brent_14d_pct": -2.3,
-  "spx": 7677,
-  "spx_drawdown_pct": -1.6,
-  "nvda_drawdown_pct": -4.0,
-  "fear_greed": 62,
+  "btc_usd": 78099,
+  "btc_24h_pct": -0.33,
+  "btc_mcap_usd": 1568076116832.603,
+  "brent_usd": 91.82,
+  "brent_14d_pct": 0.9,
+  "spx": 7686,
+  "spx_drawdown_pct": -1.4,
+  "nvda_drawdown_pct": -3.2,
+  "fear_greed": 69,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": 2.0,
-  "etf_last_day_musd": 0.0,
-  "etf_flows_15d_musd": 2593.9
+  "hashrate_30d_pct": 0.1,
+  "etf_last_day_musd": 216.7,
+  "etf_flows_15d_musd": 2871.7
  },
  "judge": {
   "ceasefire": {
@@ -43,7 +43,7 @@
    "changed": false,
    "error": "HTTPError"
   },
-  "checked_at": "2026-08-31T14:11+00:00",
+  "checked_at": "2026-09-01T11:53+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "euphoria",
@@ -54,10 +54,10 @@
   },
   "sentiment_posts": {
    "sentiment": "euphoria",
-   "evidence": "‘Saylor’s Strategy Restarts Bitcoin Buying, Spending $370 Million’, ‘$BTC.X just tells me that we are still in accumulation phase between 60-80 which is giga bullish’, ‘Day 624 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$’",
+   "evidence": "Titles like \"Bananas!~95% already distributed, ~4% left. 🚀🧑‍🚀\", \"Saylor’s Strategy Restarts Bitcoin Buying, Spending $370 Million\", and \"Nice 125k run!!! And taking OP to a $5 short squeeze.. yes!\" showcase extreme bullish hype and FOMO.",
    "confidence": "high",
    "sample_size": 38,
-   "stocktwits_bull_pct": 89
+   "stocktwits_bull_pct": 52
   }
  },
  "indicators": {
@@ -66,7 +66,7 @@
    "weight": 20,
    "score": 100,
    "state": "ok",
-   "detail": "Entrées nettes 15 j : +2594 M$",
+   "detail": "Entrées nettes 15 j : +2872 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -80,9 +80,9 @@
   "oil_channel": {
    "label": "Canal pétrole → inflation",
    "weight": 15,
-   "score": 100,
-   "state": "ok",
-   "detail": "Brent 88.78 $ (-2.3 % / 14 j) — détente",
+   "score": 50,
+   "state": "warn",
+   "detail": "Brent 91.82 $ (+0.9 % / 14 j) — stabilisé",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -90,15 +90,15 @@
    "weight": 15,
    "score": 88,
    "state": "ok",
-   "detail": "J+329 depuis le top (fenêtre 363-384 j : dans 34 j)",
+   "detail": "J+330 depuis le top (fenêtre 363-384 j : dans 33 j)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
    "label": "Capitulation des mineurs",
    "weight": 10,
-   "score": 100,
-   "state": "ok",
-   "detail": "Hashrate +2.0 % / 30 j — reprise, capitulation derrière",
+   "score": 50,
+   "state": "warn",
+   "detail": "Hashrate +0.1 % / 30 j — purge en cours de stabilisation",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -106,7 +106,7 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 62, NVDA -4.0 %, S&P -1.6 %)",
+   "detail": "Pas de flush global (F&G 69, NVDA -3.2 %, S&P -1.4 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
@@ -114,11 +114,11 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Presse : euphorie · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 89% bullish — ‘Saylor’s Strategy Restarts Bitcoin Buying, Spending $370 Million’, ‘$BTC.X just tells me that we are still in accumulation phase between 60-80 which is giga bullish’, ‘Day 624 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$’",
+   "detail": "Presse : euphorie · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 52% bullish — Titles like \"Bananas!~95% already distributed, ~4% left. 🚀🧑‍🚀\", \"Saylor’s Strategy Restarts Bitcoin Buying, Spending $370 Million\", and \"Nice 125k run!!! And taking OP to a $5 short squeeze.. yes!\" showcase extreme bullish hype and FOMO.",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
- "score": 68,
+ "score": 56,
  "alerts": [],
  "model": {
   "n_cycles": 4,
@@ -132,22 +132,22 @@
   ],
   "shallow_bottom": 57950,
   "shallow_drawdown_pct": -54.1,
-  "current_drawdown_pct": -38.3,
-  "days_since_ath": 329,
+  "current_drawdown_pct": -38.2,
+  "days_since_ath": 330,
   "calendar_norm_days": 390,
   "low_seen_days": 268,
   "v1_excess": "re-gonflé",
-  "v1_detail": "rallye +34% depuis $58k, funding 0.01%",
+  "v1_detail": "rallye +35% depuis $58k, funding 0.01%",
   "v2_buyer": "institutionnel actif (entrées ETF)",
-  "v3_shock": "guerre Iran / pétrole $89",
+  "v3_shock": "guerre Iran / pétrole $92",
   "verdict": "Excès re-gonflé PENDANT un choc actif → un second choc peut forcer un plus-bas vers la zone maturation ($28,627-38,731).",
   "lean": "plus-bas possible",
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
  },
  "corridor": {
-  "support": 46637,
-  "fair": 113749,
-  "resistance": 299159,
+  "support": 46670,
+  "fair": 113830,
+  "resistance": 299374,
   "projections": [
    {
     "cycle": "HC4 · halving 2024",
