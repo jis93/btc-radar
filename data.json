@@ -1,19 +1,19 @@
 {
- "updated_at": "2026-09-01T11:53+00:00",
+ "updated_at": "2026-09-02T11:34+00:00",
  "prices": {
-  "btc_usd": 78099,
-  "btc_24h_pct": -0.33,
-  "btc_mcap_usd": 1568076116832.603,
-  "brent_usd": 91.82,
-  "brent_14d_pct": 0.9,
-  "spx": 7686,
-  "spx_drawdown_pct": -1.4,
-  "nvda_drawdown_pct": -3.2,
-  "fear_greed": 69,
+  "btc_usd": 76336,
+  "btc_24h_pct": -2.04,
+  "btc_mcap_usd": 1532725275597.101,
+  "brent_usd": 94.45,
+  "brent_14d_pct": 3.1,
+  "spx": 7631,
+  "spx_drawdown_pct": -2.1,
+  "nvda_drawdown_pct": -4.6,
+  "fear_greed": 63,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": 0.1,
-  "etf_last_day_musd": 216.7,
-  "etf_flows_15d_musd": 2871.7
+  "hashrate_30d_pct": 0.5,
+  "etf_last_day_musd": -236.5,
+  "etf_flows_15d_musd": 2766.3
  },
  "judge": {
   "ceasefire": {
@@ -43,7 +43,7 @@
    "changed": false,
    "error": "HTTPError"
   },
-  "checked_at": "2026-09-01T11:53+00:00",
+  "checked_at": "2026-09-02T11:34+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "euphoria",
@@ -54,10 +54,10 @@
   },
   "sentiment_posts": {
    "sentiment": "euphoria",
-   "evidence": "Titles like \"Bananas!~95% already distributed, ~4% left. 🚀🧑‍🚀\", \"Saylor’s Strategy Restarts Bitcoin Buying, Spending $370 Million\", and \"Nice 125k run!!! And taking OP to a $5 short squeeze.. yes!\" showcase extreme bullish hype and FOMO.",
+   "evidence": "Titles like \"Day 626 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\", \"Grant Cardone says Bitcoin will shift from a store of value to a widely used means of exchange once its market capitalization reaches $20 trillion\", and \"The US government will print $7.2 million for every bitcoin mined this year\" illustrate strong FOMO and lofty price targets.",
    "confidence": "high",
-   "sample_size": 38,
-   "stocktwits_bull_pct": 52
+   "sample_size": 36,
+   "stocktwits_bull_pct": 61
   }
  },
  "indicators": {
@@ -66,7 +66,7 @@
    "weight": 20,
    "score": 100,
    "state": "ok",
-   "detail": "Entrées nettes 15 j : +2872 M$",
+   "detail": "Entrées nettes 15 j : +2766 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -82,15 +82,15 @@
    "weight": 15,
    "score": 50,
    "state": "warn",
-   "detail": "Brent 91.82 $ (+0.9 % / 14 j) — stabilisé",
+   "detail": "Brent 94.45 $ (+3.1 % / 14 j) — stabilisé",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
    "label": "Horloge mécanique du cycle",
    "weight": 15,
-   "score": 88,
+   "score": 89,
    "state": "ok",
-   "detail": "J+330 depuis le top (fenêtre 363-384 j : dans 33 j)",
+   "detail": "J+331 depuis le top (fenêtre 363-384 j : dans 32 j)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
@@ -98,7 +98,7 @@
    "weight": 10,
    "score": 50,
    "state": "warn",
-   "detail": "Hashrate +0.1 % / 30 j — purge en cours de stabilisation",
+   "detail": "Hashrate +0.5 % / 30 j — purge en cours de stabilisation",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -106,7 +106,7 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 69, NVDA -3.2 %, S&P -1.4 %)",
+   "detail": "Pas de flush global (F&G 63, NVDA -4.6 %, S&P -2.1 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
@@ -114,7 +114,7 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Presse : euphorie · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 52% bullish — Titles like \"Bananas!~95% already distributed, ~4% left. 🚀🧑‍🚀\", \"Saylor’s Strategy Restarts Bitcoin Buying, Spending $370 Million\", and \"Nice 125k run!!! And taking OP to a $5 short squeeze.. yes!\" showcase extreme bullish hype and FOMO.",
+   "detail": "Presse : euphorie · Forums (36 posts Reddit/StockTwits/biz) : euphorie · StockTwits 61% bullish — Titles like \"Day 626 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\", \"Grant Cardone says Bitcoin will shift from a store of value to a widely used means of exchange once its market capitalization reaches $20 trillion\", and \"The US government will print $7.2 million for every bitcoin mined this year\" illustrate strong FOMO and lofty price targets.",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
@@ -132,22 +132,22 @@
   ],
   "shallow_bottom": 57950,
   "shallow_drawdown_pct": -54.1,
-  "current_drawdown_pct": -38.2,
-  "days_since_ath": 330,
+  "current_drawdown_pct": -39.6,
+  "days_since_ath": 331,
   "calendar_norm_days": 390,
   "low_seen_days": 268,
   "v1_excess": "re-gonflé",
-  "v1_detail": "rallye +35% depuis $58k, funding 0.01%",
+  "v1_detail": "rallye +32% depuis $58k, funding 0.01%",
   "v2_buyer": "institutionnel actif (entrées ETF)",
-  "v3_shock": "guerre Iran / pétrole $92",
+  "v3_shock": "guerre Iran / pétrole $94",
   "verdict": "Excès re-gonflé PENDANT un choc actif → un second choc peut forcer un plus-bas vers la zone maturation ($28,627-38,731).",
   "lean": "plus-bas possible",
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
  },
  "corridor": {
-  "support": 46670,
-  "fair": 113830,
-  "resistance": 299374,
+  "support": 46704,
+  "fair": 113912,
+  "resistance": 299590,
   "projections": [
    {
     "cycle": "HC4 · halving 2024",
@@ -166,7 +166,7 @@
    }
   ],
   "note": "Power Law recalibré sur les prix réels (fair ≈ ATH). Bande ~6x inhérente au modèle → outil de CONTEXTE (zone chère/bon marché), pas de niveaux précis. Curve-fit, pas une loi.",
-  "position_pct": 28,
+  "position_pct": 26,
   "zone": "milieu du corridor"
  }
 }
