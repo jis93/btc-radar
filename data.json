@@ -1,9 +1,9 @@
 {
- "updated_at": "2026-09-05T10:49+00:00",
+ "updated_at": "2026-09-06T11:11+00:00",
  "prices": {
-  "btc_usd": 79629,
-  "btc_24h_pct": -1.74,
-  "btc_mcap_usd": 1598952350455.1575,
+  "btc_usd": 79993,
+  "btc_24h_pct": 0.46,
+  "btc_mcap_usd": 1606073900481.6826,
   "brent_usd": 96.28,
   "brent_14d_pct": 2.0,
   "spx": 7719,
@@ -11,9 +11,9 @@
   "nvda_drawdown_pct": 0.0,
   "fear_greed": 73,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": -1.0,
+  "hashrate_30d_pct": 1.7,
   "etf_last_day_musd": 174.6,
-  "etf_flows_15d_musd": 3829.0
+  "etf_flows_15d_musd": 3531.5
  },
  "judge": {
   "ceasefire": {
@@ -43,7 +43,7 @@
    "changed": false,
    "error": "HTTPError"
   },
-  "checked_at": "2026-09-05T10:49+00:00",
+  "checked_at": "2026-09-06T11:11+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "euphoria",
@@ -54,10 +54,10 @@
   },
   "sentiment_posts": {
    "sentiment": "euphoria",
-   "evidence": "‘$1T Fidelity International says Bitcoin could \"just soar\"…’, ‘$BTC.X RED-TOBER IS COMING’, ‘Can BTC go to 200k already? I just want to be happy…’",
+   "evidence": "Titles like \"Ancient Bitcoin Wallet That Turned $120 Into $3 Million Wakes Up\", \"Bitcoin ETF inflows hit $3.8B in strongest three‑week stretch of 2026\", and \"Day 1802 of snailposting every day until BTC is at 1M\" illustrate the hype, price‑target focus, and FOMO vibe.",
    "confidence": "high",
-   "sample_size": 36,
-   "stocktwits_bull_pct": 85
+   "sample_size": 38,
+   "stocktwits_bull_pct": 100
   }
  },
  "indicators": {
@@ -66,7 +66,7 @@
    "weight": 20,
    "score": 100,
    "state": "ok",
-   "detail": "Entrées nettes 15 j : +3829 M$",
+   "detail": "Entrées nettes 15 j : +3532 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -88,9 +88,9 @@
   "cycle_clock": {
    "label": "Horloge mécanique du cycle",
    "weight": 15,
-   "score": 89,
+   "score": 90,
    "state": "ok",
-   "detail": "J+334 depuis le top (fenêtre 363-384 j : dans 29 j)",
+   "detail": "J+335 depuis le top (fenêtre 363-384 j : dans 28 j)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
@@ -98,7 +98,7 @@
    "weight": 10,
    "score": 50,
    "state": "warn",
-   "detail": "Hashrate -1.0 % / 30 j — purge en cours de stabilisation",
+   "detail": "Hashrate +1.7 % / 30 j — purge en cours de stabilisation",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -114,7 +114,7 @@
    "weight": 10,
    "score": 20,
    "state": "bad",
-   "detail": "Presse : neutre · Forums (36 posts Reddit/StockTwits/biz) : euphorie · StockTwits 85% bullish — ‘$1T Fidelity International says Bitcoin could \"just soar\"…’, ‘$BTC.X RED-TOBER IS COMING’, ‘Can BTC go to 200k already? I just want to be happy…’",
+   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 100% bullish — Titles like \"Ancient Bitcoin Wallet That Turned $120 Into $3 Million Wakes Up\", \"Bitcoin ETF inflows hit $3.8B in strongest three‑week stretch of 2026\", and \"Day 1802 of snailposting every day until BTC is at 1M\" illustrate the hype, price‑target focus, and FOMO vibe.",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
@@ -132,12 +132,12 @@
   ],
   "shallow_bottom": 57950,
   "shallow_drawdown_pct": -54.1,
-  "current_drawdown_pct": -37.0,
-  "days_since_ath": 334,
+  "current_drawdown_pct": -36.7,
+  "days_since_ath": 335,
   "calendar_norm_days": 390,
   "low_seen_days": 268,
   "v1_excess": "re-gonflé",
-  "v1_detail": "rallye +37% depuis $58k, funding 0.01%",
+  "v1_detail": "rallye +38% depuis $58k, funding 0.01%",
   "v2_buyer": "institutionnel actif (entrées ETF)",
   "v3_shock": "guerre Iran / pétrole $96",
   "verdict": "Excès re-gonflé PENDANT un choc actif → un second choc peut forcer un plus-bas vers la zone maturation ($28,627-38,731).",
@@ -145,9 +145,9 @@
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
  },
  "corridor": {
-  "support": 46805,
-  "fair": 114159,
-  "resistance": 300237,
+  "support": 46839,
+  "fair": 114241,
+  "resistance": 300453,
   "projections": [
    {
     "cycle": "HC4 · halving 2024",
