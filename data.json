@@ -1,19 +1,19 @@
 {
- "updated_at": "2026-09-06T11:11+00:00",
+ "updated_at": "2026-09-07T12:51+00:00",
  "prices": {
-  "btc_usd": 79993,
-  "btc_24h_pct": 0.46,
-  "btc_mcap_usd": 1606073900481.6826,
+  "btc_usd": 79464,
+  "btc_24h_pct": -0.59,
+  "btc_mcap_usd": 1595723815302.7346,
   "brent_usd": 96.28,
-  "brent_14d_pct": 2.0,
+  "brent_14d_pct": 4.5,
   "spx": 7719,
   "spx_drawdown_pct": -1.0,
   "nvda_drawdown_pct": 0.0,
-  "fear_greed": 73,
+  "fear_greed": 71,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": 1.7,
+  "hashrate_30d_pct": 1.4,
   "etf_last_day_musd": 174.6,
-  "etf_flows_15d_musd": 3531.5
+  "etf_flows_15d_musd": 3342.2
  },
  "judge": {
   "ceasefire": {
@@ -43,7 +43,7 @@
    "changed": false,
    "error": "HTTPError"
   },
-  "checked_at": "2026-09-06T11:11+00:00",
+  "checked_at": "2026-09-07T12:51+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "euphoria",
@@ -53,11 +53,11 @@
    "error": "HTTPError"
   },
   "sentiment_posts": {
-   "sentiment": "euphoria",
-   "evidence": "Titles like \"Ancient Bitcoin Wallet That Turned $120 Into $3 Million Wakes Up\", \"Bitcoin ETF inflows hit $3.8B in strongest three‑week stretch of 2026\", and \"Day 1802 of snailposting every day until BTC is at 1M\" illustrate the hype, price‑target focus, and FOMO vibe.",
+   "sentiment": "fear",
+   "evidence": "Liquid Network appears to have been stalled for 5 hours and had 4,000 BTC moved without authorization; $BTC.X CryptoQuant analyst Darkfost wrote that the leading cryptocurrency is going through its most severe deleveraging",
    "confidence": "high",
    "sample_size": 38,
-   "stocktwits_bull_pct": 100
+   "stocktwits_bull_pct": 62
   }
  },
  "indicators": {
@@ -66,7 +66,7 @@
    "weight": 20,
    "score": 100,
    "state": "ok",
-   "detail": "Entrées nettes 15 j : +3532 M$",
+   "detail": "Entrées nettes 15 j : +3342 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -82,7 +82,7 @@
    "weight": 15,
    "score": 50,
    "state": "warn",
-   "detail": "Brent 96.28 $ (+2.0 % / 14 j) — stabilisé",
+   "detail": "Brent 96.28 $ (+4.5 % / 14 j) — stabilisé",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -90,7 +90,7 @@
    "weight": 15,
    "score": 90,
    "state": "ok",
-   "detail": "J+335 depuis le top (fenêtre 363-384 j : dans 28 j)",
+   "detail": "J+336 depuis le top (fenêtre 363-384 j : dans 27 j)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
@@ -98,7 +98,7 @@
    "weight": 10,
    "score": 50,
    "state": "warn",
-   "detail": "Hashrate +1.7 % / 30 j — purge en cours de stabilisation",
+   "detail": "Hashrate +1.4 % / 30 j — purge en cours de stabilisation",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -106,19 +106,19 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 73, NVDA +0.0 %, S&P -1.0 %)",
+   "detail": "Pas de flush global (F&G 71, NVDA +0.0 %, S&P -1.0 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
    "label": "Sentiment réseaux (contrarien)",
    "weight": 10,
-   "score": 20,
-   "state": "bad",
-   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 100% bullish — Titles like \"Ancient Bitcoin Wallet That Turned $120 Into $3 Million Wakes Up\", \"Bitcoin ETF inflows hit $3.8B in strongest three‑week stretch of 2026\", and \"Day 1802 of snailposting every day until BTC is at 1M\" illustrate the hype, price‑target focus, and FOMO vibe.",
+   "score": 50,
+   "state": "warn",
+   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : peur · StockTwits 62% bullish — Liquid Network appears to have been stalled for 5 hours and had 4,000 BTC moved without authorization; $BTC.X CryptoQuant analyst Darkfost wrote that the leading cryptocurrency is going through its most severe deleveraging",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
- "score": 58,
+ "score": 61,
  "alerts": [],
  "model": {
   "n_cycles": 4,
@@ -132,12 +132,12 @@
   ],
   "shallow_bottom": 57950,
   "shallow_drawdown_pct": -54.1,
-  "current_drawdown_pct": -36.7,
-  "days_since_ath": 335,
+  "current_drawdown_pct": -37.1,
+  "days_since_ath": 336,
   "calendar_norm_days": 390,
   "low_seen_days": 268,
   "v1_excess": "re-gonflé",
-  "v1_detail": "rallye +38% depuis $58k, funding 0.01%",
+  "v1_detail": "rallye +37% depuis $58k, funding 0.01%",
   "v2_buyer": "institutionnel actif (entrées ETF)",
   "v3_shock": "guerre Iran / pétrole $96",
   "verdict": "Excès re-gonflé PENDANT un choc actif → un second choc peut forcer un plus-bas vers la zone maturation ($28,627-38,731).",
@@ -145,9 +145,9 @@
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
  },
  "corridor": {
-  "support": 46839,
-  "fair": 114241,
-  "resistance": 300453,
+  "support": 46872,
+  "fair": 114323,
+  "resistance": 300669,
   "projections": [
    {
     "cycle": "HC4 · halving 2024",
@@ -166,7 +166,7 @@
    }
   ],
   "note": "Power Law recalibré sur les prix réels (fair ≈ ATH). Bande ~6x inhérente au modèle → outil de CONTEXTE (zone chère/bon marché), pas de niveaux précis. Curve-fit, pas une loi.",
-  "position_pct": 29,
+  "position_pct": 28,
   "zone": "milieu du corridor"
  }
 }
