@@ -1,19 +1,19 @@
 {
- "updated_at": "2026-09-07T12:51+00:00",
+ "updated_at": "2026-09-08T11:33+00:00",
  "prices": {
-  "btc_usd": 79464,
-  "btc_24h_pct": -0.59,
-  "btc_mcap_usd": 1595723815302.7346,
-  "brent_usd": 96.28,
-  "brent_14d_pct": 4.5,
+  "btc_usd": 78440,
+  "btc_24h_pct": -1.27,
+  "btc_mcap_usd": 1575203930301.8945,
+  "brent_usd": 98.44,
+  "brent_14d_pct": 6.8,
   "spx": 7719,
   "spx_drawdown_pct": -1.0,
   "nvda_drawdown_pct": 0.0,
-  "fear_greed": 71,
+  "fear_greed": 69,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": 1.4,
+  "hashrate_30d_pct": 2.7,
   "etf_last_day_musd": 174.6,
-  "etf_flows_15d_musd": 3342.2
+  "etf_flows_15d_musd": 2825.0
  },
  "judge": {
   "ceasefire": {
@@ -43,7 +43,7 @@
    "changed": false,
    "error": "HTTPError"
   },
-  "checked_at": "2026-09-07T12:51+00:00",
+  "checked_at": "2026-09-08T11:33+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "euphoria",
@@ -53,11 +53,11 @@
    "error": "HTTPError"
   },
   "sentiment_posts": {
-   "sentiment": "fear",
-   "evidence": "Liquid Network appears to have been stalled for 5 hours and had 4,000 BTC moved without authorization; $BTC.X CryptoQuant analyst Darkfost wrote that the leading cryptocurrency is going through its most severe deleveraging",
+   "sentiment": "euphoria",
+   "evidence": "‘Bitcoin will overtake: The British pound at $214K…’, ‘Arthur Hayes Says Bitcoin Could Hit New High By Year-End – Calls It The “Fastest Horse”’, ‘$MSTR BUY THE FCKN DIP!!!! $BTC.X ENDORSED BY $DJT !!!!!’",
    "confidence": "high",
    "sample_size": 38,
-   "stocktwits_bull_pct": 62
+   "stocktwits_bull_pct": 47
   }
  },
  "indicators": {
@@ -66,7 +66,7 @@
    "weight": 20,
    "score": 100,
    "state": "ok",
-   "detail": "Entrées nettes 15 j : +3342 M$",
+   "detail": "Entrées nettes 15 j : +2825 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -80,9 +80,9 @@
   "oil_channel": {
    "label": "Canal pétrole → inflation",
    "weight": 15,
-   "score": 50,
-   "state": "warn",
-   "detail": "Brent 96.28 $ (+4.5 % / 14 j) — stabilisé",
+   "score": 0,
+   "state": "bad",
+   "detail": "Brent 98.44 $ (+6.8 % / 14 j) — pression inflation",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -90,15 +90,15 @@
    "weight": 15,
    "score": 90,
    "state": "ok",
-   "detail": "J+336 depuis le top (fenêtre 363-384 j : dans 27 j)",
+   "detail": "J+337 depuis le top (fenêtre 363-384 j : dans 26 j)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
    "label": "Capitulation des mineurs",
    "weight": 10,
-   "score": 50,
-   "state": "warn",
-   "detail": "Hashrate +1.4 % / 30 j — purge en cours de stabilisation",
+   "score": 100,
+   "state": "ok",
+   "detail": "Hashrate +2.7 % / 30 j — reprise, capitulation derrière",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -106,19 +106,19 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 71, NVDA +0.0 %, S&P -1.0 %)",
+   "detail": "Pas de flush global (F&G 69, NVDA +0.0 %, S&P -1.0 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
    "label": "Sentiment réseaux (contrarien)",
    "weight": 10,
-   "score": 50,
-   "state": "warn",
-   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : peur · StockTwits 62% bullish — Liquid Network appears to have been stalled for 5 hours and had 4,000 BTC moved without authorization; $BTC.X CryptoQuant analyst Darkfost wrote that the leading cryptocurrency is going through its most severe deleveraging",
+   "score": 20,
+   "state": "bad",
+   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 47% bullish — ‘Bitcoin will overtake: The British pound at $214K…’, ‘Arthur Hayes Says Bitcoin Could Hit New High By Year-End – Calls It The “Fastest Horse”’, ‘$MSTR BUY THE FCKN DIP!!!! $BTC.X ENDORSED BY $DJT !!!!!’",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
- "score": 61,
+ "score": 56,
  "alerts": [],
  "model": {
   "n_cycles": 4,
@@ -132,22 +132,22 @@
   ],
   "shallow_bottom": 57950,
   "shallow_drawdown_pct": -54.1,
-  "current_drawdown_pct": -37.1,
-  "days_since_ath": 336,
+  "current_drawdown_pct": -37.9,
+  "days_since_ath": 337,
   "calendar_norm_days": 390,
   "low_seen_days": 268,
   "v1_excess": "re-gonflé",
-  "v1_detail": "rallye +37% depuis $58k, funding 0.01%",
+  "v1_detail": "rallye +35% depuis $58k, funding 0.01%",
   "v2_buyer": "institutionnel actif (entrées ETF)",
-  "v3_shock": "guerre Iran / pétrole $96",
+  "v3_shock": "guerre Iran / pétrole $98",
   "verdict": "Excès re-gonflé PENDANT un choc actif → un second choc peut forcer un plus-bas vers la zone maturation ($28,627-38,731).",
   "lean": "plus-bas possible",
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
  },
  "corridor": {
-  "support": 46872,
-  "fair": 114323,
-  "resistance": 300669,
+  "support": 46906,
+  "fair": 114405,
+  "resistance": 300886,
   "projections": [
    {
     "cycle": "HC4 · halving 2024",
