@@ -1,19 +1,19 @@
 {
- "updated_at": "2026-09-09T11:39+00:00",
+ "updated_at": "2026-09-10T11:35+00:00",
  "prices": {
-  "btc_usd": 78981,
-  "btc_24h_pct": 0.69,
-  "btc_mcap_usd": 1586046273068.3408,
-  "brent_usd": 100.74,
-  "brent_14d_pct": 13.7,
-  "spx": 7674,
-  "spx_drawdown_pct": -1.6,
-  "nvda_drawdown_pct": -2.0,
-  "fear_greed": 66,
+  "btc_usd": 77966,
+  "btc_24h_pct": -1.23,
+  "btc_mcap_usd": 1565729793934.0942,
+  "brent_usd": 102.19,
+  "brent_14d_pct": 16.3,
+  "spx": 7636,
+  "spx_drawdown_pct": -2.1,
+  "nvda_drawdown_pct": -2.9,
+  "fear_greed": 69,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": 2.2,
-  "etf_last_day_musd": -46.6,
-  "etf_flows_15d_musd": 2172.1
+  "hashrate_30d_pct": 5.8,
+  "etf_last_day_musd": -120.2,
+  "etf_flows_15d_musd": 1744.4
  },
  "judge": {
   "ceasefire": {
@@ -43,7 +43,7 @@
    "changed": false,
    "error": "HTTPError"
   },
-  "checked_at": "2026-09-09T11:39+00:00",
+  "checked_at": "2026-09-10T11:35+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "euphoria",
@@ -53,8 +53,8 @@
    "error": "HTTPError"
   },
   "sentiment_posts": {
-   "sentiment": "optimism",
-   "evidence": "Strive buys 1,375 Bitcoin, increasing holdings to 24,532 BTC; $BTC.X breaking out soon; Q4 2026 predictions BTC = 1,000,000",
+   "sentiment": "euphoria",
+   "evidence": "Day 634 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$; morning plate is running hot: btc needs $78K to hold while brent stays above $100; Massive announcement in 3 hours MASSIVE M&A incoming",
    "confidence": "high",
    "sample_size": 38,
    "stocktwits_bull_pct": 50
@@ -66,7 +66,7 @@
    "weight": 20,
    "score": 100,
    "state": "ok",
-   "detail": "Entrées nettes 15 j : +2172 M$",
+   "detail": "Entrées nettes 15 j : +1744 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -82,15 +82,15 @@
    "weight": 15,
    "score": 0,
    "state": "bad",
-   "detail": "Brent 100.74 $ (+13.7 % / 14 j) — pression inflation",
+   "detail": "Brent 102.19 $ (+16.3 % / 14 j) — pression inflation",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
    "label": "Horloge mécanique du cycle",
    "weight": 15,
-   "score": 90,
+   "score": 91,
    "state": "ok",
-   "detail": "J+338 depuis le top (fenêtre 363-384 j : dans 25 j)",
+   "detail": "J+339 depuis le top (fenêtre 363-384 j : dans 24 j)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
@@ -98,7 +98,7 @@
    "weight": 10,
    "score": 100,
    "state": "ok",
-   "detail": "Hashrate +2.2 % / 30 j — reprise, capitulation derrière",
+   "detail": "Hashrate +5.8 % / 30 j — reprise, capitulation derrière",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -106,19 +106,19 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 66, NVDA -2.0 %, S&P -1.6 %)",
+   "detail": "Pas de flush global (F&G 69, NVDA -2.9 %, S&P -2.1 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
    "label": "Sentiment réseaux (contrarien)",
    "weight": 10,
-   "score": 32,
+   "score": 20,
    "state": "bad",
-   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : optimisme · StockTwits 50% bullish — Strive buys 1,375 Bitcoin, increasing holdings to 24,532 BTC; $BTC.X breaking out soon; Q4 2026 predictions BTC = 1,000,000",
+   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 50% bullish — Day 634 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$; morning plate is running hot: btc needs $78K to hold while brent stays above $100; Massive announcement in 3 hours MASSIVE M&A incoming",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
- "score": 57,
+ "score": 56,
  "alerts": [],
  "model": {
   "n_cycles": 4,
@@ -132,22 +132,22 @@
   ],
   "shallow_bottom": 57950,
   "shallow_drawdown_pct": -54.1,
-  "current_drawdown_pct": -37.5,
-  "days_since_ath": 338,
+  "current_drawdown_pct": -38.3,
+  "days_since_ath": 339,
   "calendar_norm_days": 390,
   "low_seen_days": 268,
   "v1_excess": "re-gonflé",
-  "v1_detail": "rallye +36% depuis $58k, funding 0.01%",
+  "v1_detail": "rallye +35% depuis $58k, funding 0.01%",
   "v2_buyer": "institutionnel actif (entrées ETF)",
-  "v3_shock": "guerre Iran / pétrole $101",
+  "v3_shock": "guerre Iran / pétrole $102",
   "verdict": "Excès re-gonflé PENDANT un choc actif → un second choc peut forcer un plus-bas vers la zone maturation ($28,627-38,731).",
   "lean": "plus-bas possible",
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
  },
  "corridor": {
-  "support": 46940,
-  "fair": 114487,
-  "resistance": 301102,
+  "support": 46974,
+  "fair": 114570,
+  "resistance": 301319,
   "projections": [
    {
     "cycle": "HC4 · halving 2024",
@@ -166,7 +166,7 @@
    }
   ],
   "note": "Power Law recalibré sur les prix réels (fair ≈ ATH). Bande ~6x inhérente au modèle → outil de CONTEXTE (zone chère/bon marché), pas de niveaux précis. Curve-fit, pas une loi.",
-  "position_pct": 28,
+  "position_pct": 27,
   "zone": "milieu du corridor"
  }
 }
