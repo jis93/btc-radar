@@ -1,19 +1,19 @@
 {
- "updated_at": "2026-09-13T12:08+00:00",
+ "updated_at": "2026-09-14T13:06+00:00",
  "prices": {
-  "btc_usd": 76752,
-  "btc_24h_pct": -0.76,
-  "btc_mcap_usd": 1541483087602.5806,
-  "brent_usd": 104.61,
-  "brent_14d_pct": 16.6,
+  "btc_usd": 77647,
+  "btc_24h_pct": 1.19,
+  "btc_mcap_usd": 1559462638089.3567,
+  "brent_usd": 108.94,
+  "brent_14d_pct": 22.0,
   "spx": 7657,
   "spx_drawdown_pct": -1.8,
   "nvda_drawdown_pct": -5.2,
-  "fear_greed": 61,
+  "fear_greed": 57,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": 5.2,
-  "etf_last_day_musd": -13.2,
-  "etf_flows_15d_musd": 1110.9
+  "hashrate_30d_pct": 4.9,
+  "etf_last_day_musd": 0.0,
+  "etf_flows_15d_musd": 796.6
  },
  "judge": {
   "ceasefire": {
@@ -43,7 +43,7 @@
    "changed": false,
    "error": "HTTPError"
   },
-  "checked_at": "2026-09-13T12:08+00:00",
+  "checked_at": "2026-09-14T13:06+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "euphoria",
@@ -54,10 +54,10 @@
   },
   "sentiment_posts": {
    "sentiment": "optimism",
-   "evidence": "The market is still standing firmly in greed for over three weeks now 🔥🚀; $BTC.X GP range between 75-79K currently. Sells are short-lived.; bitcoin shark knows the bottom already happened",
+   "evidence": "Titles like \"Lucky week for sure!\", \"When is a good time to get into bitcoin? Anytime is good!\" and \"Day 638 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\" show confident, upbeat buying sentiment.",
    "confidence": "high",
-   "sample_size": 37,
-   "stocktwits_bull_pct": 53
+   "sample_size": 36,
+   "stocktwits_bull_pct": 26
   }
  },
  "indicators": {
@@ -66,7 +66,7 @@
    "weight": 20,
    "score": 100,
    "state": "ok",
-   "detail": "Entrées nettes 15 j : +1111 M$",
+   "detail": "Entrées nettes 15 j : +797 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -82,7 +82,7 @@
    "weight": 15,
    "score": 0,
    "state": "bad",
-   "detail": "Brent 104.61 $ (+16.6 % / 14 j) — pression inflation",
+   "detail": "Brent 108.94 $ (+22.0 % / 14 j) — pression inflation",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -90,7 +90,7 @@
    "weight": 15,
    "score": 92,
    "state": "ok",
-   "detail": "J+342 depuis le top (fenêtre 363-384 j : dans 21 j)",
+   "detail": "J+343 depuis le top (fenêtre 363-384 j : dans 20 j)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
@@ -98,7 +98,7 @@
    "weight": 10,
    "score": 100,
    "state": "ok",
-   "detail": "Hashrate +5.2 % / 30 j — reprise, capitulation derrière",
+   "detail": "Hashrate +4.9 % / 30 j — reprise, capitulation derrière",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -106,7 +106,7 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 61, NVDA -5.2 %, S&P -1.8 %)",
+   "detail": "Pas de flush global (F&G 57, NVDA -5.2 %, S&P -1.8 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
@@ -114,7 +114,7 @@
    "weight": 10,
    "score": 32,
    "state": "bad",
-   "detail": "Presse : neutre · Forums (37 posts Reddit/StockTwits/biz) : optimisme · StockTwits 53% bullish — The market is still standing firmly in greed for over three weeks now 🔥🚀; $BTC.X GP range between 75-79K currently. Sells are short-lived.; bitcoin shark knows the bottom already happened",
+   "detail": "Presse : neutre · Forums (36 posts Reddit/StockTwits/biz) : optimisme · StockTwits 26% bullish — Titles like \"Lucky week for sure!\", \"When is a good time to get into bitcoin? Anytime is good!\" and \"Day 638 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\" show confident, upbeat buying sentiment.",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
@@ -132,22 +132,22 @@
   ],
   "shallow_bottom": 57950,
   "shallow_drawdown_pct": -54.1,
-  "current_drawdown_pct": -39.2,
-  "days_since_ath": 342,
+  "current_drawdown_pct": -38.5,
+  "days_since_ath": 343,
   "calendar_norm_days": 390,
   "low_seen_days": 268,
   "v1_excess": "re-gonflé",
-  "v1_detail": "rallye +32% depuis $58k, funding 0.01%",
+  "v1_detail": "rallye +34% depuis $58k, funding 0.01%",
   "v2_buyer": "institutionnel actif (entrées ETF)",
-  "v3_shock": "guerre Iran / pétrole $105",
+  "v3_shock": "guerre Iran / pétrole $109",
   "verdict": "Excès re-gonflé PENDANT un choc actif → un second choc peut forcer un plus-bas vers la zone maturation ($28,627-38,731).",
   "lean": "plus-bas possible",
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
  },
  "corridor": {
-  "support": 47075,
-  "fair": 114817,
-  "resistance": 301969,
+  "support": 47109,
+  "fair": 114900,
+  "resistance": 302186,
   "projections": [
    {
     "cycle": "HC4 · halving 2024",
@@ -166,7 +166,7 @@
    }
   ],
   "note": "Power Law recalibré sur les prix réels (fair ≈ ATH). Bande ~6x inhérente au modèle → outil de CONTEXTE (zone chère/bon marché), pas de niveaux précis. Curve-fit, pas une loi.",
-  "position_pct": 26,
+  "position_pct": 27,
   "zone": "milieu du corridor"
  }
 }
