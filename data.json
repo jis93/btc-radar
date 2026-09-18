@@ -1,19 +1,19 @@
 {
- "updated_at": "2026-09-17T11:56+00:00",
+ "updated_at": "2026-09-18T11:32+00:00",
  "prices": {
-  "btc_usd": 76169,
-  "btc_24h_pct": -0.06,
-  "btc_mcap_usd": 1530024469593.6533,
-  "brent_usd": 99.55,
-  "brent_14d_pct": 4.1,
-  "spx": 7552,
-  "spx_drawdown_pct": -3.2,
-  "nvda_drawdown_pct": -7.1,
-  "fear_greed": 50,
+  "btc_usd": 77995,
+  "btc_24h_pct": 2.23,
+  "btc_mcap_usd": 1566828680940.0535,
+  "brent_usd": 98.82,
+  "brent_14d_pct": 3.5,
+  "spx": 7638,
+  "spx_drawdown_pct": -2.1,
+  "nvda_drawdown_pct": -4.8,
+  "fear_greed": 56,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": 2.2,
-  "etf_last_day_musd": -295.9,
-  "etf_flows_15d_musd": -62.4
+  "hashrate_30d_pct": 1.3,
+  "etf_last_day_musd": 159.5,
+  "etf_flows_15d_musd": 97.1
  },
  "judge": {
   "ceasefire": {
@@ -43,7 +43,7 @@
    "changed": false,
    "error": "HTTPError"
   },
-  "checked_at": "2026-09-17T11:56+00:00",
+  "checked_at": "2026-09-18T11:32+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "euphoria",
@@ -54,10 +54,10 @@
   },
   "sentiment_posts": {
    "sentiment": "euphoria",
-   "evidence": "Titles like \"Day 1807 of snailposting every day until BTC is at 1M\", \"$BTC.X got 75k. Would like this to push out of the 3wt look\", and \"$SNYR 🐇🚀🚀🚀 $TSLA $SPY $BTC.X $DJT\" showcase FOMO‑driven price targets and rocket emojis.",
+   "evidence": "Titles like \"Who else really thinks that Bitcoin is going to 100k by the end of the year? Because I do\", \"Me and bro waiting for the BTC Bull Run\" and \"$BTC.X >80k today\" show strong price‑target hype and FOMO.",
    "confidence": "high",
-   "sample_size": 38,
-   "stocktwits_bull_pct": 45
+   "sample_size": 37,
+   "stocktwits_bull_pct": 85
   }
  },
  "indicators": {
@@ -66,7 +66,7 @@
    "weight": 20,
    "score": 50,
    "state": "warn",
-   "detail": "Flux 15 j proches de zéro : -62 M$",
+   "detail": "Flux 15 j proches de zéro : +97 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -82,7 +82,7 @@
    "weight": 15,
    "score": 50,
    "state": "warn",
-   "detail": "Brent 99.55 $ (+4.1 % / 14 j) — stabilisé",
+   "detail": "Brent 98.82 $ (+3.5 % / 14 j) — stabilisé",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -90,15 +90,15 @@
    "weight": 15,
    "score": 93,
    "state": "ok",
-   "detail": "J+346 depuis le top (fenêtre 363-384 j : dans 17 j)",
+   "detail": "J+347 depuis le top (fenêtre 363-384 j : dans 16 j)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
    "label": "Capitulation des mineurs",
    "weight": 10,
-   "score": 100,
-   "state": "ok",
-   "detail": "Hashrate +2.2 % / 30 j — reprise, capitulation derrière",
+   "score": 50,
+   "state": "warn",
+   "detail": "Hashrate +1.3 % / 30 j — purge en cours de stabilisation",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -106,7 +106,7 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 50, NVDA -7.1 %, S&P -3.2 %)",
+   "detail": "Pas de flush global (F&G 56, NVDA -4.8 %, S&P -2.1 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
@@ -114,11 +114,11 @@
    "weight": 10,
    "score": 20,
    "state": "bad",
-   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 45% bullish — Titles like \"Day 1807 of snailposting every day until BTC is at 1M\", \"$BTC.X got 75k. Would like this to push out of the 3wt look\", and \"$SNYR 🐇🚀🚀🚀 $TSLA $SPY $BTC.X $DJT\" showcase FOMO‑driven price targets and rocket emojis.",
+   "detail": "Presse : neutre · Forums (37 posts Reddit/StockTwits/biz) : euphorie · StockTwits 85% bullish — Titles like \"Who else really thinks that Bitcoin is going to 100k by the end of the year? Because I do\", \"Me and bro waiting for the BTC Bull Run\" and \"$BTC.X >80k today\" show strong price‑target hype and FOMO.",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
- "score": 53,
+ "score": 48,
  "alerts": [],
  "model": {
   "n_cycles": 4,
@@ -132,22 +132,22 @@
   ],
   "shallow_bottom": 57950,
   "shallow_drawdown_pct": -54.1,
-  "current_drawdown_pct": -39.7,
-  "days_since_ath": 346,
+  "current_drawdown_pct": -38.2,
+  "days_since_ath": 347,
   "calendar_norm_days": 390,
   "low_seen_days": 268,
   "v1_excess": "re-gonflé",
-  "v1_detail": "rallye +31% depuis $58k, funding 0.01%",
-  "v2_buyer": "institutionnel en retrait (sorties ETF)",
-  "v3_shock": "guerre Iran / pétrole $100",
+  "v1_detail": "rallye +35% depuis $58k, funding 0.01%",
+  "v2_buyer": "institutionnel actif (entrées ETF)",
+  "v3_shock": "guerre Iran / pétrole $99",
   "verdict": "Excès re-gonflé PENDANT un choc actif → un second choc peut forcer un plus-bas vers la zone maturation ($28,627-38,731).",
   "lean": "plus-bas possible",
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
  },
  "corridor": {
-  "support": 47210,
-  "fair": 115147,
-  "resistance": 302838,
+  "support": 47244,
+  "fair": 115230,
+  "resistance": 303055,
   "projections": [
    {
     "cycle": "HC4 · halving 2024",
@@ -166,7 +166,7 @@
    }
   ],
   "note": "Power Law recalibré sur les prix réels (fair ≈ ATH). Bande ~6x inhérente au modèle → outil de CONTEXTE (zone chère/bon marché), pas de niveaux précis. Curve-fit, pas une loi.",
-  "position_pct": 26,
+  "position_pct": 27,
   "zone": "milieu du corridor"
  }
 }
