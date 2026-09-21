@@ -1,29 +1,28 @@
 {
- "updated_at": "2026-09-20T11:41+00:00",
+ "updated_at": "2026-09-21T13:05+00:00",
  "prices": {
-  "btc_usd": 80418,
-  "btc_24h_pct": -0.99,
-  "btc_mcap_usd": 1615339318060.5078,
-  "brent_usd": 99.29,
-  "brent_14d_pct": 3.9,
+  "btc_usd": 85350,
+  "btc_24h_pct": 6.13,
+  "btc_mcap_usd": 1713811785168.487,
+  "brent_usd": 101.1,
+  "brent_14d_pct": 5.0,
   "spx": 7650,
   "spx_drawdown_pct": -1.9,
   "nvda_drawdown_pct": -3.5,
-  "fear_greed": 71,
+  "fear_greed": 70,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": 1.1,
-  "etf_last_day_musd": 433.0,
-  "etf_flows_15d_musd": 313.4
+  "hashrate_30d_pct": 3.2,
+  "etf_last_day_musd": 0.0,
+  "etf_flows_15d_musd": 549.9
  },
  "judge": {
   "ceasefire": {
    "answer": "NO",
    "confidence": "low",
-   "justification": "The last known ceasefire/MOU expired on 16 August 2026 and no newer agreement has been reported.",
-   "source_url": "https://www.aljazeera.com/news/2026/8/16/us-iran-mou-is-set-to-expire-what-to-know",
-   "source_date": "2026-08-16",
-   "changed": false,
-   "error": "HTTPError"
+   "justification": "No recent reports indicate Iran has accepted a ceasefire or peace agreement with the United States.",
+   "source_url": "",
+   "source_date": "",
+   "changed": false
   },
   "gulf_infra": {
    "answer": "NO",
@@ -43,7 +42,7 @@
    "changed": false,
    "error": "HTTPError"
   },
-  "checked_at": "2026-09-20T11:41+00:00",
+  "checked_at": "2026-09-21T13:05+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "euphoria",
@@ -54,19 +53,19 @@
   },
   "sentiment_posts": {
    "sentiment": "euphoria",
-   "evidence": "Titles like \"If bitcoin doesn’t dump over the next three days then the bull market has officially started\", \"Golly New River Report Says $840,000 Bitcoin\", and \"Bears in absolute shambles right now\" showcase extreme bullish hype and price‑target mania.",
+   "evidence": "Posts like \"$85k\", \"The path of least resistance is up! 💎🤲🚀🌙\", and \"$133,000 new ATH 2026 is a fact not a dream\" showcase strong FOMO and lofty price targets.",
    "confidence": "high",
    "sample_size": 38,
-   "stocktwits_bull_pct": 80
+   "stocktwits_bull_pct": 100
   }
  },
  "indicators": {
   "etf_flows": {
    "label": "Flux nets des ETF spot",
    "weight": 20,
-   "score": 50,
-   "state": "warn",
-   "detail": "Flux 15 j proches de zéro : +313 M$",
+   "score": 100,
+   "state": "ok",
+   "detail": "Entrées nettes 15 j : +550 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -82,23 +81,23 @@
    "weight": 15,
    "score": 50,
    "state": "warn",
-   "detail": "Brent 99.29 $ (+3.9 % / 14 j) — stabilisé",
+   "detail": "Brent 101.1 $ (+5.0 % / 14 j) — stabilisé",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
    "label": "Horloge mécanique du cycle",
    "weight": 15,
-   "score": 93,
+   "score": 94,
    "state": "ok",
-   "detail": "J+349 depuis le top (fenêtre 363-384 j : dans 14 j)",
+   "detail": "J+350 depuis le top (fenêtre 363-384 j : dans 13 j)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
    "label": "Capitulation des mineurs",
    "weight": 10,
-   "score": 50,
-   "state": "warn",
-   "detail": "Hashrate +1.1 % / 30 j — purge en cours de stabilisation",
+   "score": 100,
+   "state": "ok",
+   "detail": "Hashrate +3.2 % / 30 j — reprise, capitulation derrière",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -106,7 +105,7 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 71, NVDA -3.5 %, S&P -1.9 %)",
+   "detail": "Pas de flush global (F&G 70, NVDA -3.5 %, S&P -1.9 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
@@ -114,11 +113,11 @@
    "weight": 10,
    "score": 20,
    "state": "bad",
-   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 80% bullish — Titles like \"If bitcoin doesn’t dump over the next three days then the bull market has officially started\", \"Golly New River Report Says $840,000 Bitcoin\", and \"Bears in absolute shambles right now\" showcase extreme bullish hype and price‑target mania.",
+   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 100% bullish — Posts like \"$85k\", \"The path of least resistance is up! 💎🤲🚀🌙\", and \"$133,000 new ATH 2026 is a fact not a dream\" showcase strong FOMO and lofty price targets.",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
- "score": 48,
+ "score": 64,
  "alerts": [],
  "model": {
   "n_cycles": 4,
@@ -132,22 +131,22 @@
   ],
   "shallow_bottom": 57950,
   "shallow_drawdown_pct": -54.1,
-  "current_drawdown_pct": -36.3,
-  "days_since_ath": 349,
+  "current_drawdown_pct": -32.4,
+  "days_since_ath": 350,
   "calendar_norm_days": 390,
   "low_seen_days": 268,
   "v1_excess": "re-gonflé",
-  "v1_detail": "rallye +39% depuis $58k, funding 0.01%",
+  "v1_detail": "rallye +47% depuis $58k, funding 0.01%",
   "v2_buyer": "institutionnel actif (entrées ETF)",
-  "v3_shock": "guerre Iran / pétrole $99",
+  "v3_shock": "guerre Iran / pétrole $101",
   "verdict": "Excès re-gonflé PENDANT un choc actif → un second choc peut forcer un plus-bas vers la zone maturation ($28,627-38,731).",
   "lean": "plus-bas possible",
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
  },
  "corridor": {
-  "support": 47312,
-  "fair": 115396,
-  "resistance": 303491,
+  "support": 47346,
+  "fair": 115479,
+  "resistance": 303709,
   "projections": [
    {
     "cycle": "HC4 · halving 2024",
@@ -166,7 +165,7 @@
    }
   ],
   "note": "Power Law recalibré sur les prix réels (fair ≈ ATH). Bande ~6x inhérente au modèle → outil de CONTEXTE (zone chère/bon marché), pas de niveaux précis. Curve-fit, pas une loi.",
-  "position_pct": 29,
+  "position_pct": 32,
   "zone": "milieu du corridor"
  }
 }
