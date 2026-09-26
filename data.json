@@ -1,19 +1,19 @@
 {
- "updated_at": "2026-09-25T12:03+00:00",
+ "updated_at": "2026-09-26T11:38+00:00",
  "prices": {
-  "btc_usd": 84607,
-  "btc_24h_pct": 1.42,
-  "btc_mcap_usd": 1699354937034.9465,
-  "brent_usd": 98.27,
-  "brent_14d_pct": -6.1,
-  "spx": 7704,
-  "spx_drawdown_pct": -1.2,
-  "nvda_drawdown_pct": -2.5,
-  "fear_greed": 71,
+  "btc_usd": 84150,
+  "btc_24h_pct": -0.83,
+  "btc_mcap_usd": 1690580897897.4678,
+  "brent_usd": 104.32,
+  "brent_14d_pct": -0.3,
+  "spx": 7743,
+  "spx_drawdown_pct": -0.7,
+  "nvda_drawdown_pct": -2.3,
+  "fear_greed": 74,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": 7.7,
-  "etf_last_day_musd": 190.7,
-  "etf_flows_15d_musd": 1794.7
+  "hashrate_30d_pct": 3.3,
+  "etf_last_day_musd": 134.5,
+  "etf_flows_15d_musd": 1929.2
  },
  "judge": {
   "ceasefire": {
@@ -43,7 +43,7 @@
    "changed": false,
    "error": "HTTPError"
   },
-  "checked_at": "2026-09-25T12:03+00:00",
+  "checked_at": "2026-09-26T11:38+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "euphoria",
@@ -53,11 +53,11 @@
    "error": "HTTPError"
   },
   "sentiment_posts": {
-   "sentiment": "euphoria",
-   "evidence": "Titles like \"They held 💎🤲\", \"now fairwell to $85K 🤔 $90-$93K soon\", and \"Day 648 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\" showcase strong FOMO and lofty price targets.",
+   "sentiment": "fear",
+   "evidence": "Bitget Loses $351.6 Million in Hot Wallet Breach; 83k bitcoin is getting FUCKED; this is a bulltrap think about it logically.",
    "confidence": "high",
-   "sample_size": 37,
-   "stocktwits_bull_pct": 92
+   "sample_size": 38,
+   "stocktwits_bull_pct": 33
   }
  },
  "indicators": {
@@ -66,7 +66,7 @@
    "weight": 20,
    "score": 100,
    "state": "ok",
-   "detail": "Entrées nettes 15 j : +1795 M$",
+   "detail": "Entrées nettes 15 j : +1929 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -80,9 +80,9 @@
   "oil_channel": {
    "label": "Canal pétrole → inflation",
    "weight": 15,
-   "score": 100,
-   "state": "ok",
-   "detail": "Brent 98.27 $ (-6.1 % / 14 j) — détente",
+   "score": 50,
+   "state": "warn",
+   "detail": "Brent 104.32 $ (-0.3 % / 14 j) — stabilisé",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -90,7 +90,7 @@
    "weight": 15,
    "score": 95,
    "state": "ok",
-   "detail": "J+354 depuis le top (fenêtre 363-384 j : dans 9 j)",
+   "detail": "J+355 depuis le top (fenêtre 363-384 j : dans 8 j)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
@@ -98,7 +98,7 @@
    "weight": 10,
    "score": 100,
    "state": "ok",
-   "detail": "Hashrate +7.7 % / 30 j — reprise, capitulation derrière",
+   "detail": "Hashrate +3.3 % / 30 j — reprise, capitulation derrière",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -106,19 +106,19 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 71, NVDA -2.5 %, S&P -1.2 %)",
+   "detail": "Pas de flush global (F&G 74, NVDA -2.3 %, S&P -0.7 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
    "label": "Sentiment réseaux (contrarien)",
    "weight": 10,
-   "score": 20,
-   "state": "bad",
-   "detail": "Presse : neutre · Forums (37 posts Reddit/StockTwits/biz) : euphorie · StockTwits 92% bullish — Titles like \"They held 💎🤲\", \"now fairwell to $85K 🤔 $90-$93K soon\", and \"Day 648 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\" showcase strong FOMO and lofty price targets.",
+   "score": 50,
+   "state": "warn",
+   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : peur · StockTwits 33% bullish — Bitget Loses $351.6 Million in Hot Wallet Breach; 83k bitcoin is getting FUCKED; this is a bulltrap think about it logically.",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
- "score": 71,
+ "score": 67,
  "alerts": [],
  "model": {
   "n_cycles": 4,
@@ -132,22 +132,22 @@
   ],
   "shallow_bottom": 57950,
   "shallow_drawdown_pct": -54.1,
-  "current_drawdown_pct": -33.0,
-  "days_since_ath": 354,
+  "current_drawdown_pct": -33.4,
+  "days_since_ath": 355,
   "calendar_norm_days": 390,
   "low_seen_days": 268,
   "v1_excess": "re-gonflé",
-  "v1_detail": "rallye +46% depuis $58k, funding 0.01%",
+  "v1_detail": "rallye +45% depuis $58k, funding 0.01%",
   "v2_buyer": "institutionnel actif (entrées ETF)",
-  "v3_shock": "guerre Iran / pétrole $98",
+  "v3_shock": "guerre Iran / pétrole $104",
   "verdict": "Excès re-gonflé PENDANT un choc actif → un second choc peut forcer un plus-bas vers la zone maturation ($28,627-38,731).",
   "lean": "plus-bas possible",
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
  },
  "corridor": {
-  "support": 47482,
-  "fair": 115810,
-  "resistance": 304581,
+  "support": 47516,
+  "fair": 115894,
+  "resistance": 304800,
   "projections": [
    {
     "cycle": "HC4 · halving 2024",
