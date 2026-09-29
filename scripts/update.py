@@ -59,9 +59,18 @@ def load_previous():
 # ---------------------------------------------------------------- fetchers
 
 def fetch_btc(out):
-    d = http_json("https://api.coingecko.com/api/v3/simple/price"
-                  "?ids=bitcoin&vs_currencies=usd&include_market_cap=true"
-                  "&include_24hr_change=true")
+    try:
+        d = http_json("https://api.coingecko.com/api/v3/simple/price"
+                      "?ids=bitcoin&vs_currencies=usd&include_market_cap=true"
+                      "&include_24hr_change=true")
+    except Exception as e:
+        # repli Yahoo (CoinGecko renvoie 403 depuis les runners GitHub depuis le 29/09/2026)
+        print(f"[warn] CoinGecko: {type(e).__name__}: {e} — repli Yahoo", file=sys.stderr)
+        closes = yahoo_series("BTC-USD", rng="5d")
+        out["btc_usd"] = round(closes[-1])
+        out["btc_24h_pct"] = round((closes[-1] / closes[-2] - 1) * 100, 2)
+        out["btc_mcap_usd"] = None
+        return
     b = d["bitcoin"]
     out["btc_usd"] = round(b["usd"])
     out["btc_24h_pct"] = round(b.get("usd_24h_change") or 0, 2)
