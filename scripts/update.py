@@ -669,6 +669,99 @@ def compute_corridor(prices):
     return c
 
 
+# ---------------------------------------------------------------- fourchettes M12
+# Version stdlib du modèle M12 validé en walk-forward 2018-2026 (~/claude/liquidity-game) :
+# vol = mélange vol récente (13 sem.) -> vol réalisée 3 ans (convergence ~8 sem.),
+# dispersion multi-semaines gonflée (tendances : k=1.05 à 4 sem., 1.2 à 13 sem.),
+# centre = tendance effective + inclinaison de phase du halving (rétrécie 50 %).
+# Donne une FOURCHETTE et un risque, pas une direction.
+HALVINGS = [date(2012, 11, 28), date(2016, 7, 9), date(2020, 5, 11), date(2024, 4, 20), date(2028, 4, 15)]
+CYCLE_TILT_ANN = [0.37, 0.34, 0.12, -0.69, -0.54, 0.37, -0.06, 0.07]   # par 1/8 de cycle (6 mois)
+RANGE_H = {"w1": (1, 1.0), "w4": (4, 1.05), "w13": (13, 1.2)}
+RANGE_LEVELS = [50000, 60000, 70000, 100000, 126000]
+
+
+def _ncdf(x):
+    return 0.5 * (1 + math.erf(x / math.sqrt(2)))
+
+
+def cycle_bin(d):
+    prev = max(h for h in HALVINGS if h <= d)
+    ph = ((d - prev).days / 1458.0) % 1.0
+    return min(int(ph * 8), 7), ph
+
+
+def _std(xs):
+    m = sum(xs) / len(xs)
+    return math.sqrt(sum((x - m) ** 2 for x in xs) / (len(xs) - 1))
+
+
+def compute_ranges(prices, hist):
+    # période explicite : avec range=max, Yahoo dégrade l'intervalle en mensuel
+    d = http_json("https://query1.finance.yahoo.com/v8/finance/chart/BTC-USD"
+                  f"?period1=1410912000&period2={int(datetime.now(timezone.utc).timestamp())}&interval=1d")
+    closes = [c for c in d["chart"]["result"][0]["indicators"]["quote"][0]["close"] if c]
+    if len(closes) < 2000:
+        raise ValueError(f"historique BTC trop court ({len(closes)} points)")
+    wk = closes[::-1][::7][::-1]                              # clôtures hebdo (pas de 7 j)
+    r = [math.log(b / a) for a, b in zip(wk, wk[1:])]
+    P = prices.get("btc_usd") or wk[-1]
+    s_long, s_short = _std(r[-156:]), _std(r[-13:])
+    m_full, m260, m208 = sum(r) / len(r), sum(r[-260:]) / 260, sum(r[-208:]) / 208
+    # tendance effective M12 : 0.35 x moyenne du dernier cycle + décalage du pool 5 ans (approx.)
+    trend = 0.35 * m208 + (m260 - m_full) * s_long / _std(r[-260:])
+    today = date.today()
+    out = {"price": P, "sigma_week_pct": None, "trend_ann_pct": round(trend * 52 * 100),
+           "bands": {}, "levels": [], "calibration": {}}
+    for key, (n, k) in RANGE_H.items():
+        w = sum(math.exp(-h / 8) for h in range(1, n + 1)) / n
+        s_n = math.sqrt(w * s_short ** 2 + (1 - w) * s_long ** 2) * math.sqrt(n) * k
+        mu = sum(trend + CYCLE_TILT_ANN[cycle_bin(date.fromordinal(today.toordinal() + 7 * h))[0]] / 52
+                 for h in range(1, n + 1))
+        if key == "w1":
+            out["sigma_week_pct"] = round(s_n * 100, 1)
+        out["bands"][key] = {"median": round(P * math.exp(mu)),
+                             "lo80": round(P * math.exp(mu - 1.2816 * s_n)), "hi80": round(P * math.exp(mu + 1.2816 * s_n)),
+                             "lo95": round(P * math.exp(mu - 1.96 * s_n)), "hi95": round(P * math.exp(mu + 1.96 * s_n))}
+        if key == "w13":
+            T_mu, T_s = mu, s_n
+    # proba de toucher un niveau (clôture) d'ici 13 sem. : barrière brownienne avec drift
+    s_w = out["sigma_week_pct"] / 100
+    for L in RANGE_LEVELS:
+        a = math.log(L / P)
+        a += -0.5826 * s_w if a < 0 else 0.5826 * s_w          # correction clôtures hebdo (Broadie-Glasserman)
+        if a < 0:
+            pr = _ncdf((a - T_mu) / T_s) + math.exp(2 * T_mu * a / T_s ** 2) * _ncdf((a + T_mu) / T_s)
+        else:
+            pr = _ncdf((-a + T_mu) / T_s) + math.exp(2 * T_mu * a / T_s ** 2) * _ncdf((-a - T_mu) / T_s)
+        out["levels"].append({"level": L, "prob_13w_pct": round(min(1, pr) * 100)})
+    b, ph = cycle_bin(today)
+    nxt = date.fromordinal(max(h for h in HALVINGS if h <= today).toordinal() + round((b + 1) / 8 * 1458))
+    out["cycle"] = {"years_since_halving": round(ph * 4, 2), "tilt_ann_pct": round(CYCLE_TILT_ANN[b] * 100),
+                    "next_tilt_ann_pct": round(CYCLE_TILT_ANN[(b + 1) % 8] * 100), "next_change": nxt.isoformat()}
+    # alerte de régime : mouvement 7 j > 2 sigma
+    r7 = math.log(P / wk[-2]) if len(wk) > 1 else 0
+    out["move_7d_pct"] = round((math.exp(r7) - 1) * 100, 1)
+    out["regime_alert"] = abs(r7) > 2 * out["sigma_week_pct"] / 100
+    # calibration : fourchettes 80 % passées arrivées à échéance
+    by_date = {h["date"]: h.get("btc") for h in hist if h.get("btc")}
+    for key, days in (("w1", 7), ("w4", 28)):
+        hits = n_ok = 0
+        for h in hist:
+            band = (h.get("rng") or {}).get(key)
+            if not band:
+                continue
+            d0 = date.fromisoformat(h["date"])
+            for off in (0, 1, -1):
+                v = by_date.get(date.fromordinal(d0.toordinal() + days + off).isoformat())
+                if v:
+                    n_ok += 1
+                    hits += band[0] <= v <= band[1]
+                    break
+        out["calibration"][key] = {"n": n_ok, "hit_pct": round(100 * hits / n_ok) if n_ok else None}
+    return out
+
+
 def main():
     prev = load_previous()
     prices = dict(prev.get("prices", {}))
@@ -683,6 +776,16 @@ def main():
     indicators, score, alerts = compute(prices, judge, prev)
     model = compute_model(prices, judge)
     corridor = compute_corridor(prices)
+    try:
+        with open(HISTORY_PATH) as f:
+            hist = json.load(f)
+    except Exception:
+        hist = []
+    try:
+        ranges = compute_ranges(prices, hist)
+    except Exception as e:
+        print(f"[warn] compute_ranges: {type(e).__name__}: {e}", file=sys.stderr)
+        ranges = prev.get("ranges")
 
     data = {
         "updated_at": datetime.now(timezone.utc).isoformat(timespec="minutes"),
@@ -693,6 +796,7 @@ def main():
         "alerts": alerts,
         "model": model,
         "corridor": corridor,
+        "ranges": ranges,
     }
     with open(DATA_PATH, "w") as f:
         json.dump(data, f, ensure_ascii=False, indent=1)
@@ -721,6 +825,9 @@ def append_history(data):
         "brent": p.get("brent_usd"),
         "ind": {k: v["score"] for k, v in data.get("indicators", {}).items()},
     }
+    bands = (data.get("ranges") or {}).get("bands") or {}
+    if bands:
+        point["rng"] = {k: [bands[k]["lo80"], bands[k]["hi80"]] for k in ("w1", "w4") if k in bands}
     hist = [h for h in hist if h.get("date") != day]   # 1 point/jour, on écrase
     hist.append(point)
     hist = hist[-400:]                       # garde ~13 mois

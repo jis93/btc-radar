@@ -65,6 +65,31 @@ def build_body(d):
                          f"{ind['label']} ({ind['weight']} %) — {ind['detail']}")
     lines.append("")
 
+    rg = d.get("ranges")
+    if rg and rg.get("bands"):
+        usd = lambda v: "$" + format(v, ",")
+        lines.append("FOURCHETTES (M12 simplifié — une plage de risque, pas une direction) :")
+        for k, lab in (("w1", "1 sem. "), ("w4", "4 sem. "), ("w13", "13 sem.")):
+            b = rg["bands"].get(k)
+            if b:
+                lines.append(f"  {lab} : 80 % {usd(b['lo80'])} – {usd(b['hi80'])}"
+                             f"  ·  95 % {usd(b['lo95'])} – {usd(b['hi95'])}  ·  médiane {usd(b['median'])}")
+        cy = rg.get("cycle", {})
+        lines.append(f"  σ hebdo {rg.get('sigma_week_pct')} %  ·  tendance effective {rg.get('trend_ann_pct'):+d} %/an"
+                     f"  ·  cycle {cy.get('years_since_halving')} ans après halving,"
+                     f" inclinaison {cy.get('tilt_ann_pct'):+d} %/an → {cy.get('next_tilt_ann_pct'):+d} % à partir du {cy.get('next_change')}")
+        lines.append("  Proba de toucher d'ici 13 sem. (clôture hebdo) : " +
+                     " · ".join(f"{l['level'] // 1000}k {l['prob_13w_pct']} %" for l in rg.get("levels", [])))
+        mv = rg.get("move_7d_pct", 0)
+        lines.append(f"  Mouvement 7 j : {mv:+.1f} %" +
+                     ("  ⚠️ > 2σ : changement de régime de volatilité, élargir les fourchettes" if rg.get("regime_alert")
+                      else "  (dans la normale)"))
+        cal = rg.get("calibration", {})
+        lines.append("  Calibration (cible ~80 %) : " + " · ".join(
+            f"{lab} {c['hit_pct']} % (n={c['n']})" if c.get("hit_pct") is not None else f"{lab} en cours (n=0)"
+            for lab, c in (("1 sem.", cal.get("w1", {})), ("4 sem.", cal.get("w4", {})))))
+        lines.append("")
+
     lines.append("JUGE LLM (conservateur, OUI = confiance haute + source <7 j) :")
     for k, label in JUDGE_LABELS.items():
         v = d.get("judge", {}).get(k, {})

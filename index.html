@@ -232,6 +232,18 @@
   </section>
 
   <section>
+    <h2>Fourchettes de risque (M12 · 1 / 4 / 13 semaines)</h2>
+    <div class="gauge-card" style="gap:14px">
+      <p class="gauge-note" style="margin:0">Modèle validé en walk-forward 2018-2026 (volatilité en grappes, tendances
+        multi-semaines, phase du halving). Il donne une <strong>plage de risque, pas une direction</strong> :
+        à 1 semaine, le sens est du bruit.</p>
+      <div id="ranges-bands" class="rows"></div>
+      <div id="ranges-est" style="display:flex;flex-wrap:wrap;gap:10px"></div>
+      <div style="font-size:12px;color:var(--ink-faint)" id="ranges-note"></div>
+    </div>
+  </section>
+
+  <section>
     <h2>Dates clés</h2>
     <div class="timeline" id="timeline"></div>
   </section>
@@ -327,6 +339,7 @@ function render(d) {
 
   renderModel(d.model);
   renderCorridor(d.corridor, d.prices);
+  renderRanges(d.ranges);
 
   const alerts = (d.alerts || []).map(a =>
     `<div class="alert">⚠️ <strong>${a.label}</strong>${a.changed ? " — CHANGEMENT DÉTECTÉ, à vérifier" : ""}
@@ -346,6 +359,33 @@ function render(d) {
       <span class="tl-what">${e.window ? "<strong>" + e.what + "</strong>" : e.what}</span>
     </div>`;
   }).join("");
+}
+
+function renderRanges(g) {
+  if (!g || !g.bands) return;
+  const usd = v => v == null ? "—" : "$" + Number(v).toLocaleString("fr-FR");
+  const lab = {w1: "1 semaine", w4: "4 semaines", w13: "13 semaines"};
+  document.getElementById("ranges-bands").innerHTML = ["w1", "w4", "w13"].filter(k => g.bands[k]).map(k => {
+    const b = g.bands[k];
+    return `<div class="row"><span class="dot ok" style="visibility:hidden"></span>
+      <span class="name">${lab[k]}</span><span class="weight"></span>
+      <span class="reading num">80 % ${usd(b.lo80)} – ${usd(b.hi80)} · 95 % ${usd(b.lo95)} – ${usd(b.hi95)} · médiane ${usd(b.median)}</span></div>`;
+  }).join("");
+  const cy = g.cycle || {}, cal = g.calibration || {};
+  const calTxt = c => c && c.hit_pct != null ? c.hit_pct + " % (n=" + c.n + ")" : "en cours";
+  document.getElementById("ranges-est").innerHTML = [
+    ["σ hebdo", g.sigma_week_pct + " %"],
+    ["Tendance effective", (g.trend_ann_pct > 0 ? "+" : "") + g.trend_ann_pct + " %/an"],
+    ["Cycle", cy.years_since_halving + " ans · " + cy.tilt_ann_pct + " %/an → " + cy.next_tilt_ann_pct + " % dès le " + cy.next_change],
+    ["Mouvement 7 j", (g.move_7d_pct > 0 ? "+" : "") + g.move_7d_pct + " %" + (g.regime_alert ? " ⚠️ >2σ" : "")],
+    ...(g.levels || []).map(l => ["Toucher " + (l.level / 1000) + "k (13 sem.)", l.prob_13w_pct + " %"]),
+    ["Calibration 1 sem.", calTxt(cal.w1)],
+    ["Calibration 4 sem.", calTxt(cal.w4)],
+  ].map(([l, v]) => `<div class="chip" style="flex-direction:column;align-items:flex-start;gap:2px">
+      <span class="lbl">${l}</span><span class="num">${v}</span></div>`).join("");
+  document.getElementById("ranges-note").textContent =
+    "Probabilités de toucher un niveau : en clôture hebdomadaire (un passage en séance est plus probable). " +
+    "Calibration : part des fourchettes 80 % passées qui ont contenu le prix réel — cible ~80 %.";
 }
 
 function renderCorridor(c, prices) {
