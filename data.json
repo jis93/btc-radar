@@ -1,14 +1,14 @@
 {
- "updated_at": "2026-09-29T13:10+00:00",
+ "updated_at": "2026-09-29T14:00+00:00",
  "prices": {
   "btc_usd": 83508,
   "btc_24h_pct": -1.76,
   "btc_mcap_usd": 1676758703538.3608,
-  "brent_usd": 96.2,
-  "brent_14d_pct": -11.5,
-  "spx": 7684,
+  "brent_usd": 96.62,
+  "brent_14d_pct": -11.2,
+  "spx": 7686,
   "spx_drawdown_pct": -1.5,
-  "nvda_drawdown_pct": -0.7,
+  "nvda_drawdown_pct": 0.0,
   "fear_greed": 73,
   "funding_rate_pct": 0.01,
   "hashrate_30d_pct": 6.9,
@@ -43,7 +43,7 @@
    "changed": false,
    "error": "HTTPError"
   },
-  "checked_at": "2026-09-29T13:10+00:00",
+  "checked_at": "2026-09-29T14:00+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "euphoria",
@@ -54,10 +54,10 @@
   },
   "sentiment_posts": {
    "sentiment": "euphoria",
-   "evidence": "Titles like \"$300K Bitcoin by 2029?\", \"$85K then $90K 🚀 💪\", and \"Day 653 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\" showcase strong price‑target hype and bullish excitement.",
+   "evidence": "‘$300K Bitcoin by 2029?’, ‘$BTC.X she’s got that look to have another big jump eyes 85k then 90k 🚀’, ‘Day 653 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$’",
    "confidence": "high",
    "sample_size": 32,
-   "stocktwits_bull_pct": 95
+   "stocktwits_bull_pct": 89
   }
  },
  "indicators": {
@@ -82,7 +82,7 @@
    "weight": 15,
    "score": 100,
    "state": "ok",
-   "detail": "Brent 96.2 $ (-11.5 % / 14 j) — détente",
+   "detail": "Brent 96.62 $ (-11.2 % / 14 j) — détente",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -106,7 +106,7 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 73, NVDA -0.7 %, S&P -1.5 %)",
+   "detail": "Pas de flush global (F&G 73, NVDA +0.0 %, S&P -1.5 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
@@ -114,7 +114,7 @@
    "weight": 10,
    "score": 20,
    "state": "bad",
-   "detail": "Presse : neutre · Forums (32 posts Reddit/StockTwits/biz) : euphorie · StockTwits 95% bullish — Titles like \"$300K Bitcoin by 2029?\", \"$85K then $90K 🚀 💪\", and \"Day 653 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\" showcase strong price‑target hype and bullish excitement.",
+   "detail": "Presse : neutre · Forums (32 posts Reddit/StockTwits/biz) : euphorie · StockTwits 89% bullish — ‘$300K Bitcoin by 2029?’, ‘$BTC.X she’s got that look to have another big jump eyes 85k then 90k 🚀’, ‘Day 653 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$’",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
@@ -139,7 +139,7 @@
   "v1_excess": "re-gonflé",
   "v1_detail": "rallye +44% depuis $58k, funding 0.01%",
   "v2_buyer": "institutionnel actif (entrées ETF)",
-  "v3_shock": "guerre Iran / pétrole $96",
+  "v3_shock": "guerre Iran / pétrole $97",
   "verdict": "Excès re-gonflé PENDANT un choc actif → un second choc peut forcer un plus-bas vers la zone maturation ($28,627-38,731).",
   "lean": "plus-bas possible",
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
@@ -168,5 +168,73 @@
   "note": "Power Law recalibré sur les prix réels (fair ≈ ATH). Bande ~6x inhérente au modèle → outil de CONTEXTE (zone chère/bon marché), pas de niveaux précis. Curve-fit, pas une loi.",
   "position_pct": 30,
   "zone": "milieu du corridor"
+ },
+ "ranges": {
+  "price": 83508,
+  "sigma_week_pct": 6.8,
+  "trend_ann_pct": -19,
+  "bands": {
+   "w1": {
+    "median": 82351,
+    "lo80": 75455,
+    "hi80": 89876,
+    "lo95": 72042,
+    "hi95": 94134
+   },
+   "w4": {
+    "median": 81786,
+    "lo80": 68127,
+    "hi80": 98185,
+    "lo95": 61846,
+    "hi95": 108157
+   },
+   "w13": {
+    "median": 84436,
+    "lo80": 58151,
+    "hi80": 122601,
+    "lo95": 47733,
+    "hi95": 149358
+   }
+  },
+  "levels": [
+   {
+    "level": 50000,
+    "prob_13w_pct": 5
+   },
+   {
+    "level": 60000,
+    "prob_13w_pct": 19
+   },
+   {
+    "level": 70000,
+    "prob_13w_pct": 44
+   },
+   {
+    "level": 100000,
+    "prob_13w_pct": 46
+   },
+   {
+    "level": 126000,
+    "prob_13w_pct": 13
+   }
+  ],
+  "calibration": {
+   "w1": {
+    "n": 0,
+    "hit_pct": null
+   },
+   "w4": {
+    "n": 0,
+    "hit_pct": null
+   }
+  },
+  "cycle": {
+   "years_since_halving": 2.45,
+   "tilt_ann_pct": -54,
+   "next_tilt_ann_pct": 37,
+   "next_change": "2026-10-18"
+  },
+  "move_7d_pct": -3.1,
+  "regime_alert": false
  }
 }
