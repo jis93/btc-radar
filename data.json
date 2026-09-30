@@ -1,19 +1,19 @@
 {
- "updated_at": "2026-09-29T14:06+00:00",
+ "updated_at": "2026-09-30T12:50+00:00",
  "prices": {
-  "btc_usd": 84123,
-  "btc_24h_pct": 0.74,
-  "btc_mcap_usd": null,
-  "brent_usd": 96.46,
-  "brent_14d_pct": -11.3,
-  "spx": 7683,
-  "spx_drawdown_pct": -1.5,
-  "nvda_drawdown_pct": -0.0,
-  "fear_greed": 73,
+  "btc_usd": 84859,
+  "btc_24h_pct": 0.65,
+  "btc_mcap_usd": 1704722649056.0789,
+  "brent_usd": 97.54,
+  "brent_14d_pct": -7.8,
+  "spx": 7671,
+  "spx_drawdown_pct": -1.6,
+  "nvda_drawdown_pct": -1.4,
+  "fear_greed": 71,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": 6.9,
+  "hashrate_30d_pct": 5.3,
   "etf_last_day_musd": 0.0,
-  "etf_flows_15d_musd": 2127.0
+  "etf_flows_15d_musd": 2475.9
  },
  "judge": {
   "ceasefire": {
@@ -43,7 +43,7 @@
    "changed": false,
    "error": "HTTPError"
   },
-  "checked_at": "2026-09-29T14:06+00:00",
+  "checked_at": "2026-09-30T12:50+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "euphoria",
@@ -54,10 +54,10 @@
   },
   "sentiment_posts": {
    "sentiment": "euphoria",
-   "evidence": "Titles like \"$300K Bitcoin by 2029? Fidelity Strategist’s Bull Call...\", \"$BTC.X mega pump incoming\", and \"bull flag on the btc daily chart...\" showcase aggressive price targets and hype.",
+   "evidence": "StockTwits posts like \"Buy now before you're chasing over $87K and then $90K - DCA in if you have to!\", \"$COIN $BTC.X $100K coming\", and Reddit title \"$300K Bitcoin by 2029? Fidelity Strategist’s Bull Call Collides With 2007-High Yields\" show aggressive price targets and hype.",
    "confidence": "high",
-   "sample_size": 32,
-   "stocktwits_bull_pct": 74
+   "sample_size": 33,
+   "stocktwits_bull_pct": 95
   }
  },
  "indicators": {
@@ -66,7 +66,7 @@
    "weight": 20,
    "score": 100,
    "state": "ok",
-   "detail": "Entrées nettes 15 j : +2127 M$",
+   "detail": "Entrées nettes 15 j : +2476 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -82,7 +82,7 @@
    "weight": 15,
    "score": 100,
    "state": "ok",
-   "detail": "Brent 96.46 $ (-11.3 % / 14 j) — détente",
+   "detail": "Brent 97.54 $ (-7.8 % / 14 j) — détente",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -90,7 +90,7 @@
    "weight": 15,
    "score": 96,
    "state": "ok",
-   "detail": "J+358 depuis le top (fenêtre 363-384 j : dans 5 j)",
+   "detail": "J+359 depuis le top (fenêtre 363-384 j : dans 4 j)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
@@ -98,7 +98,7 @@
    "weight": 10,
    "score": 100,
    "state": "ok",
-   "detail": "Hashrate +6.9 % / 30 j — reprise, capitulation derrière",
+   "detail": "Hashrate +5.3 % / 30 j — reprise, capitulation derrière",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -106,7 +106,7 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 73, NVDA +0.0 %, S&P -1.5 %)",
+   "detail": "Pas de flush global (F&G 71, NVDA -1.4 %, S&P -1.6 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
@@ -114,7 +114,7 @@
    "weight": 10,
    "score": 20,
    "state": "bad",
-   "detail": "Presse : neutre · Forums (32 posts Reddit/StockTwits/biz) : euphorie · StockTwits 74% bullish — Titles like \"$300K Bitcoin by 2029? Fidelity Strategist’s Bull Call...\", \"$BTC.X mega pump incoming\", and \"bull flag on the btc daily chart...\" showcase aggressive price targets and hype.",
+   "detail": "Presse : neutre · Forums (33 posts Reddit/StockTwits/biz) : euphorie · StockTwits 95% bullish — StockTwits posts like \"Buy now before you're chasing over $87K and then $90K - DCA in if you have to!\", \"$COIN $BTC.X $100K coming\", and Reddit title \"$300K Bitcoin by 2029? Fidelity Strategist’s Bull Call Collides With 2007-High Yields\" show aggressive price targets and hype.",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
@@ -132,22 +132,22 @@
   ],
   "shallow_bottom": 57950,
   "shallow_drawdown_pct": -54.1,
-  "current_drawdown_pct": -33.4,
-  "days_since_ath": 358,
+  "current_drawdown_pct": -32.8,
+  "days_since_ath": 359,
   "calendar_norm_days": 390,
   "low_seen_days": 268,
   "v1_excess": "re-gonflé",
-  "v1_detail": "rallye +45% depuis $58k, funding 0.01%",
+  "v1_detail": "rallye +46% depuis $58k, funding 0.01%",
   "v2_buyer": "institutionnel actif (entrées ETF)",
-  "v3_shock": "guerre Iran / pétrole $96",
+  "v3_shock": "guerre Iran / pétrole $98",
   "verdict": "Excès re-gonflé PENDANT un choc actif → un second choc peut forcer un plus-bas vers la zone maturation ($28,627-38,731).",
   "lean": "plus-bas possible",
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
  },
  "corridor": {
-  "support": 47619,
-  "fair": 116143,
-  "resistance": 305456,
+  "support": 47653,
+  "fair": 116226,
+  "resistance": 305675,
   "projections": [
    {
     "cycle": "HC4 · halving 2024",
@@ -170,52 +170,52 @@
   "zone": "milieu du corridor"
  },
  "ranges": {
-  "price": 84123,
-  "sigma_week_pct": 6.8,
-  "trend_ann_pct": -19,
+  "price": 84859,
+  "sigma_week_pct": 5.4,
+  "trend_ann_pct": -18,
   "bands": {
    "w1": {
-    "median": 82956,
-    "lo80": 75992,
-    "hi80": 90559,
-    "lo95": 72545,
-    "hi95": 94861
+    "median": 83688,
+    "lo80": 78137,
+    "hi80": 89634,
+    "lo95": 75350,
+    "hi95": 92950
    },
    "w4": {
-    "median": 82384,
-    "lo80": 68595,
-    "hi80": 98945,
-    "lo95": 62257,
-    "hi95": 109019
+    "median": 83132,
+    "lo80": 71647,
+    "hi80": 96458,
+    "lo95": 66225,
+    "hi95": 104356
    },
    "w13": {
-    "median": 85043,
-    "lo80": 58535,
-    "hi80": 123555,
-    "lo95": 48034,
-    "hi95": 150567
+    "median": 85878,
+    "lo80": 62144,
+    "hi80": 118676,
+    "lo95": 52365,
+    "hi95": 140840
    }
   },
   "levels": [
    {
     "level": 50000,
-    "prob_13w_pct": 5
+    "prob_13w_pct": 2
    },
    {
     "level": 60000,
-    "prob_13w_pct": 19
+    "prob_13w_pct": 12
    },
    {
     "level": 70000,
-    "prob_13w_pct": 43
+    "prob_13w_pct": 36
    },
    {
     "level": 100000,
-    "prob_13w_pct": 48
+    "prob_13w_pct": 45
    },
    {
     "level": 126000,
-    "prob_13w_pct": 14
+    "prob_13w_pct": 10
    }
   ],
   "calibration": {
@@ -234,7 +234,7 @@
    "next_tilt_ann_pct": 37,
    "next_change": "2026-10-18"
   },
-  "move_7d_pct": -2.4,
+  "move_7d_pct": 0.6,
   "regime_alert": false
  }
 }
