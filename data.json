@@ -1,19 +1,19 @@
 {
- "updated_at": "2026-10-02T12:54+00:00",
+ "updated_at": "2026-10-03T11:53+00:00",
  "prices": {
-  "btc_usd": 86710,
-  "btc_24h_pct": 3.46,
-  "btc_mcap_usd": 1742202269140.4568,
-  "brent_usd": 99.36,
-  "brent_14d_pct": -4.3,
-  "spx": 7666,
-  "spx_drawdown_pct": -1.7,
+  "btc_usd": 84658,
+  "btc_24h_pct": -2.11,
+  "btc_mcap_usd": 1701025712754.9116,
+  "brent_usd": 102.25,
+  "brent_14d_pct": -1.6,
+  "spx": 7723,
+  "spx_drawdown_pct": -1.0,
   "nvda_drawdown_pct": 0.0,
-  "fear_greed": 72,
+  "fear_greed": 67,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": 5.5,
-  "etf_last_day_musd": 0.0,
-  "etf_flows_15d_musd": 2443.1
+  "hashrate_30d_pct": 8.2,
+  "etf_last_day_musd": 31.7,
+  "etf_flows_15d_musd": 2474.8
  },
  "judge": {
   "ceasefire": {
@@ -43,7 +43,7 @@
    "changed": false,
    "error": "HTTPError"
   },
-  "checked_at": "2026-10-02T12:54+00:00",
+  "checked_at": "2026-10-03T11:53+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "euphoria",
@@ -54,10 +54,10 @@
   },
   "sentiment_posts": {
    "sentiment": "euphoria",
-   "evidence": "Posts like \"The bitcoin bear market is officially over. The bull market has begun\", \"$BTC.X 90K pump over the weekend? 🚀\", and \"Day 656 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\" showcase strong FOMO and lofty price targets.",
+   "evidence": "Bitcoin is going to $250,000 within twelve months; Buckle up boys, rocket ship incoming!!! (I sold); Weekly Recap: #Bitcoin Hits $87,000 As ETF Inflows And Rate Hopes Lift #Crypto Markets",
    "confidence": "high",
-   "sample_size": 34,
-   "stocktwits_bull_pct": 100
+   "sample_size": 38,
+   "stocktwits_bull_pct": 72
   }
  },
  "indicators": {
@@ -66,7 +66,7 @@
    "weight": 20,
    "score": 100,
    "state": "ok",
-   "detail": "Entrées nettes 15 j : +2443 M$",
+   "detail": "Entrées nettes 15 j : +2475 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -80,9 +80,9 @@
   "oil_channel": {
    "label": "Canal pétrole → inflation",
    "weight": 15,
-   "score": 100,
-   "state": "ok",
-   "detail": "Brent 99.36 $ (-4.3 % / 14 j) — détente",
+   "score": 50,
+   "state": "warn",
+   "detail": "Brent 102.25 $ (-1.6 % / 14 j) — stabilisé",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -90,7 +90,7 @@
    "weight": 15,
    "score": 97,
    "state": "ok",
-   "detail": "J+361 depuis le top (fenêtre 363-384 j : dans 2 j)",
+   "detail": "J+362 depuis le top (fenêtre 363-384 j : dans 1 j)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
@@ -98,7 +98,7 @@
    "weight": 10,
    "score": 100,
    "state": "ok",
-   "detail": "Hashrate +5.5 % / 30 j — reprise, capitulation derrière",
+   "detail": "Hashrate +8.2 % / 30 j — reprise, capitulation derrière",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -106,7 +106,7 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 72, NVDA +0.0 %, S&P -1.7 %)",
+   "detail": "Pas de flush global (F&G 67, NVDA +0.0 %, S&P -1.0 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
@@ -114,11 +114,11 @@
    "weight": 10,
    "score": 20,
    "state": "bad",
-   "detail": "Presse : neutre · Forums (34 posts Reddit/StockTwits/biz) : euphorie · StockTwits 100% bullish — Posts like \"The bitcoin bear market is officially over. The bull market has begun\", \"$BTC.X 90K pump over the weekend? 🚀\", and \"Day 656 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\" showcase strong FOMO and lofty price targets.",
+   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 72% bullish — Bitcoin is going to $250,000 within twelve months; Buckle up boys, rocket ship incoming!!! (I sold); Weekly Recap: #Bitcoin Hits $87,000 As ETF Inflows And Rate Hopes Lift #Crypto Markets",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
- "score": 72,
+ "score": 64,
  "alerts": [],
  "model": {
   "n_cycles": 4,
@@ -132,22 +132,22 @@
   ],
   "shallow_bottom": 57950,
   "shallow_drawdown_pct": -54.1,
-  "current_drawdown_pct": -31.3,
-  "days_since_ath": 361,
+  "current_drawdown_pct": -33.0,
+  "days_since_ath": 362,
   "calendar_norm_days": 390,
   "low_seen_days": 268,
   "v1_excess": "re-gonflé",
-  "v1_detail": "rallye +50% depuis $58k, funding 0.01%",
+  "v1_detail": "rallye +46% depuis $58k, funding 0.01%",
   "v2_buyer": "institutionnel actif (entrées ETF)",
-  "v3_shock": "guerre Iran / pétrole $99",
+  "v3_shock": "guerre Iran / pétrole $102",
   "verdict": "Excès re-gonflé PENDANT un choc actif → un second choc peut forcer un plus-bas vers la zone maturation ($28,627-38,731).",
   "lean": "plus-bas possible",
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
  },
  "corridor": {
-  "support": 47721,
-  "fair": 116393,
-  "resistance": 306114,
+  "support": 47755,
+  "fair": 116476,
+  "resistance": 306333,
   "projections": [
    {
     "cycle": "HC4 · halving 2024",
@@ -166,34 +166,34 @@
    }
   ],
   "note": "Power Law recalibré sur les prix réels (fair ≈ ATH). Bande ~6x inhérente au modèle → outil de CONTEXTE (zone chère/bon marché), pas de niveaux précis. Curve-fit, pas une loi.",
-  "position_pct": 32,
+  "position_pct": 31,
   "zone": "milieu du corridor"
  },
  "ranges": {
-  "price": 86710,
-  "sigma_week_pct": 6.4,
-  "trend_ann_pct": -18,
+  "price": 84658,
+  "sigma_week_pct": 6.0,
+  "trend_ann_pct": -17,
   "bands": {
    "w1": {
-    "median": 85523,
-    "lo80": 78837,
-    "hi80": 92777,
-    "lo95": 75512,
-    "hi95": 96862
+    "median": 83505,
+    "lo80": 77364,
+    "hi80": 90133,
+    "lo95": 74298,
+    "hi95": 93852
    },
    "w4": {
-    "median": 84983,
-    "lo80": 71669,
-    "hi80": 100770,
-    "lo95": 65488,
-    "hi95": 110281
+    "median": 82993,
+    "lo80": 70682,
+    "hi80": 97449,
+    "lo95": 64922,
+    "hi95": 106094
    },
    "w13": {
-    "median": 87877,
-    "lo80": 61998,
-    "hi80": 124558,
-    "lo95": 51545,
-    "hi95": 149818
+    "median": 85869,
+    "lo80": 61642,
+    "hi80": 119618,
+    "lo95": 51722,
+    "hi95": 142561
    }
   },
   "levels": [
@@ -207,15 +207,15 @@
    },
    {
     "level": 70000,
-    "prob_13w_pct": 34
+    "prob_13w_pct": 37
    },
    {
     "level": 100000,
-    "prob_13w_pct": 53
+    "prob_13w_pct": 45
    },
    {
     "level": 126000,
-    "prob_13w_pct": 14
+    "prob_13w_pct": 10
    }
   ],
   "calibration": {
@@ -234,7 +234,7 @@
    "next_tilt_ann_pct": 37,
    "next_change": "2026-10-18"
   },
-  "move_7d_pct": 3.2,
+  "move_7d_pct": 0.3,
   "regime_alert": false
  }
 }
