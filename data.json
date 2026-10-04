@@ -1,19 +1,19 @@
 {
- "updated_at": "2026-10-03T11:53+00:00",
+ "updated_at": "2026-10-04T12:36+00:00",
  "prices": {
-  "btc_usd": 84658,
-  "btc_24h_pct": -2.11,
-  "btc_mcap_usd": 1701025712754.9116,
+  "btc_usd": 85266,
+  "btc_24h_pct": 0.5,
+  "btc_mcap_usd": 1713275179431.5369,
   "brent_usd": 102.25,
   "brent_14d_pct": -1.6,
   "spx": 7723,
   "spx_drawdown_pct": -1.0,
   "nvda_drawdown_pct": 0.0,
-  "fear_greed": 67,
+  "fear_greed": 65,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": 8.2,
+  "hashrate_30d_pct": 4.4,
   "etf_last_day_musd": 31.7,
-  "etf_flows_15d_musd": 2474.8
+  "etf_flows_15d_musd": 2314.9
  },
  "judge": {
   "ceasefire": {
@@ -43,7 +43,7 @@
    "changed": false,
    "error": "HTTPError"
   },
-  "checked_at": "2026-10-03T11:53+00:00",
+  "checked_at": "2026-10-04T12:36+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "euphoria",
@@ -54,10 +54,10 @@
   },
   "sentiment_posts": {
    "sentiment": "euphoria",
-   "evidence": "Bitcoin is going to $250,000 within twelve months; Buckle up boys, rocket ship incoming!!! (I sold); Weekly Recap: #Bitcoin Hits $87,000 As ETF Inflows And Rate Hopes Lift #Crypto Markets",
+   "evidence": "‘Don’t Worry! Buying The Dip On Bitcoin Will Pay Off‼️💯🚀’, ‘Lets pump it up🚨📈’, ‘90K 👀 then 100k. The Bitcoin bull is upon us. 🚀’",
    "confidence": "high",
    "sample_size": 38,
-   "stocktwits_bull_pct": 72
+   "stocktwits_bull_pct": 89
   }
  },
  "indicators": {
@@ -66,7 +66,7 @@
    "weight": 20,
    "score": 100,
    "state": "ok",
-   "detail": "Entrées nettes 15 j : +2475 M$",
+   "detail": "Entrées nettes 15 j : +2315 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -90,7 +90,7 @@
    "weight": 15,
    "score": 97,
    "state": "ok",
-   "detail": "J+362 depuis le top (fenêtre 363-384 j : dans 1 j)",
+   "detail": "J+363 depuis le top (fenêtre 363-384 j : EN COURS)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
@@ -98,7 +98,7 @@
    "weight": 10,
    "score": 100,
    "state": "ok",
-   "detail": "Hashrate +8.2 % / 30 j — reprise, capitulation derrière",
+   "detail": "Hashrate +4.4 % / 30 j — reprise, capitulation derrière",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -106,7 +106,7 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 67, NVDA +0.0 %, S&P -1.0 %)",
+   "detail": "Pas de flush global (F&G 65, NVDA +0.0 %, S&P -1.0 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
@@ -114,7 +114,7 @@
    "weight": 10,
    "score": 20,
    "state": "bad",
-   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 72% bullish — Bitcoin is going to $250,000 within twelve months; Buckle up boys, rocket ship incoming!!! (I sold); Weekly Recap: #Bitcoin Hits $87,000 As ETF Inflows And Rate Hopes Lift #Crypto Markets",
+   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 89% bullish — ‘Don’t Worry! Buying The Dip On Bitcoin Will Pay Off‼️💯🚀’, ‘Lets pump it up🚨📈’, ‘90K 👀 then 100k. The Bitcoin bull is upon us. 🚀’",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
@@ -132,12 +132,12 @@
   ],
   "shallow_bottom": 57950,
   "shallow_drawdown_pct": -54.1,
-  "current_drawdown_pct": -33.0,
-  "days_since_ath": 362,
+  "current_drawdown_pct": -32.5,
+  "days_since_ath": 363,
   "calendar_norm_days": 390,
   "low_seen_days": 268,
   "v1_excess": "re-gonflé",
-  "v1_detail": "rallye +46% depuis $58k, funding 0.01%",
+  "v1_detail": "rallye +47% depuis $58k, funding 0.01%",
   "v2_buyer": "institutionnel actif (entrées ETF)",
   "v3_shock": "guerre Iran / pétrole $102",
   "verdict": "Excès re-gonflé PENDANT un choc actif → un second choc peut forcer un plus-bas vers la zone maturation ($28,627-38,731).",
@@ -145,9 +145,9 @@
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
  },
  "corridor": {
-  "support": 47755,
-  "fair": 116476,
-  "resistance": 306333,
+  "support": 47790,
+  "fair": 116560,
+  "resistance": 306552,
   "projections": [
    {
     "cycle": "HC4 · halving 2024",
@@ -170,30 +170,30 @@
   "zone": "milieu du corridor"
  },
  "ranges": {
-  "price": 84658,
-  "sigma_week_pct": 6.0,
-  "trend_ann_pct": -17,
+  "price": 85266,
+  "sigma_week_pct": 6.4,
+  "trend_ann_pct": -19,
   "bands": {
    "w1": {
-    "median": 83505,
-    "lo80": 77364,
-    "hi80": 90133,
-    "lo95": 74298,
-    "hi95": 93852
+    "median": 84072,
+    "lo80": 77466,
+    "hi80": 91241,
+    "lo95": 74183,
+    "hi95": 95280
    },
    "w4": {
-    "median": 82993,
-    "lo80": 70682,
-    "hi80": 97449,
-    "lo95": 64922,
-    "hi95": 106094
+    "median": 83461,
+    "lo80": 70339,
+    "hi80": 99031,
+    "lo95": 64250,
+    "hi95": 108416
    },
    "w13": {
-    "median": 85869,
-    "lo80": 61642,
-    "hi80": 119618,
-    "lo95": 51722,
-    "hi95": 142561
+    "median": 86054,
+    "lo80": 60685,
+    "hi80": 122030,
+    "lo95": 50441,
+    "hi95": 146812
    }
   },
   "levels": [
@@ -203,19 +203,19 @@
    },
    {
     "level": 60000,
-    "prob_13w_pct": 13
+    "prob_13w_pct": 15
    },
    {
     "level": 70000,
-    "prob_13w_pct": 37
+    "prob_13w_pct": 38
    },
    {
     "level": 100000,
-    "prob_13w_pct": 45
+    "prob_13w_pct": 48
    },
    {
     "level": 126000,
-    "prob_13w_pct": 10
+    "prob_13w_pct": 12
    }
   ],
   "calibration": {
@@ -234,7 +234,7 @@
    "next_tilt_ann_pct": 37,
    "next_change": "2026-10-18"
   },
-  "move_7d_pct": 0.3,
+  "move_7d_pct": 1.0,
   "regime_alert": false
  }
 }
