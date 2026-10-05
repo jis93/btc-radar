@@ -1,19 +1,19 @@
 {
- "updated_at": "2026-10-04T12:36+00:00",
+ "updated_at": "2026-10-05T15:01+00:00",
  "prices": {
-  "btc_usd": 85266,
-  "btc_24h_pct": 0.5,
-  "btc_mcap_usd": 1713275179431.5369,
-  "brent_usd": 102.25,
-  "brent_14d_pct": -1.6,
-  "spx": 7723,
-  "spx_drawdown_pct": -1.0,
+  "btc_usd": 85596,
+  "btc_24h_pct": 0.43,
+  "btc_mcap_usd": 1720100081113.8884,
+  "brent_usd": 102.06,
+  "brent_14d_pct": 1.7,
+  "spx": 7753,
+  "spx_drawdown_pct": -0.6,
   "nvda_drawdown_pct": 0.0,
-  "fear_greed": 65,
+  "fear_greed": 70,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": 4.4,
-  "etf_last_day_musd": 31.7,
-  "etf_flows_15d_musd": 2314.9
+  "hashrate_30d_pct": 2.9,
+  "etf_last_day_musd": 0.0,
+  "etf_flows_15d_musd": 2923.5
  },
  "judge": {
   "ceasefire": {
@@ -43,7 +43,7 @@
    "changed": false,
    "error": "HTTPError"
   },
-  "checked_at": "2026-10-04T12:36+00:00",
+  "checked_at": "2026-10-05T15:01+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "euphoria",
@@ -53,11 +53,11 @@
    "error": "HTTPError"
   },
   "sentiment_posts": {
-   "sentiment": "euphoria",
-   "evidence": "‘Don’t Worry! Buying The Dip On Bitcoin Will Pay Off‼️💯🚀’, ‘Lets pump it up🚨📈’, ‘90K 👀 then 100k. The Bitcoin bull is upon us. 🚀’",
+   "sentiment": "optimism",
+   "evidence": "Titles like \"Buy Bitcoin\", \"Metaplanet bought another 1,000 BTC and become 2nd largest corporate Bitcoin holder\", and \"it’s only a matter of time before $96K is reached\" show confident buying and bullish price expectations, while fear‑laden posts are fewer.",
    "confidence": "high",
    "sample_size": 38,
-   "stocktwits_bull_pct": 89
+   "stocktwits_bull_pct": 57
   }
  },
  "indicators": {
@@ -66,7 +66,7 @@
    "weight": 20,
    "score": 100,
    "state": "ok",
-   "detail": "Entrées nettes 15 j : +2315 M$",
+   "detail": "Entrées nettes 15 j : +2924 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -82,7 +82,7 @@
    "weight": 15,
    "score": 50,
    "state": "warn",
-   "detail": "Brent 102.25 $ (-1.6 % / 14 j) — stabilisé",
+   "detail": "Brent 102.06 $ (+1.7 % / 14 j) — stabilisé",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -90,7 +90,7 @@
    "weight": 15,
    "score": 97,
    "state": "ok",
-   "detail": "J+363 depuis le top (fenêtre 363-384 j : EN COURS)",
+   "detail": "J+364 depuis le top (fenêtre 363-384 j : EN COURS)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
@@ -98,7 +98,7 @@
    "weight": 10,
    "score": 100,
    "state": "ok",
-   "detail": "Hashrate +4.4 % / 30 j — reprise, capitulation derrière",
+   "detail": "Hashrate +2.9 % / 30 j — reprise, capitulation derrière",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -106,19 +106,19 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 65, NVDA +0.0 %, S&P -1.0 %)",
+   "detail": "Pas de flush global (F&G 70, NVDA +0.0 %, S&P -0.6 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
    "label": "Sentiment réseaux (contrarien)",
    "weight": 10,
-   "score": 20,
+   "score": 32,
    "state": "bad",
-   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 89% bullish — ‘Don’t Worry! Buying The Dip On Bitcoin Will Pay Off‼️💯🚀’, ‘Lets pump it up🚨📈’, ‘90K 👀 then 100k. The Bitcoin bull is upon us. 🚀’",
+   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : optimisme · StockTwits 57% bullish — Titles like \"Buy Bitcoin\", \"Metaplanet bought another 1,000 BTC and become 2nd largest corporate Bitcoin holder\", and \"it’s only a matter of time before $96K is reached\" show confident buying and bullish price expectations, while fear‑laden posts are fewer.",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
- "score": 64,
+ "score": 65,
  "alerts": [],
  "model": {
   "n_cycles": 4,
@@ -132,12 +132,12 @@
   ],
   "shallow_bottom": 57950,
   "shallow_drawdown_pct": -54.1,
-  "current_drawdown_pct": -32.5,
-  "days_since_ath": 363,
+  "current_drawdown_pct": -32.2,
+  "days_since_ath": 364,
   "calendar_norm_days": 390,
   "low_seen_days": 268,
   "v1_excess": "re-gonflé",
-  "v1_detail": "rallye +47% depuis $58k, funding 0.01%",
+  "v1_detail": "rallye +48% depuis $58k, funding 0.01%",
   "v2_buyer": "institutionnel actif (entrées ETF)",
   "v3_shock": "guerre Iran / pétrole $102",
   "verdict": "Excès re-gonflé PENDANT un choc actif → un second choc peut forcer un plus-bas vers la zone maturation ($28,627-38,731).",
@@ -145,9 +145,9 @@
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
  },
  "corridor": {
-  "support": 47790,
-  "fair": 116560,
-  "resistance": 306552,
+  "support": 47824,
+  "fair": 116643,
+  "resistance": 306772,
   "projections": [
    {
     "cycle": "HC4 · halving 2024",
@@ -170,36 +170,36 @@
   "zone": "milieu du corridor"
  },
  "ranges": {
-  "price": 85266,
-  "sigma_week_pct": 6.4,
-  "trend_ann_pct": -19,
+  "price": 85596,
+  "sigma_week_pct": 6.5,
+  "trend_ann_pct": -20,
   "bands": {
    "w1": {
-    "median": 84072,
-    "lo80": 77466,
-    "hi80": 91241,
-    "lo95": 74183,
-    "hi95": 95280
+    "median": 84386,
+    "lo80": 77609,
+    "hi80": 91756,
+    "lo95": 74244,
+    "hi95": 95913
    },
    "w4": {
-    "median": 83461,
-    "lo80": 70339,
-    "hi80": 99031,
-    "lo95": 64250,
-    "hi95": 108416
+    "median": 85216,
+    "lo80": 71407,
+    "hi80": 101697,
+    "lo95": 65027,
+    "hi95": 111674
    },
    "w13": {
-    "median": 86054,
-    "lo80": 60685,
-    "hi80": 122030,
-    "lo95": 50441,
-    "hi95": 146812
+    "median": 87757,
+    "lo80": 60732,
+    "hi80": 126807,
+    "lo95": 49980,
+    "hi95": 154086
    }
   },
   "levels": [
    {
     "level": 50000,
-    "prob_13w_pct": 3
+    "prob_13w_pct": 4
    },
    {
     "level": 60000,
@@ -211,11 +211,11 @@
    },
    {
     "level": 100000,
-    "prob_13w_pct": 48
+    "prob_13w_pct": 53
    },
    {
     "level": 126000,
-    "prob_13w_pct": 12
+    "prob_13w_pct": 16
    }
   ],
   "calibration": {
@@ -234,7 +234,7 @@
    "next_tilt_ann_pct": 37,
    "next_change": "2026-10-18"
   },
-  "move_7d_pct": 1.0,
+  "move_7d_pct": 2.5,
   "regime_alert": false
  }
 }
