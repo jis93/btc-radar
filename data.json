@@ -1,19 +1,19 @@
 {
- "updated_at": "2026-10-11T13:09+00:00",
+ "updated_at": "2026-10-12T15:48+00:00",
  "prices": {
-  "btc_usd": 83032,
-  "btc_24h_pct": 0.33,
-  "btc_mcap_usd": 1668570345611.9128,
-  "brent_usd": 104.72,
-  "brent_14d_pct": 0.4,
-  "spx": 7812,
+  "btc_usd": 82620,
+  "btc_24h_pct": -0.86,
+  "btc_mcap_usd": 1660415226016.0476,
+  "brent_usd": 106.95,
+  "brent_14d_pct": 1.6,
+  "spx": 7811,
   "spx_drawdown_pct": -0.1,
-  "nvda_drawdown_pct": -4.2,
-  "fear_greed": 61,
+  "nvda_drawdown_pct": -5.5,
+  "fear_greed": 69,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": 9.4,
-  "etf_last_day_musd": 21.1,
-  "etf_flows_15d_musd": 949.0
+  "hashrate_30d_pct": 8.8,
+  "etf_last_day_musd": 0.0,
+  "etf_flows_15d_musd": 234.3
  },
  "judge": {
   "ceasefire": {
@@ -43,7 +43,7 @@
    "changed": false,
    "error": "HTTPError"
   },
-  "checked_at": "2026-10-11T13:09+00:00",
+  "checked_at": "2026-10-12T15:48+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "euphoria",
@@ -53,20 +53,20 @@
    "error": "HTTPError"
   },
   "sentiment_posts": {
-   "sentiment": "optimism",
-   "evidence": "Titles like \"Day 665 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\", \"40k Bears How were the 40k bitcoin bears SO wrong\" and StockTwits posts predicting \"$BTC.X 30x rarer than gold\" show confident bullish sentiment.",
+   "sentiment": "fear",
+   "evidence": "Titles such as \"Ledger Confirms Hardware Implant as Tampered Wallet Reports Allegedly Spread to Europe\", \"Another ColdCard hack\", and \"Trump will crash market after midterms... Bitcoin will crash and find its bottom\" highlight widespread worry and security concerns.",
    "confidence": "high",
    "sample_size": 37,
-   "stocktwits_bull_pct": 91
+   "stocktwits_bull_pct": 29
   }
  },
  "indicators": {
   "etf_flows": {
    "label": "Flux nets des ETF spot",
    "weight": 20,
-   "score": 100,
-   "state": "ok",
-   "detail": "Entrées nettes 15 j : +949 M$",
+   "score": 50,
+   "state": "warn",
+   "detail": "Flux 15 j proches de zéro : +234 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -82,7 +82,7 @@
    "weight": 15,
    "score": 50,
    "state": "warn",
-   "detail": "Brent 104.72 $ (+0.4 % / 14 j) — stabilisé",
+   "detail": "Brent 106.95 $ (+1.6 % / 14 j) — stabilisé",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -90,7 +90,7 @@
    "weight": 15,
    "score": 99,
    "state": "ok",
-   "detail": "J+370 depuis le top (fenêtre 363-384 j : EN COURS)",
+   "detail": "J+371 depuis le top (fenêtre 363-384 j : EN COURS)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
@@ -98,7 +98,7 @@
    "weight": 10,
    "score": 100,
    "state": "ok",
-   "detail": "Hashrate +9.4 % / 30 j — reprise, capitulation derrière",
+   "detail": "Hashrate +8.8 % / 30 j — reprise, capitulation derrière",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -106,19 +106,19 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 61, NVDA -4.2 %, S&P -0.1 %)",
+   "detail": "Pas de flush global (F&G 69, NVDA -5.5 %, S&P -0.1 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
    "label": "Sentiment réseaux (contrarien)",
    "weight": 10,
-   "score": 32,
-   "state": "bad",
-   "detail": "Presse : neutre · Forums (37 posts Reddit/StockTwits/biz) : optimisme · StockTwits 91% bullish — Titles like \"Day 665 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\", \"40k Bears How were the 40k bitcoin bears SO wrong\" and StockTwits posts predicting \"$BTC.X 30x rarer than gold\" show confident bullish sentiment.",
+   "score": 50,
+   "state": "warn",
+   "detail": "Presse : neutre · Forums (37 posts Reddit/StockTwits/biz) : peur · StockTwits 29% bullish — Titles such as \"Ledger Confirms Hardware Implant as Tampered Wallet Reports Allegedly Spread to Europe\", \"Another ColdCard hack\", and \"Trump will crash market after midterms... Bitcoin will crash and find its bottom\" highlight widespread worry and security concerns.",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
- "score": 66,
+ "score": 57,
  "alerts": [],
  "model": {
   "n_cycles": 4,
@@ -132,22 +132,22 @@
   ],
   "shallow_bottom": 57950,
   "shallow_drawdown_pct": -54.1,
-  "current_drawdown_pct": -34.3,
-  "days_since_ath": 370,
+  "current_drawdown_pct": -34.6,
+  "days_since_ath": 371,
   "calendar_norm_days": 390,
   "low_seen_days": 268,
   "v1_excess": "re-gonflé",
   "v1_detail": "rallye +43% depuis $58k, funding 0.01%",
   "v2_buyer": "institutionnel actif (entrées ETF)",
-  "v3_shock": "guerre Iran / pétrole $105",
+  "v3_shock": "guerre Iran / pétrole $107",
   "verdict": "Excès re-gonflé PENDANT un choc actif → un second choc peut forcer un plus-bas vers la zone maturation ($28,627-38,731).",
   "lean": "plus-bas possible",
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
  },
  "corridor": {
-  "support": 48030,
-  "fair": 117145,
-  "resistance": 308092,
+  "support": 48064,
+  "fair": 117229,
+  "resistance": 308313,
   "projections": [
    {
     "cycle": "HC4 · halving 2024",
@@ -170,57 +170,57 @@
   "zone": "milieu du corridor"
  },
  "ranges": {
-  "price": 83032,
+  "price": 82620,
   "sigma_week_pct": 6.6,
   "trend_ann_pct": -22,
   "bands": {
    "w1": {
-    "median": 81827,
-    "lo80": 75208,
-    "hi80": 89029,
-    "lo95": 71924,
-    "hi95": 93094
+    "median": 82854,
+    "lo80": 76140,
+    "hi80": 90160,
+    "lo95": 72809,
+    "hi95": 94285
    },
    "w4": {
-    "median": 82538,
-    "lo80": 69250,
-    "hi80": 98376,
-    "lo95": 63105,
-    "hi95": 107955
+    "median": 83561,
+    "lo80": 69922,
+    "hi80": 99861,
+    "lo95": 63628,
+    "hi95": 109739
    },
    "w13": {
-    "median": 84707,
-    "lo80": 59376,
-    "hi80": 120846,
-    "lo95": 49196,
-    "hi95": 145852
+    "median": 85717,
+    "lo80": 59206,
+    "hi80": 124099,
+    "lo95": 48675,
+    "hi95": 150950
    }
   },
   "levels": [
    {
     "level": 50000,
-    "prob_13w_pct": 4
+    "prob_13w_pct": 5
    },
    {
     "level": 60000,
-    "prob_13w_pct": 17
+    "prob_13w_pct": 18
    },
    {
     "level": 70000,
-    "prob_13w_pct": 43
-   },
-   {
-    "level": 100000,
     "prob_13w_pct": 44
    },
    {
+    "level": 100000,
+    "prob_13w_pct": 47
+   },
+   {
     "level": 126000,
-    "prob_13w_pct": 11
+    "prob_13w_pct": 13
    }
   ],
   "calibration": {
    "w1": {
-    "n": 6,
+    "n": 7,
     "hit_pct": 100
    },
    "w4": {
@@ -234,7 +234,7 @@
    "next_tilt_ann_pct": 37,
    "next_change": "2026-10-18"
   },
-  "move_7d_pct": -4.0,
+  "move_7d_pct": -3.7,
   "regime_alert": false
  }
 }
