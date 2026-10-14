@@ -1,19 +1,19 @@
 {
- "updated_at": "2026-10-13T14:27+00:00",
+ "updated_at": "2026-10-14T12:10+00:00",
  "prices": {
-  "btc_usd": 83493,
-  "btc_24h_pct": 0.75,
-  "btc_mcap_usd": 1677981950878.4612,
-  "brent_usd": 105.82,
-  "brent_14d_pct": 3.1,
-  "spx": 7801,
+  "btc_usd": 83482,
+  "btc_24h_pct": 0.32,
+  "btc_mcap_usd": 1677244094461.2136,
+  "brent_usd": 106.31,
+  "brent_14d_pct": 2.7,
+  "spx": 7805,
   "spx_drawdown_pct": -0.2,
-  "nvda_drawdown_pct": -5.6,
-  "fear_greed": 57,
+  "nvda_drawdown_pct": -4.5,
+  "fear_greed": 62,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": 4.9,
+  "hashrate_30d_pct": 6.9,
   "etf_last_day_musd": 0.0,
-  "etf_flows_15d_musd": -178.0
+  "etf_flows_15d_musd": -193.0
  },
  "judge": {
   "ceasefire": {
@@ -43,7 +43,7 @@
    "changed": false,
    "error": "HTTPError"
   },
-  "checked_at": "2026-10-13T14:27+00:00",
+  "checked_at": "2026-10-14T12:10+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "euphoria",
@@ -54,10 +54,10 @@
   },
   "sentiment_posts": {
    "sentiment": "euphoria",
-   "evidence": "StockTwits posts like \"$BTC.X bull market 📈 active $96,800 minimum top here $185,000 ... $237,000\" and \"Day 667 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\" alongside hype‑filled Reddit titles such as \"Win‑Win\" and \"AI won’t take Bitcoin from $2T to $10T. The money printer will.\"",
+   "evidence": "Titles like \"Strive buys 3,311 bitcoin for $280 million in largest acquisition since January\", \"Square to offer 3% Bitcoin rewards for credit card holders\", and \"Day 667 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\" showcase strong bullish enthusiasm and price‑target hype.",
    "confidence": "high",
    "sample_size": 38,
-   "stocktwits_bull_pct": 83
+   "stocktwits_bull_pct": 81
   }
  },
  "indicators": {
@@ -66,7 +66,7 @@
    "weight": 20,
    "score": 50,
    "state": "warn",
-   "detail": "Flux 15 j proches de zéro : -178 M$",
+   "detail": "Flux 15 j proches de zéro : -193 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -82,7 +82,7 @@
    "weight": 15,
    "score": 50,
    "state": "warn",
-   "detail": "Brent 105.82 $ (+3.1 % / 14 j) — stabilisé",
+   "detail": "Brent 106.31 $ (+2.7 % / 14 j) — stabilisé",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -90,7 +90,7 @@
    "weight": 15,
    "score": 100,
    "state": "ok",
-   "detail": "J+372 depuis le top (fenêtre 363-384 j : EN COURS)",
+   "detail": "J+373 depuis le top (fenêtre 363-384 j : EN COURS)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
@@ -98,7 +98,7 @@
    "weight": 10,
    "score": 100,
    "state": "ok",
-   "detail": "Hashrate +4.9 % / 30 j — reprise, capitulation derrière",
+   "detail": "Hashrate +6.9 % / 30 j — reprise, capitulation derrière",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -106,7 +106,7 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 57, NVDA -5.6 %, S&P -0.2 %)",
+   "detail": "Pas de flush global (F&G 62, NVDA -4.5 %, S&P -0.2 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
@@ -114,7 +114,7 @@
    "weight": 10,
    "score": 20,
    "state": "bad",
-   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 83% bullish — StockTwits posts like \"$BTC.X bull market 📈 active $96,800 minimum top here $185,000 ... $237,000\" and \"Day 667 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\" alongside hype‑filled Reddit titles such as \"Win‑Win\" and \"AI won’t take Bitcoin from $2T to $10T. The money printer will.\"",
+   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 81% bullish — Titles like \"Strive buys 3,311 bitcoin for $280 million in largest acquisition since January\", \"Square to offer 3% Bitcoin rewards for credit card holders\", and \"Day 667 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\" showcase strong bullish enthusiasm and price‑target hype.",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
@@ -133,7 +133,7 @@
   "shallow_bottom": 57950,
   "shallow_drawdown_pct": -54.1,
   "current_drawdown_pct": -33.9,
-  "days_since_ath": 372,
+  "days_since_ath": 373,
   "calendar_norm_days": 390,
   "low_seen_days": 268,
   "v1_excess": "re-gonflé",
@@ -145,9 +145,9 @@
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
  },
  "corridor": {
-  "support": 48098,
-  "fair": 117313,
-  "resistance": 308533,
+  "support": 48133,
+  "fair": 117397,
+  "resistance": 308754,
   "projections": [
    {
     "cycle": "HC4 · halving 2024",
@@ -170,57 +170,57 @@
   "zone": "milieu du corridor"
  },
  "ranges": {
-  "price": 83493,
-  "sigma_week_pct": 6.8,
-  "trend_ann_pct": -23,
+  "price": 83482,
+  "sigma_week_pct": 5.5,
+  "trend_ann_pct": -21,
   "bands": {
    "w1": {
-    "median": 83725,
-    "lo80": 76715,
-    "hi80": 91376,
-    "lo95": 73245,
-    "hi95": 95705
+    "median": 83734,
+    "lo80": 78071,
+    "hi80": 89807,
+    "lo95": 75231,
+    "hi95": 93198
    },
    "w4": {
-    "median": 84427,
-    "lo80": 70326,
-    "hi80": 101355,
-    "lo95": 63841,
-    "hi95": 111649
+    "median": 84494,
+    "lo80": 72655,
+    "hi80": 98262,
+    "lo95": 67075,
+    "hi95": 106436
    },
    "w13": {
-    "median": 86566,
-    "lo80": 59613,
-    "hi80": 125704,
-    "lo95": 48932,
-    "hi95": 153144
+    "median": 86816,
+    "lo80": 62671,
+    "hi80": 120263,
+    "lo95": 52741,
+    "hi95": 142906
    }
   },
   "levels": [
    {
     "level": 50000,
-    "prob_13w_pct": 5
+    "prob_13w_pct": 2
    },
    {
     "level": 60000,
-    "prob_13w_pct": 17
+    "prob_13w_pct": 12
    },
    {
     "level": 70000,
-    "prob_13w_pct": 42
+    "prob_13w_pct": 36
    },
    {
     "level": 100000,
-    "prob_13w_pct": 49
+    "prob_13w_pct": 46
    },
    {
     "level": 126000,
-    "prob_13w_pct": 15
+    "prob_13w_pct": 11
    }
   ],
   "calibration": {
    "w1": {
-    "n": 8,
+    "n": 9,
     "hit_pct": 100
    },
    "w4": {
@@ -234,7 +234,7 @@
    "next_tilt_ann_pct": 37,
    "next_change": "2026-10-18"
   },
-  "move_7d_pct": -2.4,
+  "move_7d_pct": 0.2,
   "regime_alert": false
  }
 }
