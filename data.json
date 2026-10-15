@@ -1,19 +1,19 @@
 {
- "updated_at": "2026-10-14T12:10+00:00",
+ "updated_at": "2026-10-15T11:46+00:00",
  "prices": {
-  "btc_usd": 83482,
-  "btc_24h_pct": 0.32,
-  "btc_mcap_usd": 1677244094461.2136,
-  "brent_usd": 106.31,
-  "brent_14d_pct": 2.7,
-  "spx": 7805,
-  "spx_drawdown_pct": -0.2,
-  "nvda_drawdown_pct": -4.5,
-  "fear_greed": 62,
+  "btc_usd": 81089,
+  "btc_24h_pct": -2.73,
+  "btc_mcap_usd": 1629767246793.9634,
+  "brent_usd": 104.56,
+  "brent_14d_pct": 2.2,
+  "spx": 7719,
+  "spx_drawdown_pct": -1.3,
+  "nvda_drawdown_pct": -7.5,
+  "fear_greed": 53,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": 6.9,
-  "etf_last_day_musd": 0.0,
-  "etf_flows_15d_musd": -193.0
+  "hashrate_30d_pct": 6.6,
+  "etf_last_day_musd": -261.4,
+  "etf_flows_15d_musd": -588.9
  },
  "judge": {
   "ceasefire": {
@@ -43,7 +43,7 @@
    "changed": false,
    "error": "HTTPError"
   },
-  "checked_at": "2026-10-14T12:10+00:00",
+  "checked_at": "2026-10-15T11:46+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "euphoria",
@@ -53,20 +53,20 @@
    "error": "HTTPError"
   },
   "sentiment_posts": {
-   "sentiment": "euphoria",
-   "evidence": "Titles like \"Strive buys 3,311 bitcoin for $280 million in largest acquisition since January\", \"Square to offer 3% Bitcoin rewards for credit card holders\", and \"Day 667 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\" showcase strong bullish enthusiasm and price‑target hype.",
+   "sentiment": "fear",
+   "evidence": "Titles like \"Oh no guys!!!\", \"I just got completely liquidated\", and \"Mutts are dumping BTC because of inflation to get more USD\" dominate the feed.",
    "confidence": "high",
    "sample_size": 38,
-   "stocktwits_bull_pct": 81
+   "stocktwits_bull_pct": 62
   }
  },
  "indicators": {
   "etf_flows": {
    "label": "Flux nets des ETF spot",
    "weight": 20,
-   "score": 50,
-   "state": "warn",
-   "detail": "Flux 15 j proches de zéro : -193 M$",
+   "score": 0,
+   "state": "bad",
+   "detail": "Sorties nettes 15 j : -589 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -82,7 +82,7 @@
    "weight": 15,
    "score": 50,
    "state": "warn",
-   "detail": "Brent 106.31 $ (+2.7 % / 14 j) — stabilisé",
+   "detail": "Brent 104.56 $ (+2.2 % / 14 j) — stabilisé",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -90,7 +90,7 @@
    "weight": 15,
    "score": 100,
    "state": "ok",
-   "detail": "J+373 depuis le top (fenêtre 363-384 j : EN COURS)",
+   "detail": "J+374 depuis le top (fenêtre 363-384 j : EN COURS)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
@@ -98,7 +98,7 @@
    "weight": 10,
    "score": 100,
    "state": "ok",
-   "detail": "Hashrate +6.9 % / 30 j — reprise, capitulation derrière",
+   "detail": "Hashrate +6.6 % / 30 j — reprise, capitulation derrière",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -106,19 +106,19 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 62, NVDA -4.5 %, S&P -0.2 %)",
+   "detail": "Pas de flush global (F&G 53, NVDA -7.5 %, S&P -1.3 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
    "label": "Sentiment réseaux (contrarien)",
    "weight": 10,
-   "score": 20,
-   "state": "bad",
-   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 81% bullish — Titles like \"Strive buys 3,311 bitcoin for $280 million in largest acquisition since January\", \"Square to offer 3% Bitcoin rewards for credit card holders\", and \"Day 667 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\" showcase strong bullish enthusiasm and price‑target hype.",
+   "score": 50,
+   "state": "warn",
+   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : peur · StockTwits 62% bullish — Titles like \"Oh no guys!!!\", \"I just got completely liquidated\", and \"Mutts are dumping BTC because of inflation to get more USD\" dominate the feed.",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
- "score": 54,
+ "score": 48,
  "alerts": [],
  "model": {
   "n_cycles": 4,
@@ -132,22 +132,22 @@
   ],
   "shallow_bottom": 57950,
   "shallow_drawdown_pct": -54.1,
-  "current_drawdown_pct": -33.9,
-  "days_since_ath": 373,
+  "current_drawdown_pct": -35.8,
+  "days_since_ath": 374,
   "calendar_norm_days": 390,
   "low_seen_days": 268,
   "v1_excess": "re-gonflé",
-  "v1_detail": "rallye +44% depuis $58k, funding 0.01%",
+  "v1_detail": "rallye +40% depuis $58k, funding 0.01%",
   "v2_buyer": "institutionnel en retrait (sorties ETF)",
-  "v3_shock": "guerre Iran / pétrole $106",
+  "v3_shock": "guerre Iran / pétrole $105",
   "verdict": "Excès re-gonflé PENDANT un choc actif → un second choc peut forcer un plus-bas vers la zone maturation ($28,627-38,731).",
   "lean": "plus-bas possible",
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
  },
  "corridor": {
-  "support": 48133,
-  "fair": 117397,
-  "resistance": 308754,
+  "support": 48167,
+  "fair": 117481,
+  "resistance": 308975,
   "projections": [
    {
     "cycle": "HC4 · halving 2024",
@@ -166,61 +166,61 @@
    }
   ],
   "note": "Power Law recalibré sur les prix réels (fair ≈ ATH). Bande ~6x inhérente au modèle → outil de CONTEXTE (zone chère/bon marché), pas de niveaux précis. Curve-fit, pas une loi.",
-  "position_pct": 30,
+  "position_pct": 28,
   "zone": "milieu du corridor"
  },
  "ranges": {
-  "price": 83482,
-  "sigma_week_pct": 5.5,
-  "trend_ann_pct": -21,
+  "price": 81089,
+  "sigma_week_pct": 5.9,
+  "trend_ann_pct": -22,
   "bands": {
    "w1": {
-    "median": 83734,
-    "lo80": 78071,
-    "hi80": 89807,
-    "lo95": 75231,
-    "hi95": 93198
+    "median": 81320,
+    "lo80": 75422,
+    "hi80": 87679,
+    "lo95": 72475,
+    "hi95": 91244
    },
    "w4": {
-    "median": 84494,
-    "lo80": 72655,
-    "hi80": 98262,
-    "lo95": 67075,
-    "hi95": 106436
+    "median": 82018,
+    "lo80": 69837,
+    "hi80": 96323,
+    "lo95": 64140,
+    "hi95": 104879
    },
    "w13": {
-    "median": 86816,
-    "lo80": 62671,
-    "hi80": 120263,
-    "lo95": 52741,
-    "hi95": 142906
+    "median": 84146,
+    "lo80": 59805,
+    "hi80": 118393,
+    "lo95": 49916,
+    "hi95": 141848
    }
   },
   "levels": [
    {
     "level": 50000,
-    "prob_13w_pct": 2
+    "prob_13w_pct": 4
    },
    {
     "level": 60000,
-    "prob_13w_pct": 12
+    "prob_13w_pct": 17
    },
    {
     "level": 70000,
-    "prob_13w_pct": 36
+    "prob_13w_pct": 45
    },
    {
     "level": 100000,
-    "prob_13w_pct": 46
+    "prob_13w_pct": 41
    },
    {
     "level": 126000,
-    "prob_13w_pct": 11
+    "prob_13w_pct": 9
    }
   ],
   "calibration": {
    "w1": {
-    "n": 9,
+    "n": 10,
     "hit_pct": 100
    },
    "w4": {
@@ -234,7 +234,7 @@
    "next_tilt_ann_pct": 37,
    "next_change": "2026-10-18"
   },
-  "move_7d_pct": 0.2,
+  "move_7d_pct": -0.7,
   "regime_alert": false
  }
 }
