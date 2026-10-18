@@ -1,19 +1,19 @@
 {
- "updated_at": "2026-10-17T11:00+00:00",
+ "updated_at": "2026-10-18T11:26+00:00",
  "prices": {
-  "btc_usd": 81565,
-  "btc_24h_pct": -0.71,
-  "btc_mcap_usd": 1639358969470.855,
+  "btc_usd": 82024,
+  "btc_24h_pct": 0.64,
+  "btc_mcap_usd": 1648586086739.8335,
   "brent_usd": 109.86,
   "brent_14d_pct": 7.4,
   "spx": 7659,
   "spx_drawdown_pct": -2.0,
   "nvda_drawdown_pct": -10.5,
-  "fear_greed": 55,
+  "fear_greed": 53,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": 8.3,
+  "hashrate_30d_pct": 6.1,
   "etf_last_day_musd": -82.4,
-  "etf_flows_15d_musd": -666.2
+  "etf_flows_15d_musd": -697.2
  },
  "judge": {
   "ceasefire": {
@@ -43,7 +43,7 @@
    "changed": false,
    "error": "HTTPError"
   },
-  "checked_at": "2026-10-17T11:00+00:00",
+  "checked_at": "2026-10-18T11:26+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "euphoria",
@@ -54,10 +54,10 @@
   },
   "sentiment_posts": {
    "sentiment": "euphoria",
-   "evidence": "Titles like \"Can't believe how easy this is\", \"spoiler alert >pumptober! btc broke ATH! BULL RUN CONFIRMED!\" and \"BTC is proving itself to be quite strong. Holding 81k while the market collapses\" showcase strong bullish excitement.",
+   "evidence": "Titles like \"85k coming to your local doorstep\", \"nice rebound\", and \"Day 672 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\" showcase strong price optimism and FOMO.",
    "confidence": "high",
-   "sample_size": 36,
-   "stocktwits_bull_pct": 64
+   "sample_size": 38,
+   "stocktwits_bull_pct": 76
   }
  },
  "indicators": {
@@ -66,7 +66,7 @@
    "weight": 20,
    "score": 0,
    "state": "bad",
-   "detail": "Sorties nettes 15 j : -666 M$",
+   "detail": "Sorties nettes 15 j : -697 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -90,7 +90,7 @@
    "weight": 15,
    "score": 100,
    "state": "ok",
-   "detail": "J+376 depuis le top (fenêtre 363-384 j : EN COURS)",
+   "detail": "J+377 depuis le top (fenêtre 363-384 j : EN COURS)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
@@ -98,7 +98,7 @@
    "weight": 10,
    "score": 100,
    "state": "ok",
-   "detail": "Hashrate +8.3 % / 30 j — reprise, capitulation derrière",
+   "detail": "Hashrate +6.1 % / 30 j — reprise, capitulation derrière",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -106,7 +106,7 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 55, NVDA -10.5 %, S&P -2.0 %)",
+   "detail": "Pas de flush global (F&G 53, NVDA -10.5 %, S&P -2.0 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
@@ -114,7 +114,7 @@
    "weight": 10,
    "score": 20,
    "state": "bad",
-   "detail": "Presse : neutre · Forums (36 posts Reddit/StockTwits/biz) : euphorie · StockTwits 64% bullish — Titles like \"Can't believe how easy this is\", \"spoiler alert >pumptober! btc broke ATH! BULL RUN CONFIRMED!\" and \"BTC is proving itself to be quite strong. Holding 81k while the market collapses\" showcase strong bullish excitement.",
+   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 76% bullish — Titles like \"85k coming to your local doorstep\", \"nice rebound\", and \"Day 672 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\" showcase strong price optimism and FOMO.",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
@@ -132,12 +132,12 @@
   ],
   "shallow_bottom": 57950,
   "shallow_drawdown_pct": -54.1,
-  "current_drawdown_pct": -35.4,
-  "days_since_ath": 376,
+  "current_drawdown_pct": -35.1,
+  "days_since_ath": 377,
   "calendar_norm_days": 390,
   "low_seen_days": 268,
   "v1_excess": "re-gonflé",
-  "v1_detail": "rallye +41% depuis $58k, funding 0.01%",
+  "v1_detail": "rallye +42% depuis $58k, funding 0.01%",
   "v2_buyer": "institutionnel en retrait (sorties ETF)",
   "v3_shock": "guerre Iran / pétrole $110",
   "verdict": "Excès re-gonflé PENDANT un choc actif → un second choc peut forcer un plus-bas vers la zone maturation ($28,627-38,731).",
@@ -145,9 +145,9 @@
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
  },
  "corridor": {
-  "support": 48236,
-  "fair": 117649,
-  "resistance": 309417,
+  "support": 48271,
+  "fair": 117733,
+  "resistance": 309638,
   "projections": [
    {
     "cycle": "HC4 · halving 2024",
@@ -166,61 +166,61 @@
    }
   ],
   "note": "Power Law recalibré sur les prix réels (fair ≈ ATH). Bande ~6x inhérente au modèle → outil de CONTEXTE (zone chère/bon marché), pas de niveaux précis. Curve-fit, pas une loi.",
-  "position_pct": 28,
+  "position_pct": 29,
   "zone": "milieu du corridor"
  },
  "ranges": {
-  "price": 81565,
-  "sigma_week_pct": 6.1,
-  "trend_ann_pct": -19,
+  "price": 82024,
+  "sigma_week_pct": 6.6,
+  "trend_ann_pct": -22,
   "bands": {
    "w1": {
-    "median": 81840,
-    "lo80": 75652,
-    "hi80": 88535,
-    "lo95": 72567,
-    "hi95": 92298
+    "median": 82263,
+    "lo80": 75582,
+    "hi80": 89534,
+    "lo95": 72268,
+    "hi95": 93640
    },
    "w4": {
-    "median": 82671,
-    "lo80": 70148,
-    "hi80": 97431,
-    "lo95": 64306,
-    "hi95": 106282
+    "median": 82984,
+    "lo80": 69593,
+    "hi80": 98951,
+    "lo95": 63404,
+    "hi95": 108611
    },
    "w13": {
-    "median": 85216,
-    "lo80": 60954,
-    "hi80": 119135,
-    "lo95": 51048,
-    "hi95": 142254
+    "median": 85185,
+    "lo80": 59730,
+    "hi80": 121488,
+    "lo95": 49497,
+    "hi95": 146604
    }
   },
   "levels": [
    {
     "level": 50000,
-    "prob_13w_pct": 3
+    "prob_13w_pct": 4
    },
    {
     "level": 60000,
-    "prob_13w_pct": 15
+    "prob_13w_pct": 17
    },
    {
     "level": 70000,
-    "prob_13w_pct": 42
+    "prob_13w_pct": 43
    },
    {
     "level": 100000,
-    "prob_13w_pct": 42
+    "prob_13w_pct": 44
    },
    {
     "level": 126000,
-    "prob_13w_pct": 10
+    "prob_13w_pct": 11
    }
   ],
   "calibration": {
    "w1": {
-    "n": 12,
+    "n": 13,
     "hit_pct": 100
    },
    "w4": {
@@ -234,7 +234,7 @@
    "next_tilt_ann_pct": 37,
    "next_change": "2026-10-18"
   },
-  "move_7d_pct": -1.6,
+  "move_7d_pct": -2.0,
   "regime_alert": false
  }
 }
