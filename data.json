@@ -1,19 +1,19 @@
 {
- "updated_at": "2026-10-21T12:06+00:00",
+ "updated_at": "2026-10-22T12:09+00:00",
  "prices": {
-  "btc_usd": 83409,
-  "btc_24h_pct": 2.4,
-  "btc_mcap_usd": 1676556058522.259,
-  "brent_usd": 109.31,
-  "brent_14d_pct": 9.1,
-  "spx": 7713,
-  "spx_drawdown_pct": -1.4,
-  "nvda_drawdown_pct": -9.5,
-  "fear_greed": 63,
+  "btc_usd": 81712,
+  "btc_24h_pct": -2.11,
+  "btc_mcap_usd": 1643092751209.883,
+  "brent_usd": 112.04,
+  "brent_14d_pct": 7.4,
+  "spx": 7757,
+  "spx_drawdown_pct": -0.8,
+  "nvda_drawdown_pct": -7.2,
+  "fear_greed": 68,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": 12.5,
-  "etf_last_day_musd": 526.7,
-  "etf_flows_15d_musd": -88.0
+  "hashrate_30d_pct": 12.2,
+  "etf_last_day_musd": 0.0,
+  "etf_flows_15d_musd": 167.4
  },
  "judge": {
   "ceasefire": {
@@ -43,7 +43,7 @@
    "changed": false,
    "error": "HTTPError"
   },
-  "checked_at": "2026-10-21T12:06+00:00",
+  "checked_at": "2026-10-22T12:09+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "euphoria",
@@ -54,10 +54,10 @@
   },
   "sentiment_posts": {
    "sentiment": "euphoria",
-   "evidence": "Titles such as \"JP Morgan expects Bitcoin to be the best performing asset of the next decade\", \"Buy more Bitcoin\", and \"A short squeeze is building up :)\" illustrate strong FOMO and bullish price‑target chatter.",
+   "evidence": "JPMorgan Says Bitcoin Will Beat Gold and Stocks; Broke past 83k what's next?; Day 673 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$",
    "confidence": "high",
-   "sample_size": 33,
-   "stocktwits_bull_pct": 83
+   "sample_size": 34,
+   "stocktwits_bull_pct": 69
   }
  },
  "indicators": {
@@ -66,7 +66,7 @@
    "weight": 20,
    "score": 50,
    "state": "warn",
-   "detail": "Flux 15 j proches de zéro : -88 M$",
+   "detail": "Flux 15 j proches de zéro : +167 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -82,7 +82,7 @@
    "weight": 15,
    "score": 0,
    "state": "bad",
-   "detail": "Brent 109.31 $ (+9.1 % / 14 j) — pression inflation",
+   "detail": "Brent 112.04 $ (+7.4 % / 14 j) — pression inflation",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -90,7 +90,7 @@
    "weight": 15,
    "score": 100,
    "state": "ok",
-   "detail": "J+380 depuis le top (fenêtre 363-384 j : EN COURS)",
+   "detail": "J+381 depuis le top (fenêtre 363-384 j : EN COURS)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
@@ -98,7 +98,7 @@
    "weight": 10,
    "score": 100,
    "state": "ok",
-   "detail": "Hashrate +12.5 % / 30 j — reprise, capitulation derrière",
+   "detail": "Hashrate +12.2 % / 30 j — reprise, capitulation derrière",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -106,7 +106,7 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 63, NVDA -9.5 %, S&P -1.4 %)",
+   "detail": "Pas de flush global (F&G 68, NVDA -7.2 %, S&P -0.8 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
@@ -114,7 +114,7 @@
    "weight": 10,
    "score": 20,
    "state": "bad",
-   "detail": "Presse : neutre · Forums (33 posts Reddit/StockTwits/biz) : euphorie · StockTwits 83% bullish — Titles such as \"JP Morgan expects Bitcoin to be the best performing asset of the next decade\", \"Buy more Bitcoin\", and \"A short squeeze is building up :)\" illustrate strong FOMO and bullish price‑target chatter.",
+   "detail": "Presse : neutre · Forums (34 posts Reddit/StockTwits/biz) : euphorie · StockTwits 69% bullish — JPMorgan Says Bitcoin Will Beat Gold and Stocks; Broke past 83k what's next?; Day 673 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
@@ -132,22 +132,22 @@
   ],
   "shallow_bottom": 57950,
   "shallow_drawdown_pct": -54.1,
-  "current_drawdown_pct": -34.0,
-  "days_since_ath": 380,
+  "current_drawdown_pct": -35.3,
+  "days_since_ath": 381,
   "calendar_norm_days": 390,
   "low_seen_days": 268,
   "v1_excess": "re-gonflé",
-  "v1_detail": "rallye +44% depuis $58k, funding 0.01%",
-  "v2_buyer": "institutionnel en retrait (sorties ETF)",
-  "v3_shock": "guerre Iran / pétrole $109",
+  "v1_detail": "rallye +41% depuis $58k, funding 0.01%",
+  "v2_buyer": "institutionnel actif (entrées ETF)",
+  "v3_shock": "guerre Iran / pétrole $112",
   "verdict": "Excès re-gonflé PENDANT un choc actif → un second choc peut forcer un plus-bas vers la zone maturation ($28,627-38,731).",
   "lean": "plus-bas possible",
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
  },
  "corridor": {
-  "support": 48374,
-  "fair": 117986,
-  "resistance": 310303,
+  "support": 48409,
+  "fair": 118070,
+  "resistance": 310524,
   "projections": [
    {
     "cycle": "HC4 · halving 2024",
@@ -166,52 +166,52 @@
    }
   ],
   "note": "Power Law recalibré sur les prix réels (fair ≈ ATH). Bande ~6x inhérente au modèle → outil de CONTEXTE (zone chère/bon marché), pas de niveaux précis. Curve-fit, pas une loi.",
-  "position_pct": 29,
+  "position_pct": 28,
   "zone": "milieu du corridor"
  },
  "ranges": {
-  "price": 83409,
-  "sigma_week_pct": 5.5,
-  "trend_ann_pct": -19,
+  "price": 81712,
+  "sigma_week_pct": 5.9,
+  "trend_ann_pct": -21,
   "bands": {
    "w1": {
-    "median": 83696,
-    "lo80": 77969,
-    "hi80": 89845,
-    "lo95": 75097,
-    "hi95": 93280
+    "median": 81959,
+    "lo80": 76032,
+    "hi80": 88348,
+    "lo95": 73070,
+    "hi95": 91930
    },
    "w4": {
-    "median": 84565,
-    "lo80": 72672,
-    "hi80": 98404,
-    "lo95": 67069,
-    "hi95": 106624
+    "median": 82705,
+    "lo80": 70496,
+    "hi80": 97027,
+    "lo95": 64781,
+    "hi95": 105587
    },
    "w13": {
-    "median": 87223,
-    "lo80": 63172,
-    "hi80": 120432,
-    "lo95": 53255,
-    "hi95": 142859
+    "median": 84982,
+    "lo80": 60664,
+    "hi80": 119048,
+    "lo95": 50751,
+    "hi95": 142303
    }
   },
   "levels": [
    {
     "level": 50000,
-    "prob_13w_pct": 2
+    "prob_13w_pct": 3
    },
    {
     "level": 60000,
-    "prob_13w_pct": 12
+    "prob_13w_pct": 16
    },
    {
     "level": 70000,
-    "prob_13w_pct": 35
+    "prob_13w_pct": 42
    },
    {
     "level": 100000,
-    "prob_13w_pct": 46
+    "prob_13w_pct": 42
    },
    {
     "level": 126000,
@@ -220,7 +220,7 @@
   ],
   "calibration": {
    "w1": {
-    "n": 16,
+    "n": 17,
     "hit_pct": 100
    },
    "w4": {
@@ -234,7 +234,7 @@
    "next_tilt_ann_pct": -6,
    "next_change": "2027-04-19"
   },
-  "move_7d_pct": 2.3,
+  "move_7d_pct": -0.5,
   "regime_alert": false
  }
 }
