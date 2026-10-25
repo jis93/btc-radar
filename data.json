@@ -1,19 +1,19 @@
 {
- "updated_at": "2026-10-24T11:20+00:00",
+ "updated_at": "2026-10-25T11:49+00:00",
  "prices": {
-  "btc_usd": 80592,
-  "btc_24h_pct": -1.14,
-  "btc_mcap_usd": 1620177028162.2637,
-  "brent_usd": 116.72,
-  "brent_14d_pct": 11.5,
+  "btc_usd": 80366,
+  "btc_24h_pct": -0.21,
+  "btc_mcap_usd": 1615508877960.841,
+  "brent_usd": 111.7,
+  "brent_14d_pct": 6.7,
   "spx": 7624,
   "spx_drawdown_pct": -2.5,
   "nvda_drawdown_pct": -11.8,
-  "fear_greed": 51,
+  "fear_greed": 54,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": 15.7,
+  "hashrate_30d_pct": 16.0,
   "etf_last_day_musd": -137.9,
-  "etf_flows_15d_musd": -606.1
+  "etf_flows_15d_musd": -516.3
  },
  "judge": {
   "ceasefire": {
@@ -43,7 +43,7 @@
    "changed": false,
    "error": "HTTPError"
   },
-  "checked_at": "2026-10-24T11:20+00:00",
+  "checked_at": "2026-10-25T11:49+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "euphoria",
@@ -53,11 +53,11 @@
    "error": "HTTPError"
   },
   "sentiment_posts": {
-   "sentiment": "fear",
-   "evidence": "Titles like \"Bitcoin Will Hit $0, Says Famed VC...\", \"Chamath Palihapitiya says Bitcoin will eventually be hacked by AI and go to zero\" and \"The monthly graph is horrible too. you will lose the $80K support\" illustrate widespread worry.",
+   "sentiment": "euphoria",
+   "evidence": "Titles like \"I finally bet all my wealth on Bitcoin (0.022) and I won't withdraw it until the 2028 halving\", \"Just 5 more days left for Bitcoin to hit 40k this october\", and \"Day 677 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\" show strong FOMO and price‑target hype.",
    "confidence": "high",
    "sample_size": 38,
-   "stocktwits_bull_pct": 54
+   "stocktwits_bull_pct": 75
   }
  },
  "indicators": {
@@ -66,7 +66,7 @@
    "weight": 20,
    "score": 0,
    "state": "bad",
-   "detail": "Sorties nettes 15 j : -606 M$",
+   "detail": "Sorties nettes 15 j : -516 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -82,7 +82,7 @@
    "weight": 15,
    "score": 0,
    "state": "bad",
-   "detail": "Brent 116.72 $ (+11.5 % / 14 j) — pression inflation",
+   "detail": "Brent 111.7 $ (+6.7 % / 14 j) — pression inflation",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -90,7 +90,7 @@
    "weight": 15,
    "score": 100,
    "state": "ok",
-   "detail": "J+383 depuis le top (fenêtre 363-384 j : EN COURS)",
+   "detail": "J+384 depuis le top (fenêtre 363-384 j : EN COURS)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
@@ -98,7 +98,7 @@
    "weight": 10,
    "score": 100,
    "state": "ok",
-   "detail": "Hashrate +15.7 % / 30 j — reprise, capitulation derrière",
+   "detail": "Hashrate +16.0 % / 30 j — reprise, capitulation derrière",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -106,19 +106,19 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 51, NVDA -11.8 %, S&P -2.5 %)",
+   "detail": "Pas de flush global (F&G 54, NVDA -11.8 %, S&P -2.5 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
    "label": "Sentiment réseaux (contrarien)",
    "weight": 10,
-   "score": 50,
-   "state": "warn",
-   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : peur · StockTwits 54% bullish — Titles like \"Bitcoin Will Hit $0, Says Famed VC...\", \"Chamath Palihapitiya says Bitcoin will eventually be hacked by AI and go to zero\" and \"The monthly graph is horrible too. you will lose the $80K support\" illustrate widespread worry.",
+   "score": 20,
+   "state": "bad",
+   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : euphorie · StockTwits 75% bullish — Titles like \"I finally bet all my wealth on Bitcoin (0.022) and I won't withdraw it until the 2028 halving\", \"Just 5 more days left for Bitcoin to hit 40k this october\", and \"Day 677 of cyber/cypherpunk posting until Bitcoin hits 1,000,000$\" show strong FOMO and price‑target hype.",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
- "score": 40,
+ "score": 37,
  "alerts": [],
  "model": {
   "n_cycles": 4,
@@ -132,22 +132,22 @@
   ],
   "shallow_bottom": 57950,
   "shallow_drawdown_pct": -54.1,
-  "current_drawdown_pct": -36.2,
-  "days_since_ath": 383,
+  "current_drawdown_pct": -36.4,
+  "days_since_ath": 384,
   "calendar_norm_days": 390,
   "low_seen_days": 268,
   "v1_excess": "re-gonflé",
   "v1_detail": "rallye +39% depuis $58k, funding 0.01%",
   "v2_buyer": "institutionnel en retrait (sorties ETF)",
-  "v3_shock": "guerre Iran / pétrole $117",
+  "v3_shock": "guerre Iran / pétrole $112",
   "verdict": "Excès re-gonflé PENDANT un choc actif → un second choc peut forcer un plus-bas vers la zone maturation ($28,627-38,731).",
   "lean": "plus-bas possible",
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
  },
  "corridor": {
-  "support": 48478,
-  "fair": 118239,
-  "resistance": 310968,
+  "support": 48513,
+  "fair": 118323,
+  "resistance": 311190,
   "projections": [
    {
     "cycle": "HC4 · halving 2024",
@@ -170,57 +170,57 @@
   "zone": "milieu du corridor"
  },
  "ranges": {
-  "price": 80592,
-  "sigma_week_pct": 6.1,
-  "trend_ann_pct": -20,
+  "price": 80366,
+  "sigma_week_pct": 6.7,
+  "trend_ann_pct": -22,
   "bands": {
    "w1": {
-    "median": 80855,
-    "lo80": 74733,
-    "hi80": 87479,
-    "lo95": 71682,
-    "hi95": 91202
+    "median": 80594,
+    "lo80": 73992,
+    "hi80": 87786,
+    "lo95": 70718,
+    "hi95": 91850
    },
    "w4": {
-    "median": 81650,
-    "lo80": 69292,
-    "hi80": 96212,
-    "lo95": 63526,
-    "hi95": 104944
+    "median": 81284,
+    "lo80": 68099,
+    "hi80": 97021,
+    "lo95": 62009,
+    "hi95": 106550
    },
    "w13": {
-    "median": 84081,
-    "lo80": 60255,
-    "hi80": 117328,
-    "lo95": 50513,
-    "hi95": 139958
+    "median": 83387,
+    "lo80": 58498,
+    "hi80": 118865,
+    "lo95": 48490,
+    "hi95": 143400
    }
   },
   "levels": [
    {
     "level": 50000,
-    "prob_13w_pct": 3
+    "prob_13w_pct": 5
    },
    {
     "level": 60000,
-    "prob_13w_pct": 16
+    "prob_13w_pct": 20
    },
    {
     "level": 70000,
-    "prob_13w_pct": 44
+    "prob_13w_pct": 48
    },
    {
     "level": 100000,
-    "prob_13w_pct": 39
+    "prob_13w_pct": 40
    },
    {
     "level": 126000,
-    "prob_13w_pct": 9
+    "prob_13w_pct": 10
    }
   ],
   "calibration": {
    "w1": {
-    "n": 19,
+    "n": 20,
     "hit_pct": 100
    },
    "w4": {
@@ -234,7 +234,7 @@
    "next_tilt_ann_pct": -6,
    "next_change": "2027-04-19"
   },
-  "move_7d_pct": -1.0,
+  "move_7d_pct": -2.0,
   "regime_alert": false
  }
 }
