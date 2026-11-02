@@ -1,19 +1,19 @@
 {
- "updated_at": "2026-11-01T13:41+00:00",
+ "updated_at": "2026-11-02T16:20+00:00",
  "prices": {
-  "btc_usd": 77900,
-  "btc_24h_pct": 0.68,
-  "btc_mcap_usd": 1566217125507.2441,
-  "brent_usd": 113.43,
-  "brent_14d_pct": 3.2,
-  "spx": 7580,
-  "spx_drawdown_pct": -3.1,
-  "nvda_drawdown_pct": -14.5,
-  "fear_greed": 34,
+  "btc_usd": 77315,
+  "btc_24h_pct": -0.81,
+  "btc_mcap_usd": 1554438464434.3298,
+  "brent_usd": 106.01,
+  "brent_14d_pct": -3.2,
+  "spx": 7631,
+  "spx_drawdown_pct": -2.4,
+  "nvda_drawdown_pct": -13.2,
+  "fear_greed": 37,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": 9.1,
-  "etf_last_day_musd": -643.2,
-  "etf_flows_15d_musd": -64.2
+  "hashrate_30d_pct": 8.7,
+  "etf_last_day_musd": 0.0,
+  "etf_flows_15d_musd": -239.9
  },
  "judge": {
   "ceasefire": {
@@ -43,7 +43,7 @@
    "changed": false,
    "error": "HTTPError"
   },
-  "checked_at": "2026-11-01T13:41+00:00",
+  "checked_at": "2026-11-02T16:20+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "euphoria",
@@ -53,11 +53,11 @@
    "error": "HTTPError"
   },
   "sentiment_posts": {
-   "sentiment": "optimism",
-   "evidence": "Titles like \"Remember remember to the moon in november\", \"$BTC.X hacker has diamond hands 🚀🚀🚀\", and \"bull run starts tonight\" show confident, bullish enthusiasm despite occasional hack‑related worries.",
+   "sentiment": "fear",
+   "evidence": "‘Binance Hack 2026’, ‘$3.64b withdrawn from Binance in the last few hours’, ‘Bitcoin Suisse CEO: Switzerland has lost interest in cryptocurrencies’",
    "confidence": "high",
-   "sample_size": 38,
-   "stocktwits_bull_pct": 88
+   "sample_size": 36,
+   "stocktwits_bull_pct": 30
   }
  },
  "indicators": {
@@ -66,7 +66,7 @@
    "weight": 20,
    "score": 50,
    "state": "warn",
-   "detail": "Flux 15 j proches de zéro : -64 M$",
+   "detail": "Flux 15 j proches de zéro : -240 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -80,9 +80,9 @@
   "oil_channel": {
    "label": "Canal pétrole → inflation",
    "weight": 15,
-   "score": 50,
-   "state": "warn",
-   "detail": "Brent 113.43 $ (+3.2 % / 14 j) — stabilisé",
+   "score": 100,
+   "state": "ok",
+   "detail": "Brent 106.01 $ (-3.2 % / 14 j) — détente",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -90,7 +90,7 @@
    "weight": 15,
    "score": 100,
    "state": "ok",
-   "detail": "J+391 depuis le top (fenêtre 363-384 j : dépassée)",
+   "detail": "J+392 depuis le top (fenêtre 363-384 j : dépassée)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
@@ -98,7 +98,7 @@
    "weight": 10,
    "score": 100,
    "state": "ok",
-   "detail": "Hashrate +9.1 % / 30 j — reprise, capitulation derrière",
+   "detail": "Hashrate +8.7 % / 30 j — reprise, capitulation derrière",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -106,19 +106,19 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 34, NVDA -14.5 %, S&P -3.1 %)",
+   "detail": "Pas de flush global (F&G 37, NVDA -13.2 %, S&P -2.4 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
    "label": "Sentiment réseaux (contrarien)",
    "weight": 10,
-   "score": 32,
-   "state": "bad",
-   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : optimisme · StockTwits 88% bullish — Titles like \"Remember remember to the moon in november\", \"$BTC.X hacker has diamond hands 🚀🚀🚀\", and \"bull run starts tonight\" show confident, bullish enthusiasm despite occasional hack‑related worries.",
+   "score": 50,
+   "state": "warn",
+   "detail": "Presse : neutre · Forums (36 posts Reddit/StockTwits/biz) : peur · StockTwits 30% bullish — ‘Binance Hack 2026’, ‘$3.64b withdrawn from Binance in the last few hours’, ‘Bitcoin Suisse CEO: Switzerland has lost interest in cryptocurrencies’",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
- "score": 56,
+ "score": 65,
  "alerts": [],
  "model": {
   "n_cycles": 4,
@@ -132,22 +132,22 @@
   ],
   "shallow_bottom": 57950,
   "shallow_drawdown_pct": -54.1,
-  "current_drawdown_pct": -38.3,
-  "days_since_ath": 391,
+  "current_drawdown_pct": -38.8,
+  "days_since_ath": 392,
   "calendar_norm_days": 390,
   "low_seen_days": 268,
   "v1_excess": "re-gonflé",
-  "v1_detail": "rallye +34% depuis $58k, funding 0.01%",
+  "v1_detail": "rallye +33% depuis $58k, funding 0.01%",
   "v2_buyer": "institutionnel en retrait (sorties ETF)",
-  "v3_shock": "guerre Iran / pétrole $113",
+  "v3_shock": "guerre Iran / pétrole $106",
   "verdict": "Excès re-gonflé PENDANT un choc actif → un second choc peut forcer un plus-bas vers la zone maturation ($28,627-38,731).",
   "lean": "plus-bas possible",
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
  },
  "corridor": {
-  "support": 48755,
-  "fair": 118916,
-  "resistance": 312748,
+  "support": 48790,
+  "fair": 119000,
+  "resistance": 312971,
   "projections": [
    {
     "cycle": "HC4 · halving 2024",
@@ -170,44 +170,44 @@
   "zone": "milieu du corridor"
  },
  "ranges": {
-  "price": 77900,
+  "price": 77315,
   "sigma_week_pct": 6.7,
-  "trend_ann_pct": -24,
+  "trend_ann_pct": -25,
   "bands": {
    "w1": {
-    "median": 78102,
-    "lo80": 71687,
-    "hi80": 85091,
-    "lo95": 68507,
-    "hi95": 89040
+    "median": 77493,
+    "lo80": 71072,
+    "hi80": 84495,
+    "lo95": 67891,
+    "hi95": 88454
    },
    "w4": {
-    "median": 78710,
-    "lo80": 65914,
-    "hi80": 93990,
-    "lo95": 60006,
-    "hi95": 103245
+    "median": 78030,
+    "lo80": 65090,
+    "hi80": 93542,
+    "lo95": 59133,
+    "hi95": 102964
    },
    "w13": {
-    "median": 80564,
-    "lo80": 56477,
-    "hi80": 114923,
-    "lo95": 46796,
-    "hi95": 138697
+    "median": 79662,
+    "lo80": 54902,
+    "hi80": 115588,
+    "lo95": 45083,
+    "hi95": 140762
    }
   },
   "levels": [
    {
     "level": 50000,
-    "prob_13w_pct": 7
+    "prob_13w_pct": 9
    },
    {
     "level": 60000,
-    "prob_13w_pct": 24
+    "prob_13w_pct": 28
    },
    {
     "level": 70000,
-    "prob_13w_pct": 56
+    "prob_13w_pct": 60
    },
    {
     "level": 100000,
@@ -220,11 +220,11 @@
   ],
   "calibration": {
    "w1": {
-    "n": 27,
+    "n": 28,
     "hit_pct": 100
    },
    "w4": {
-    "n": 6,
+    "n": 7,
     "hit_pct": 100
    }
   },
@@ -234,7 +234,7 @@
    "next_tilt_ann_pct": -6,
    "next_change": "2027-04-19"
   },
-  "move_7d_pct": -2.7,
+  "move_7d_pct": -3.4,
   "regime_alert": false
  }
 }
