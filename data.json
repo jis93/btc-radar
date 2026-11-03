@@ -1,19 +1,19 @@
 {
- "updated_at": "2026-11-02T16:20+00:00",
+ "updated_at": "2026-11-03T14:32+00:00",
  "prices": {
-  "btc_usd": 77315,
-  "btc_24h_pct": -0.81,
-  "btc_mcap_usd": 1554438464434.3298,
-  "brent_usd": 106.01,
-  "brent_14d_pct": -3.2,
-  "spx": 7631,
-  "spx_drawdown_pct": -2.4,
-  "nvda_drawdown_pct": -13.2,
-  "fear_greed": 37,
+  "btc_usd": 77103,
+  "btc_24h_pct": -0.78,
+  "btc_mcap_usd": 1550330270061.4553,
+  "brent_usd": 102.91,
+  "brent_14d_pct": -5.4,
+  "spx": 7541,
+  "spx_drawdown_pct": -3.5,
+  "nvda_drawdown_pct": -15.5,
+  "fear_greed": 26,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": 8.7,
+  "hashrate_30d_pct": 7.9,
   "etf_last_day_musd": 0.0,
-  "etf_flows_15d_musd": -239.9
+  "etf_flows_15d_musd": -377.1
  },
  "judge": {
   "ceasefire": {
@@ -43,7 +43,7 @@
    "changed": false,
    "error": "HTTPError"
   },
-  "checked_at": "2026-11-02T16:20+00:00",
+  "checked_at": "2026-11-03T14:32+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "euphoria",
@@ -54,10 +54,10 @@
   },
   "sentiment_posts": {
    "sentiment": "fear",
-   "evidence": "‘Binance Hack 2026’, ‘$3.64b withdrawn from Binance in the last few hours’, ‘Bitcoin Suisse CEO: Switzerland has lost interest in cryptocurrencies’",
+   "evidence": "Titles like \"FUD at All time high\", \"Scared\", and \"Brazil's largest crypto exchange, Mercado Bitcoin, suspends deposits and withdrawals after reportedly being hacked for over $40 million\" highlight worry and uncertainty.",
    "confidence": "high",
-   "sample_size": 36,
-   "stocktwits_bull_pct": 30
+   "sample_size": 37,
+   "stocktwits_bull_pct": 54
   }
  },
  "indicators": {
@@ -66,7 +66,7 @@
    "weight": 20,
    "score": 50,
    "state": "warn",
-   "detail": "Flux 15 j proches de zéro : -240 M$",
+   "detail": "Flux 15 j proches de zéro : -377 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -82,7 +82,7 @@
    "weight": 15,
    "score": 100,
    "state": "ok",
-   "detail": "Brent 106.01 $ (-3.2 % / 14 j) — détente",
+   "detail": "Brent 102.91 $ (-5.4 % / 14 j) — détente",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -90,7 +90,7 @@
    "weight": 15,
    "score": 100,
    "state": "ok",
-   "detail": "J+392 depuis le top (fenêtre 363-384 j : dépassée)",
+   "detail": "J+393 depuis le top (fenêtre 363-384 j : dépassée)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
@@ -98,7 +98,7 @@
    "weight": 10,
    "score": 100,
    "state": "ok",
-   "detail": "Hashrate +8.7 % / 30 j — reprise, capitulation derrière",
+   "detail": "Hashrate +7.9 % / 30 j — reprise, capitulation derrière",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -106,7 +106,7 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 37, NVDA -13.2 %, S&P -2.4 %)",
+   "detail": "Pas de flush global (F&G 26, NVDA -15.5 %, S&P -3.5 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
@@ -114,12 +114,20 @@
    "weight": 10,
    "score": 50,
    "state": "warn",
-   "detail": "Presse : neutre · Forums (36 posts Reddit/StockTwits/biz) : peur · StockTwits 30% bullish — ‘Binance Hack 2026’, ‘$3.64b withdrawn from Binance in the last few hours’, ‘Bitcoin Suisse CEO: Switzerland has lost interest in cryptocurrencies’",
+   "detail": "Presse : neutre · Forums (37 posts Reddit/StockTwits/biz) : peur · StockTwits 54% bullish — Titles like \"FUD at All time high\", \"Scared\", and \"Brazil's largest crypto exchange, Mercado Bitcoin, suspends deposits and withdrawals after reportedly being hacked for over $40 million\" highlight worry and uncertainty.",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
  "score": 65,
- "alerts": [],
+ "alerts": [
+  {
+   "key": "nvda",
+   "label": "NVDA -15.5 % vs plus haut — contagion IA possible",
+   "changed": false,
+   "justification": "",
+   "source": ""
+  }
+ ],
  "model": {
   "n_cycles": 4,
   "ath_price": 126296,
@@ -132,22 +140,22 @@
   ],
   "shallow_bottom": 57950,
   "shallow_drawdown_pct": -54.1,
-  "current_drawdown_pct": -38.8,
-  "days_since_ath": 392,
+  "current_drawdown_pct": -39.0,
+  "days_since_ath": 393,
   "calendar_norm_days": 390,
   "low_seen_days": 268,
   "v1_excess": "re-gonflé",
   "v1_detail": "rallye +33% depuis $58k, funding 0.01%",
   "v2_buyer": "institutionnel en retrait (sorties ETF)",
-  "v3_shock": "guerre Iran / pétrole $106",
+  "v3_shock": "guerre Iran / pétrole $103 + contagion IA (NVDA -16%)",
   "verdict": "Excès re-gonflé PENDANT un choc actif → un second choc peut forcer un plus-bas vers la zone maturation ($28,627-38,731).",
   "lean": "plus-bas possible",
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
  },
  "corridor": {
-  "support": 48790,
-  "fair": 119000,
-  "resistance": 312971,
+  "support": 48825,
+  "fair": 119085,
+  "resistance": 313195,
   "projections": [
    {
     "cycle": "HC4 · halving 2024",
@@ -170,30 +178,30 @@
   "zone": "milieu du corridor"
  },
  "ranges": {
-  "price": 77315,
-  "sigma_week_pct": 6.7,
-  "trend_ann_pct": -25,
+  "price": 77103,
+  "sigma_week_pct": 7.0,
+  "trend_ann_pct": -24,
   "bands": {
    "w1": {
-    "median": 77493,
-    "lo80": 71072,
-    "hi80": 84495,
-    "lo95": 67891,
-    "hi95": 88454
+    "median": 77300,
+    "lo80": 70690,
+    "hi80": 84529,
+    "lo95": 67423,
+    "hi95": 88624
    },
    "w4": {
-    "median": 78030,
-    "lo80": 65090,
-    "hi80": 93542,
-    "lo95": 59133,
-    "hi95": 102964
+    "median": 77896,
+    "lo80": 64696,
+    "hi80": 93789,
+    "lo95": 58640,
+    "hi95": 103475
    },
    "w13": {
-    "median": 79662,
-    "lo80": 54902,
-    "hi80": 115588,
-    "lo95": 45083,
-    "hi95": 140762
+    "median": 79709,
+    "lo80": 54819,
+    "hi80": 115902,
+    "lo95": 44964,
+    "hi95": 141302
    }
   },
   "levels": [
@@ -220,11 +228,11 @@
   ],
   "calibration": {
    "w1": {
-    "n": 28,
+    "n": 29,
     "hit_pct": 100
    },
    "w4": {
-    "n": 7,
+    "n": 8,
     "hit_pct": 100
    }
   },
@@ -234,7 +242,7 @@
    "next_tilt_ann_pct": -6,
    "next_change": "2027-04-19"
   },
-  "move_7d_pct": -3.4,
+  "move_7d_pct": -4.6,
   "regime_alert": false
  }
 }
