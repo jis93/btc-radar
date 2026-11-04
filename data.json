@@ -1,19 +1,19 @@
 {
- "updated_at": "2026-11-03T14:32+00:00",
+ "updated_at": "2026-11-04T14:46+00:00",
  "prices": {
-  "btc_usd": 77103,
-  "btc_24h_pct": -0.78,
-  "btc_mcap_usd": 1550330270061.4553,
-  "brent_usd": 102.91,
-  "brent_14d_pct": -5.4,
-  "spx": 7541,
-  "spx_drawdown_pct": -3.5,
-  "nvda_drawdown_pct": -15.5,
-  "fear_greed": 26,
+  "btc_usd": 78803,
+  "btc_24h_pct": 1.97,
+  "btc_mcap_usd": 1581443263686.6006,
+  "brent_usd": 100.57,
+  "brent_14d_pct": -7.6,
+  "spx": 7686,
+  "spx_drawdown_pct": -1.7,
+  "nvda_drawdown_pct": -14.2,
+  "fear_greed": 34,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": 7.9,
+  "hashrate_30d_pct": 7.0,
   "etf_last_day_musd": 0.0,
-  "etf_flows_15d_musd": -377.1
+  "etf_flows_15d_musd": -497.8
  },
  "judge": {
   "ceasefire": {
@@ -43,7 +43,7 @@
    "changed": false,
    "error": "HTTPError"
   },
-  "checked_at": "2026-11-03T14:32+00:00",
+  "checked_at": "2026-11-04T14:46+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "euphoria",
@@ -53,11 +53,11 @@
    "error": "HTTPError"
   },
   "sentiment_posts": {
-   "sentiment": "fear",
-   "evidence": "Titles like \"FUD at All time high\", \"Scared\", and \"Brazil's largest crypto exchange, Mercado Bitcoin, suspends deposits and withdrawals after reportedly being hacked for over $40 million\" highlight worry and uncertainty.",
+   "sentiment": "euphoria",
+   "evidence": "StockTwits posts like \"$BTC.X fly baby fly!\" and \"$BTC.X SPIKING!!!!\" alongside /biz titles such as \"Let’s assume the best case scenario, bull run is imminent in 2027-2028\" illustrate a strongly upbeat, FOMO‑driven mood.",
    "confidence": "high",
-   "sample_size": 37,
-   "stocktwits_bull_pct": 54
+   "sample_size": 34,
+   "stocktwits_bull_pct": 77
   }
  },
  "indicators": {
@@ -66,7 +66,7 @@
    "weight": 20,
    "score": 50,
    "state": "warn",
-   "detail": "Flux 15 j proches de zéro : -377 M$",
+   "detail": "Flux 15 j proches de zéro : -498 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -82,7 +82,7 @@
    "weight": 15,
    "score": 100,
    "state": "ok",
-   "detail": "Brent 102.91 $ (-5.4 % / 14 j) — détente",
+   "detail": "Brent 100.57 $ (-7.6 % / 14 j) — détente",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "cycle_clock": {
@@ -90,7 +90,7 @@
    "weight": 15,
    "score": 100,
    "state": "ok",
-   "detail": "J+393 depuis le top (fenêtre 363-384 j : dépassée)",
+   "detail": "J+394 depuis le top (fenêtre 363-384 j : dépassée)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
@@ -98,7 +98,7 @@
    "weight": 10,
    "score": 100,
    "state": "ok",
-   "detail": "Hashrate +7.9 % / 30 j — reprise, capitulation derrière",
+   "detail": "Hashrate +7.0 % / 30 j — reprise, capitulation derrière",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -106,28 +106,20 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Pas de flush global (F&G 26, NVDA -15.5 %, S&P -3.5 %)",
+   "detail": "Pas de flush global (F&G 34, NVDA -14.2 %, S&P -1.7 %)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
    "label": "Sentiment réseaux (contrarien)",
    "weight": 10,
-   "score": 50,
-   "state": "warn",
-   "detail": "Presse : neutre · Forums (37 posts Reddit/StockTwits/biz) : peur · StockTwits 54% bullish — Titles like \"FUD at All time high\", \"Scared\", and \"Brazil's largest crypto exchange, Mercado Bitcoin, suspends deposits and withdrawals after reportedly being hacked for over $40 million\" highlight worry and uncertainty.",
+   "score": 20,
+   "state": "bad",
+   "detail": "Presse : neutre · Forums (34 posts Reddit/StockTwits/biz) : euphorie · StockTwits 77% bullish — StockTwits posts like \"$BTC.X fly baby fly!\" and \"$BTC.X SPIKING!!!!\" alongside /biz titles such as \"Let’s assume the best case scenario, bull run is imminent in 2027-2028\" illustrate a strongly upbeat, FOMO‑driven mood.",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
- "score": 65,
- "alerts": [
-  {
-   "key": "nvda",
-   "label": "NVDA -15.5 % vs plus haut — contagion IA possible",
-   "changed": false,
-   "justification": "",
-   "source": ""
-  }
- ],
+ "score": 62,
+ "alerts": [],
  "model": {
   "n_cycles": 4,
   "ath_price": 126296,
@@ -140,22 +132,22 @@
   ],
   "shallow_bottom": 57950,
   "shallow_drawdown_pct": -54.1,
-  "current_drawdown_pct": -39.0,
-  "days_since_ath": 393,
+  "current_drawdown_pct": -37.6,
+  "days_since_ath": 394,
   "calendar_norm_days": 390,
   "low_seen_days": 268,
   "v1_excess": "re-gonflé",
-  "v1_detail": "rallye +33% depuis $58k, funding 0.01%",
+  "v1_detail": "rallye +36% depuis $58k, funding 0.01%",
   "v2_buyer": "institutionnel en retrait (sorties ETF)",
-  "v3_shock": "guerre Iran / pétrole $103 + contagion IA (NVDA -16%)",
+  "v3_shock": "guerre Iran / pétrole $101",
   "verdict": "Excès re-gonflé PENDANT un choc actif → un second choc peut forcer un plus-bas vers la zone maturation ($28,627-38,731).",
   "lean": "plus-bas possible",
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
  },
  "corridor": {
-  "support": 48825,
-  "fair": 119085,
-  "resistance": 313195,
+  "support": 48860,
+  "fair": 119170,
+  "resistance": 313418,
   "projections": [
    {
     "cycle": "HC4 · halving 2024",
@@ -174,48 +166,48 @@
    }
   ],
   "note": "Power Law recalibré sur les prix réels (fair ≈ ATH). Bande ~6x inhérente au modèle → outil de CONTEXTE (zone chère/bon marché), pas de niveaux précis. Curve-fit, pas une loi.",
-  "position_pct": 25,
+  "position_pct": 26,
   "zone": "milieu du corridor"
  },
  "ranges": {
-  "price": 77103,
-  "sigma_week_pct": 7.0,
-  "trend_ann_pct": -24,
+  "price": 78803,
+  "sigma_week_pct": 5.7,
+  "trend_ann_pct": -20,
   "bands": {
    "w1": {
-    "median": 77300,
-    "lo80": 70690,
-    "hi80": 84529,
-    "lo95": 67423,
-    "hi95": 88624
+    "median": 79067,
+    "lo80": 73538,
+    "hi80": 85011,
+    "lo95": 70770,
+    "hi95": 88337
    },
    "w4": {
-    "median": 77896,
-    "lo80": 64696,
-    "hi80": 93789,
-    "lo95": 58640,
-    "hi95": 103475
+    "median": 79864,
+    "lo80": 68438,
+    "hi80": 93197,
+    "lo95": 63068,
+    "hi95": 101133
    },
    "w13": {
-    "median": 79709,
-    "lo80": 54819,
-    "hi80": 115902,
-    "lo95": 44964,
-    "hi95": 141302
+    "median": 82304,
+    "lo80": 59382,
+    "hi80": 114074,
+    "lo95": 49959,
+    "hi95": 135590
    }
   },
   "levels": [
    {
     "level": 50000,
-    "prob_13w_pct": 9
+    "prob_13w_pct": 4
    },
    {
     "level": 60000,
-    "prob_13w_pct": 28
+    "prob_13w_pct": 19
    },
    {
     "level": 70000,
-    "prob_13w_pct": 60
+    "prob_13w_pct": 50
    },
    {
     "level": 100000,
@@ -223,26 +215,26 @@
    },
    {
     "level": 126000,
-    "prob_13w_pct": 8
+    "prob_13w_pct": 7
    }
   ],
   "calibration": {
    "w1": {
-    "n": 29,
+    "n": 30,
     "hit_pct": 100
    },
    "w4": {
-    "n": 8,
+    "n": 9,
     "hit_pct": 100
    }
   },
   "cycle": {
-   "years_since_halving": 2.54,
+   "years_since_halving": 2.55,
    "tilt_ann_pct": 37,
    "next_tilt_ann_pct": -6,
    "next_change": "2027-04-19"
   },
-  "move_7d_pct": -4.6,
+  "move_7d_pct": -3.0,
   "regime_alert": false
  }
 }
