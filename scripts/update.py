@@ -85,6 +85,46 @@ def yahoo_series(symbol, rng="3mo"):
     return closes
 
 
+def yahoo_daily(symbol, rng="3mo"):
+    """{AAAA-MM-JJ: clôture} — pour aligner des séries sur les mêmes jours."""
+    d = http_json(f"https://query1.finance.yahoo.com/v8/finance/chart/"
+                  f"{symbol}?range={rng}&interval=1d")
+    res = d["chart"]["result"][0]
+    ts, closes = res["timestamp"], res["indicators"]["quote"][0]["close"]
+    return {datetime.fromtimestamp(t, timezone.utc).date().isoformat(): c
+            for t, c in zip(ts, closes) if c}
+
+
+def _corr(a, b):
+    n = len(a)
+    if n < 10:
+        return None
+    ma, mb = sum(a) / n, sum(b) / n
+    va = sum((x - ma) ** 2 for x in a)
+    vb = sum((y - mb) ** 2 for y in b)
+    if not va or not vb:
+        return None
+    return sum((x - ma) * (y - mb) for x, y in zip(a, b)) / math.sqrt(va * vb)
+
+
+def return_corr(s1, s2, days=30):
+    """Corrélation des rendements log quotidiens sur les ~`days` derniers jours
+    communs aux deux séries (week-ends exclus de fait par les marchés actions)."""
+    common = sorted(set(s1) & set(s2))[-(days + 1):]
+    r1 = [math.log(s1[common[i]] / s1[common[i - 1]]) for i in range(1, len(common))]
+    r2 = [math.log(s2[common[i]] / s2[common[i - 1]]) for i in range(1, len(common))]
+    c = _corr(r1, r2)
+    return None if c is None else round(c, 2)
+
+
+def fetch_correlations(out):
+    btc = yahoo_daily("BTC-USD")
+    brent = yahoo_daily("BZ=F")
+    ndx = yahoo_daily("^IXIC")
+    out["corr30_btc_brent"] = return_corr(btc, brent)
+    out["corr30_btc_nasdaq"] = return_corr(btc, ndx)
+
+
 def fetch_markets(out):
     brent = yahoo_series("BZ=F")
     out["brent_usd"] = round(brent[-1], 2)
@@ -95,6 +135,10 @@ def fetch_markets(out):
     out["spx_drawdown_pct"] = round((spx[-1] / max(spx) - 1) * 100, 1)
     nvda = yahoo_series("NVDA")
     out["nvda_drawdown_pct"] = round((nvda[-1] / max(nvda) - 1) * 100, 1)
+    sox = yahoo_series("^SOX")                 # indice semi-conducteurs
+    out["sox_drawdown_pct"] = round((sox[-1] / max(sox) - 1) * 100, 1)
+    if len(sox) >= 11:
+        out["sox_10d_pct"] = round((sox[-1] / sox[-11] - 1) * 100, 1)
 
 
 def fetch_fng(out):
@@ -422,7 +466,21 @@ def compute(prices, judge, prev):
                         "state": state_of(s), "detail": detail,
                         "flip": "Vert : première baisse effective (juge LLM + FedWatch)"}
 
-    # 3. Canal pétrole → inflation (15 %)
+    # 3+3b. Canaux de choc : pétrole vs tech/IA — 15 points répartis selon
+    #       la corrélation 30 j de BTC avec chacun (le canal qui « mène » BTC
+    #       pèse le plus). Plancher 3 pts chacun ; Brent > 110 $ → pétrole ≥ 7.
+    c_oil = prices.get("corr30_btc_brent")
+    c_tech = prices.get("corr30_btc_nasdaq")
+    po, pt = max(c_oil or 0, 0), max(c_tech or 0, 0)
+    share_oil = 0.5 if po + pt == 0 else po / (po + pt)
+    w_oil = round(3 + 9 * share_oil)
+    if (prices.get("brent_usd") or 0) > 110:
+        w_oil = max(w_oil, 7)
+    w_tech = 15 - w_oil
+    corr_txt = (f" · corr. 30 j BTC/Brent {c_oil:+.2f}" if c_oil is not None else "") + \
+               (f", BTC/Nasdaq {c_tech:+.2f}" if c_tech is not None else "")
+
+    # 3. Canal pétrole → inflation
     ceasefire = judge.get("ceasefire", {}).get("answer") == "YES"
     b14 = prices.get("brent_14d_pct")
     if ceasefire:
@@ -436,9 +494,28 @@ def compute(prices, judge, prev):
         s, detail = 50, f"Brent {prices.get('brent_usd')} $ ({b14:+.1f} % / 14 j) — stabilisé"
     else:
         s, detail = 100, f"Brent {prices.get('brent_usd')} $ ({b14:+.1f} % / 14 j) — détente"
-    ind["oil_channel"] = {"label": "Canal pétrole → inflation", "weight": 15,
-                          "score": s, "state": state_of(s), "detail": detail,
+    ind["oil_channel"] = {"label": "Canal pétrole → inflation", "weight": w_oil,
+                          "score": s, "state": state_of(s), "detail": detail + corr_txt,
                           "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"}
+
+    # 3b. Contagion tech/IA — indice semi-conducteurs (SOX) : drawdown 3 m +
+    #     tendance 10 séances. Vert = pas de contagion OU stress absorbé (rebond).
+    sdd, s10 = prices.get("sox_drawdown_pct"), prices.get("sox_10d_pct")
+    if sdd is None or s10 is None:
+        s = prev.get("indicators", {}).get("tech_contagion", {}).get("score", 50)
+        detail = "SOX indisponible — dernier état conservé"
+    elif sdd > -10:
+        s, detail = 100, f"Semis {sdd:+.1f} % vs plus haut 3 m — pas de contagion"
+    elif s10 <= -3:
+        s, detail = 0, f"Semis {sdd:+.1f} % vs plus haut, {s10:+.1f} % / 10 séances — contagion active"
+    elif s10 >= 3:
+        s, detail = 75, f"Semis {sdd:+.1f} % vs plus haut, rebond {s10:+.1f} % / 10 séances — stress en cours d'absorption"
+    else:
+        s, detail = 35, f"Semis {sdd:+.1f} % vs plus haut, {s10:+.1f} % / 10 séances — stress sans rebond"
+    detail += f" (NVDA {prices.get('nvda_drawdown_pct', 0):+.1f} %)" + corr_txt
+    ind["tech_contagion"] = {"label": "Contagion tech/IA", "weight": w_tech,
+                             "score": s, "state": state_of(s), "detail": detail,
+                             "flip": "Vert : semis qui se stabilisent/rebondissent après la purge, ou BTC qui se décorrèle du Nasdaq"}
 
     # 4. Horloge du cycle (15 %)
     days = (date.today() - CYCLE_TOP).days
@@ -774,8 +851,8 @@ def compute_ranges(prices, hist):
 def main():
     prev = load_previous()
     prices = dict(prev.get("prices", {}))
-    for fn in (fetch_btc, fetch_markets, fetch_fng, fetch_funding,
-               fetch_hashrate, fetch_etf_flows):
+    for fn in (fetch_btc, fetch_markets, fetch_correlations, fetch_fng,
+               fetch_funding, fetch_hashrate, fetch_etf_flows):
         try:
             fn(prices)
         except Exception as e:

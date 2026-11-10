@@ -16,7 +16,7 @@ from email.mime.text import MIMEText
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 STATE_ICON = {"ok": "🟢", "warn": "🟠", "bad": "🔴"}
-ORDER = ["etf_flows", "fed_pivot", "oil_channel", "cycle_clock",
+ORDER = ["etf_flows", "fed_pivot", "oil_channel", "tech_contagion", "cycle_clock",
          "miners", "leverage_purge", "sentiment"]
 JUDGE_LABELS = {
     "ceasefire": "Cessez-le-feu accepté par l'Iran",
