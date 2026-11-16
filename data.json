@@ -1,23 +1,23 @@
 {
- "updated_at": "2026-11-15T14:10+00:00",
+ "updated_at": "2026-11-16T16:09+00:00",
  "prices": {
-  "btc_usd": 65268,
-  "btc_24h_pct": -1.82,
-  "btc_mcap_usd": 1312636653910.499,
-  "brent_usd": 95.84,
-  "brent_14d_pct": -18.5,
-  "spx": 7562,
-  "spx_drawdown_pct": -3.3,
-  "nvda_drawdown_pct": -31.9,
+  "btc_usd": 64463,
+  "btc_24h_pct": -0.27,
+  "btc_mcap_usd": 1295301807307.8071,
+  "brent_usd": 93.63,
+  "brent_14d_pct": -10.6,
+  "spx": 7480,
+  "spx_drawdown_pct": -4.3,
+  "nvda_drawdown_pct": -33.6,
   "fear_greed": 10,
   "funding_rate_pct": 0.01,
-  "hashrate_30d_pct": -12.8,
-  "etf_last_day_musd": -185.4,
-  "etf_flows_15d_musd": -2659.7,
-  "sox_drawdown_pct": -23.2,
-  "sox_10d_pct": -5.1,
-  "corr30_btc_brent": -0.42,
-  "corr30_btc_nasdaq": 0.67
+  "hashrate_30d_pct": -8.9,
+  "etf_last_day_musd": 0.0,
+  "etf_flows_15d_musd": -2835.7,
+  "sox_drawdown_pct": -26.5,
+  "sox_10d_pct": -6.0,
+  "corr30_btc_brent": -0.33,
+  "corr30_btc_nasdaq": 0.66
  },
  "judge": {
   "ceasefire": {
@@ -47,7 +47,7 @@
    "changed": false,
    "error": "HTTPError"
   },
-  "checked_at": "2026-11-15T14:10+00:00",
+  "checked_at": "2026-11-16T16:09+00:00",
   "note": "GROQ_API_KEY absent — jugements inchangés",
   "sentiment": {
    "sentiment": "euphoria",
@@ -57,11 +57,11 @@
    "error": "HTTPError"
   },
   "sentiment_posts": {
-   "sentiment": "optimism",
-   "evidence": "Titles like \"We are back baby!\", \"Bitcoin rose 4% in one hour\" and \"And just like that, Bitcoin will never be below 64K again\" show a confident, bullish tone despite some fear‑laden posts.",
+   "sentiment": "fear",
+   "evidence": "‘I aped my life savings into MSTR at the top… bleeding out my entire net worth.’; ‘Bitcoin is a giant fucking scam.’",
    "confidence": "high",
    "sample_size": 38,
-   "stocktwits_bull_pct": 57
+   "stocktwits_bull_pct": 38
   }
  },
  "indicators": {
@@ -70,7 +70,7 @@
    "weight": 20,
    "score": 0,
    "state": "bad",
-   "detail": "Sorties nettes 15 j : -2660 M$",
+   "detail": "Sorties nettes 15 j : -2836 M$",
    "flip": "Vert : 2-3 semaines d'entrées nettes cumulées"
   },
   "fed_pivot": {
@@ -86,7 +86,7 @@
    "weight": 3,
    "score": 100,
    "state": "ok",
-   "detail": "Brent 95.84 $ (-18.5 % / 14 j) — détente · corr. 30 j BTC/Brent -0.42, BTC/Nasdaq +0.67",
+   "detail": "Brent 93.63 $ (-10.6 % / 14 j) — détente · corr. 30 j BTC/Brent -0.33, BTC/Nasdaq +0.66",
    "flip": "Vert : Brent stable/en baisse plusieurs semaines ou désescalade actée"
   },
   "tech_contagion": {
@@ -94,7 +94,7 @@
    "weight": 12,
    "score": 0,
    "state": "bad",
-   "detail": "Semis -23.2 % vs plus haut, -5.1 % / 10 séances — contagion active (NVDA -31.9 %) · corr. 30 j BTC/Brent -0.42, BTC/Nasdaq +0.67",
+   "detail": "Semis -26.5 % vs plus haut, -6.0 % / 10 séances — contagion active (NVDA -33.6 %) · corr. 30 j BTC/Brent -0.33, BTC/Nasdaq +0.66",
    "flip": "Vert : semis qui se stabilisent/rebondissent après la purge, ou BTC qui se décorrèle du Nasdaq"
   },
   "cycle_clock": {
@@ -102,7 +102,7 @@
    "weight": 15,
    "score": 100,
    "state": "ok",
-   "detail": "J+405 depuis le top (fenêtre 363-384 j : dépassée)",
+   "detail": "J+406 depuis le top (fenêtre 363-384 j : dépassée)",
    "flip": "Vert : entrée dans la fenêtre du 4-17 octobre 2026"
   },
   "miners": {
@@ -110,7 +110,7 @@
    "weight": 10,
    "score": 0,
    "state": "bad",
-   "detail": "Hashrate -12.8 % / 30 j — capitulation active",
+   "detail": "Hashrate -8.9 % / 30 j — capitulation active",
    "flip": "Vert : hashrate qui remonte après la purge"
   },
   "leverage_purge": {
@@ -118,23 +118,23 @@
    "weight": 10,
    "score": 50,
    "state": "warn",
-   "detail": "Stress partiel (F&G 10, NVDA -31.9 % vs plus haut 3 m)",
+   "detail": "Stress partiel (F&G 10, NVDA -33.6 % vs plus haut 3 m)",
    "flip": "Vert : liquidation majeure réalisée et absorbée"
   },
   "sentiment": {
    "label": "Sentiment réseaux (contrarien)",
    "weight": 10,
-   "score": 32,
-   "state": "bad",
-   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : optimisme · StockTwits 57% bullish — Titles like \"We are back baby!\", \"Bitcoin rose 4% in one hour\" and \"And just like that, Bitcoin will never be below 64K again\" show a confident, bullish tone despite some fear‑laden posts.",
+   "score": 50,
+   "state": "warn",
+   "detail": "Presse : neutre · Forums (38 posts Reddit/StockTwits/biz) : peur · StockTwits 38% bullish — ‘I aped my life savings into MSTR at the top… bleeding out my entire net worth.’; ‘Bitcoin is a giant fucking scam.’",
    "flip": "Vert : capitulation ou apathie généralisée ('BTC est mort')"
   }
  },
- "score": 36,
+ "score": 38,
  "alerts": [
   {
    "key": "nvda",
-   "label": "NVDA -31.9 % vs plus haut — contagion IA possible",
+   "label": "NVDA -33.6 % vs plus haut — contagion IA possible",
    "changed": false,
    "justification": "",
    "source": ""
@@ -152,22 +152,22 @@
   ],
   "shallow_bottom": 57950,
   "shallow_drawdown_pct": -54.1,
-  "current_drawdown_pct": -48.3,
-  "days_since_ath": 405,
+  "current_drawdown_pct": -49.0,
+  "days_since_ath": 406,
   "calendar_norm_days": 390,
   "low_seen_days": 268,
   "v1_excess": "purgé/neutre",
-  "v1_detail": "rallye +13% depuis $58k, funding 0.01%",
+  "v1_detail": "rallye +11% depuis $58k, funding 0.01%",
   "v2_buyer": "institutionnel en retrait (sorties ETF)",
-  "v3_shock": "guerre Iran / pétrole $96 + contagion IA (NVDA -32%)",
+  "v3_shock": "guerre Iran / pétrole $94 + contagion IA (NVDA -34%)",
   "verdict": "Configuration mixte — le modèle n'a pas de branche dominante.",
   "lean": "indéterminé",
   "confidence": "faible (n=4 cycles ; V2-institutionnel non testé hors 2026)"
  },
  "corridor": {
-  "support": 49244,
-  "fair": 120108,
-  "resistance": 315883,
+  "support": 49279,
+  "fair": 120193,
+  "resistance": 316108,
   "projections": [
    {
     "cycle": "HC4 · halving 2024",
@@ -186,52 +186,52 @@
    }
   ],
   "note": "Power Law recalibré sur les prix réels (fair ≈ ATH). Bande ~6x inhérente au modèle → outil de CONTEXTE (zone chère/bon marché), pas de niveaux précis. Curve-fit, pas une loi.",
-  "position_pct": 15,
+  "position_pct": 14,
   "zone": "bas du corridor (historiquement bon marché)"
  },
  "ranges": {
-  "price": 65268,
-  "sigma_week_pct": 7.8,
-  "trend_ann_pct": -24,
+  "price": 64463,
+  "sigma_week_pct": 8.2,
+  "trend_ann_pct": -23,
   "bands": {
    "w1": {
-    "median": 65434,
-    "lo80": 59198,
-    "hi80": 72327,
-    "lo95": 56141,
-    "hi95": 76265
+    "median": 64632,
+    "lo80": 58218,
+    "hi80": 71753,
+    "lo95": 55084,
+    "hi95": 75834
    },
    "w4": {
-    "median": 65934,
-    "lo80": 53777,
-    "hi80": 80839,
-    "lo95": 48277,
-    "hi95": 90048
+    "median": 65141,
+    "lo80": 52594,
+    "hi80": 80681,
+    "lo95": 46963,
+    "hi95": 90355
    },
    "w13": {
-    "median": 67456,
-    "lo80": 45536,
-    "hi80": 99928,
-    "lo95": 36984,
-    "hi95": 123034
+    "median": 66693,
+    "lo80": 43904,
+    "hi80": 101310,
+    "lo95": 35188,
+    "hi95": 126405
    }
   },
   "levels": [
    {
     "level": 50000,
-    "prob_13w_pct": 28
+    "prob_13w_pct": 32
    },
    {
     "level": 60000,
-    "prob_13w_pct": 64
+    "prob_13w_pct": 69
    },
    {
     "level": 70000,
-    "prob_13w_pct": 73
+    "prob_13w_pct": 72
    },
    {
     "level": 100000,
-    "prob_13w_pct": 15
+    "prob_13w_pct": 16
    },
    {
     "level": 126000,
@@ -240,12 +240,12 @@
   ],
   "calibration": {
    "w1": {
-    "n": 41,
-    "hit_pct": 90
+    "n": 42,
+    "hit_pct": 88
    },
    "w4": {
-    "n": 20,
-    "hit_pct": 85
+    "n": 21,
+    "hit_pct": 81
    }
   },
   "cycle": {
@@ -254,7 +254,7 @@
    "next_tilt_ann_pct": -6,
    "next_change": "2027-04-19"
   },
-  "move_7d_pct": -12.5,
+  "move_7d_pct": -14.3,
   "regime_alert": false
  }
 }
