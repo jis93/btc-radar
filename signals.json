@@ -1,32 +1,32 @@
 {
- "updated_at": "2026-11-23T10:16+00:00",
- "price": 61330,
+ "updated_at": "2026-11-23T23:49+00:00",
+ "price": 61131,
  "signals": {
   "realized": {
    "label": "Prix sous le prix réalisé (MVRV < 1)",
    "on": false,
-   "detail": "Prix 61,330 $ vs prix réalisé 53,570 $ (MVRV 1.14)",
+   "detail": "Prix 61,131 $ vs prix réalisé 53,570 $ (MVRV 1.14)",
    "rule": "Tout le marché est en perte en moyenne — signature des bottoms de cycle",
    "lag": "prix réalisé au 2026-11-16 (J-7, gratuit)"
   },
   "sth": {
    "label": "Détenteurs récents en perte > 20 %",
    "on": false,
-   "detail": "Prix / revient des < 5 mois (74,316 $) = 0.83",
+   "detail": "Prix / revient des < 5 mois (74,316 $) = 0.82",
    "rule": "Ratio < 0.8 : ventes paniques des acheteurs récents",
    "lag": "revient au 2026-11-16 (J-7)"
   },
   "purge": {
    "label": "Journée de purge du levier",
    "on": false,
-   "detail": "Positions ouvertes +0.5 % / 1 j · funding -0.0006 % · prix +0.8 % / 24 h",
+   "detail": "Positions ouvertes -1.4 % / 1 j · funding +0.0054 % · prix -0.1 % / 24 h",
    "rule": "Positions ouvertes ≤ -8 % ET (funding ≤ -0.01 % ou prix ≤ -6 %) — ventes forcées",
    "lag": "temps réel"
   },
   "resilience": {
    "label": "BTC résiste à une mauvaise séance tech",
    "on": false,
-   "detail": "Séance du 2026-11-20 : semis -10.7 % · NVDA -14.0 % · BTC même jour -5.0 %",
+   "detail": "Séance du 2026-11-23 : semis +14.0 % · NVDA +31.5 % · BTC même jour -0.1 %",
    "rule": "Semis ≤ -3 % ou NVDA ≤ -5 % sur la séance, et BTC ≥ 0 le même jour — vendeurs épuisés",
    "lag": "temps réel"
   },
@@ -40,7 +40,7 @@
   "spot": {
    "label": "Retour des acheteurs au comptant",
    "on": false,
-   "detail": "Prime Coinbase +0.001 % · ETF 20 Nov 2026 : -669 M$ (après 3 j de sorties)",
+   "detail": "Prime Coinbase -0.006 % · ETF 23 Nov 2026 : -61 M$ (après 4 j de sorties)",
    "rule": "Prime Coinbase ≥ +0.08 % ou 1re entrée ETF après ≥ 5 j de sorties",
    "lag": "prime : temps réel · ETF : J-1"
   }
@@ -48,7 +48,7 @@
  "warning": {
   "label": "Hausse portée par le levier (ne pas courir après)",
   "on": false,
-  "detail": "Positions ouvertes +0.5 % · funding -0.0006 % · prix +0.8 %",
+  "detail": "Positions ouvertes -1.4 % · funding +0.0054 % · prix -0.1 %",
   "rule": "Positions ouvertes ≥ +5 %, funding ≥ +0,01 %, prix ≥ +3 % sur 24 h"
  },
  "active": 0,
