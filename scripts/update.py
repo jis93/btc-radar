@@ -147,8 +147,14 @@ def fetch_fng(out):
 
 
 def fetch_funding(out):
-    d = http_json("https://fapi.binance.com/fapi/v1/premiumIndex?symbol=BTCUSDT")
-    out["funding_rate_pct"] = round(float(d["lastFundingRate"]) * 100, 4)
+    # OKX d'abord : Binance renvoie 451 aux runners GitHub (IP US), ce qui
+    # figeait le funding sur sa dernière valeur connue.
+    try:
+        d = http_json("https://www.okx.com/api/v5/public/funding-rate?instId=BTC-USDT-SWAP")
+        out["funding_rate_pct"] = round(float(d["data"][0]["fundingRate"]) * 100, 4)
+    except Exception:
+        d = http_json("https://fapi.binance.com/fapi/v1/premiumIndex?symbol=BTCUSDT")
+        out["funding_rate_pct"] = round(float(d["lastFundingRate"]) * 100, 4)
 
 
 def fetch_hashrate(out):

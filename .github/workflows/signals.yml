@@ -1,0 +1,38 @@
+name: signaux-achat
+
+on:
+  schedule:
+    - cron: "10 */2 * * *"   # toutes les 2 h (xx:10 UTC)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: radar-push
+  cancel-in-progress: false
+
+jobs:
+  signals:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Calcul des 6 signaux (+ email si nouveau signal)
+        env:
+          MAIL_ADDRESS: ${{ secrets.MAIL_ADDRESS }}
+          MAIL_APP_PASSWORD: ${{ secrets.MAIL_APP_PASSWORD }}
+        run: python3 scripts/signals.py
+      - name: Commit signals.json
+        run: |
+          git config user.name "radar-bot"
+          git config user.email "radar-bot@users.noreply.github.com"
+          git add signals.json
+          git diff --cached --quiet && echo "rien à committer" && exit 0
+          git commit -m "signals: mise à jour"
+          for i in 1 2 3 4 5; do
+            git push && exit 0
+            echo "push rejeté (tentative $i) — rebase et retry"
+            git pull --rebase -X ours origin main || git rebase --abort
+            sleep 3
+          done
+          exit 1

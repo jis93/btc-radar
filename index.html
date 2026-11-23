@@ -82,6 +82,7 @@
   .dot.ok   { background: var(--ok); box-shadow: 0 0 0 4px var(--ok-soft); }
   .dot.warn { background: var(--warn); box-shadow: 0 0 0 4px var(--warn-soft); }
   .dot.bad  { background: var(--bad); box-shadow: 0 0 0 4px var(--bad-soft); }
+  .dot.neutral { background: var(--line-soft); }
   .row .name { font-weight: 600; font-size: 15px; }
   .row .weight { color: var(--ink-faint); font-size: 12px; white-space: nowrap; margin-top: 2px; }
   .row .reading { grid-column: 2 / 4; color: var(--ink-dim); font-size: 13.5px; max-width: 70ch; }
@@ -157,6 +158,18 @@
       l'épuisement des vendeurs forcés <em>et</em> la levée de la pression macro.
       L'une sans l'autre = faux bottom (précédent : juin 2022).</p>
   </div>
+
+  <section>
+    <h2>Signaux d'achat sur le moment (toutes les 2 h · email si nouveau)</h2>
+    <div class="gauge-card" style="gap:12px">
+      <div id="sig-head" style="font-size:15px"></div>
+      <div class="rows" id="sig-rows"></div>
+      <div style="font-size:12px;color:var(--ink-faint)" id="sig-log"></div>
+      <p class="gauge-note" style="margin:0">Signaux de <strong>conditions d'achat</strong>, pas de « bottom confirmé ».
+        Un signal isolé ment ; plusieurs simultanés = moment de forte décote. L'avertissement signale une hausse
+        portée par le levier, fragile.</p>
+    </div>
+  </section>
 
   <section>
     <h2><span class="cond">Condition 1</span> — Épuisement des vendeurs forcés</h2>
@@ -483,6 +496,27 @@ function renderHistory(hist) {
     hist[0].date + " → " + hist[hist.length - 1].date;
 }
 
+function renderSignals(s) {
+  if (!s || !s.signals) return;
+  const t = new Date(s.updated_at).toLocaleString("fr-FR", { dateStyle: "short", timeStyle: "short" });
+  document.getElementById("sig-head").innerHTML =
+    `<b style="color:var(--accent)">${s.active}/6</b> signaux actifs · BTC ${s.price ? "$" + s.price.toLocaleString("fr-FR") : "—"} · ${t}`;
+  const row = (v, st) => `
+    <div class="row">
+      <span class="dot ${st}"></span>
+      <span class="name">${v.label}</span>
+      <span class="weight">${v.lag || ""}</span>
+      <span class="reading">${v.detail}</span>
+      <span class="flip">${v.rule}</span>
+    </div>`;
+  const rows = Object.values(s.signals).map(v => row(v, v.on ? "ok" : "neutral"));
+  if (s.warning) rows.push(row(s.warning, s.warning.on ? "bad" : "neutral"));
+  document.getElementById("sig-rows").innerHTML = rows.join("");
+  const log = (s.log || []).slice(-5).reverse();
+  document.getElementById("sig-log").innerHTML = log.length ? "Derniers déclenchements : " +
+    log.map(l => `${new Date(l.t).toLocaleString("fr-FR", { dateStyle: "short", timeStyle: "short" })} — ${l.label} (${l.price ? "$" + l.price.toLocaleString("fr-FR") : ""})`).join(" · ") : "";
+}
+
 Promise.all([
   fetch("data.json", { cache: "no-store" }).then(r => r.ok ? r.json() : Promise.reject(r.status)),
   fetch("history.json", { cache: "no-store" }).then(r => r.ok ? r.json() : []).catch(() => []),
@@ -490,4 +524,5 @@ Promise.all([
   render(data);
   renderHistory(hist);
 }).catch(() => { document.getElementById("load-error").style.display = "block"; });
+fetch("signals.json", { cache: "no-store" }).then(r => r.ok ? r.json() : null).then(renderSignals).catch(() => {});
 </script>
