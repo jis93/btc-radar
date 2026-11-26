@@ -1,46 +1,46 @@
 {
- "updated_at": "2026-11-25T17:07+00:00",
- "price": 58935,
+ "updated_at": "2026-11-26T01:45+00:00",
+ "price": 60686,
  "signals": {
   "realized": {
    "label": "Prix sous le prix réalisé (MVRV < 1)",
    "on": false,
-   "detail": "Prix 58,935 $ vs prix réalisé 53,448 $ (MVRV 1.10)",
+   "detail": "Prix 60,686 $ vs prix réalisé 53,395 $ (MVRV 1.14)",
    "rule": "Tout le marché est en perte en moyenne — signature des bottoms de cycle",
-   "lag": "prix réalisé au 2026-11-18 (J-7, gratuit)"
+   "lag": "prix réalisé au 2026-11-19 (J-7, gratuit)"
   },
   "sth": {
    "label": "Détenteurs récents en perte > 20 %",
-   "on": true,
-   "detail": "Prix / revient des < 5 mois (73,863 $) = 0.80",
+   "on": false,
+   "detail": "Prix / revient des < 5 mois (73,615 $) = 0.82",
    "rule": "Ratio < 0.8 : ventes paniques des acheteurs récents",
-   "lag": "revient au 2026-11-18 (J-7)"
+   "lag": "revient au 2026-11-19 (J-7)"
   },
   "purge": {
    "label": "Journée de purge du levier",
    "on": false,
-   "detail": "Positions ouvertes +1.1 % / 1 j · funding +0.0058 % · prix -1.0 % / 24 h",
+   "detail": "Positions ouvertes +1.1 % / 1 j · funding +0.0100 % · prix +2.5 % / 24 h",
    "rule": "Positions ouvertes ≤ -8 % ET (funding ≤ -0.01 % ou prix ≤ -6 %) — ventes forcées",
    "lag": "temps réel"
   },
   "resilience": {
    "label": "BTC résiste à une mauvaise séance tech",
    "on": false,
-   "detail": "Séance du 2026-11-25 : semis -5.9 % · NVDA -7.6 % · BTC même jour -1.4 %",
+   "detail": "Donnée indisponible",
    "rule": "Semis ≤ -3 % ou NVDA ≤ -5 % sur la séance, et BTC ≥ 0 le même jour — vendeurs épuisés",
    "lag": "temps réel"
   },
   "candle": {
    "label": "Bougie de capitulation",
    "on": false,
-   "detail": "2026-11-24 : amplitude 3.9 %, mèche basse 23 %, volume ×1.3 (plus-bas 59,190 $ → clôture 59,741 $)",
+   "detail": "2026-11-25 : amplitude 5.5 %, mèche basse 77 %, volume ×1.56 (plus-bas 57,208 $ → clôture 60,384 $)",
    "rule": "Amplitude ≥ 6 %, mèche basse ≥ 50 %, clôture dans la moitié haute, volume ≥ ×1.8",
    "lag": "clôture journalière (UTC)"
   },
   "spot": {
    "label": "Retour des acheteurs au comptant",
    "on": false,
-   "detail": "Prime Coinbase -0.011 % · ETF 25 Nov 2026 : +0 M$ (après 6 j de sorties)",
+   "detail": "Prime Coinbase -0.012 % · ETF 25 Nov 2026 : -123 M$ (après 6 j de sorties)",
    "rule": "Prime Coinbase ≥ +0.08 % ou 1re entrée ETF après ≥ 5 j de sorties",
    "lag": "prime : temps réel · ETF : J-1"
   }
@@ -48,10 +48,10 @@
  "warning": {
   "label": "Hausse portée par le levier (ne pas courir après)",
   "on": false,
-  "detail": "Positions ouvertes +1.1 % · funding +0.0058 % · prix -1.0 %",
+  "detail": "Positions ouvertes +1.1 % · funding +0.0100 % · prix +2.5 %",
   "rule": "Positions ouvertes ≥ +5 %, funding ≥ +0,01 %, prix ≥ +3 % sur 24 h"
  },
- "active": 1,
+ "active": 0,
  "last_alert": {
   "sth": "2026-11-25T04:52+00:00"
  },
@@ -65,8 +65,8 @@
   }
  ],
  "realized_cache": {
-  "realized": 53448,
-  "sth_realized": 73863,
-  "asof": "2026-11-18"
+  "realized": 53395,
+  "sth_realized": 73615,
+  "asof": "2026-11-19"
  }
 }
