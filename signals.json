@@ -1,11 +1,11 @@
 {
- "updated_at": "2026-11-26T01:45+00:00",
- "price": 60686,
+ "updated_at": "2026-11-26T10:48+00:00",
+ "price": 60404,
  "signals": {
   "realized": {
    "label": "Prix sous le prix réalisé (MVRV < 1)",
    "on": false,
-   "detail": "Prix 60,686 $ vs prix réalisé 53,395 $ (MVRV 1.14)",
+   "detail": "Prix 60,404 $ vs prix réalisé 53,395 $ (MVRV 1.13)",
    "rule": "Tout le marché est en perte en moyenne — signature des bottoms de cycle",
    "lag": "prix réalisé au 2026-11-19 (J-7, gratuit)"
   },
@@ -19,14 +19,14 @@
   "purge": {
    "label": "Journée de purge du levier",
    "on": false,
-   "detail": "Positions ouvertes +1.1 % / 1 j · funding +0.0100 % · prix +2.5 % / 24 h",
+   "detail": "Positions ouvertes +1.1 % / 1 j · funding +0.0086 % · prix +2.6 % / 24 h",
    "rule": "Positions ouvertes ≤ -8 % ET (funding ≤ -0.01 % ou prix ≤ -6 %) — ventes forcées",
    "lag": "temps réel"
   },
   "resilience": {
    "label": "BTC résiste à une mauvaise séance tech",
    "on": false,
-   "detail": "Donnée indisponible",
+   "detail": "Séance du 2026-11-25 : semis -0.7 % · NVDA -3.9 % · BTC même jour +1.1 %",
    "rule": "Semis ≤ -3 % ou NVDA ≤ -5 % sur la séance, et BTC ≥ 0 le même jour — vendeurs épuisés",
    "lag": "temps réel"
   },
@@ -40,7 +40,7 @@
   "spot": {
    "label": "Retour des acheteurs au comptant",
    "on": false,
-   "detail": "Prime Coinbase -0.012 % · ETF 25 Nov 2026 : -123 M$ (après 6 j de sorties)",
+   "detail": "Prime Coinbase -0.002 % · ETF 25 Nov 2026 : -453 M$ (après 6 j de sorties)",
    "rule": "Prime Coinbase ≥ +0.08 % ou 1re entrée ETF après ≥ 5 j de sorties",
    "lag": "prime : temps réel · ETF : J-1"
   }
@@ -48,7 +48,7 @@
  "warning": {
   "label": "Hausse portée par le levier (ne pas courir après)",
   "on": false,
-  "detail": "Positions ouvertes +1.1 % · funding +0.0100 % · prix +2.5 %",
+  "detail": "Positions ouvertes +1.1 % · funding +0.0086 % · prix +2.6 %",
   "rule": "Positions ouvertes ≥ +5 %, funding ≥ +0,01 %, prix ≥ +3 % sur 24 h"
  },
  "active": 0,
