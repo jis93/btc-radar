@@ -1,25 +1,25 @@
 {
- "updated_at": "2026-11-26T21:26+00:00",
- "price": 60798,
+ "updated_at": "2026-11-27T04:12+00:00",
+ "price": 61379,
  "signals": {
   "realized": {
    "label": "Prix sous le prix réalisé (MVRV < 1)",
    "on": false,
-   "detail": "Prix 60,798 $ vs prix réalisé 53,395 $ (MVRV 1.14)",
+   "detail": "Prix 61,379 $ vs prix réalisé 53,253 $ (MVRV 1.15)",
    "rule": "Tout le marché est en perte en moyenne — signature des bottoms de cycle",
-   "lag": "prix réalisé au 2026-11-19 (J-7, gratuit)"
+   "lag": "prix réalisé au 2026-11-20 (J-7, gratuit)"
   },
   "sth": {
    "label": "Détenteurs récents en perte > 20 %",
    "on": false,
-   "detail": "Prix / revient des < 5 mois (73,615 $) = 0.83",
+   "detail": "Prix / revient des < 5 mois (73,129 $) = 0.84",
    "rule": "Ratio < 0.8 : ventes paniques des acheteurs récents",
-   "lag": "revient au 2026-11-19 (J-7)"
+   "lag": "revient au 2026-11-20 (J-7)"
   },
   "purge": {
    "label": "Journée de purge du levier",
    "on": false,
-   "detail": "Positions ouvertes +4.8 % / 1 j · funding +0.0007 % · prix +0.8 % / 24 h",
+   "detail": "Positions ouvertes +4.8 % / 1 j · funding +0.0099 % · prix +0.9 % / 24 h",
    "rule": "Positions ouvertes ≤ -8 % ET (funding ≤ -0.01 % ou prix ≤ -6 %) — ventes forcées",
    "lag": "temps réel"
   },
@@ -33,14 +33,14 @@
   "candle": {
    "label": "Bougie de capitulation",
    "on": false,
-   "detail": "2026-11-25 : amplitude 5.5 %, mèche basse 77 %, volume ×1.56 (plus-bas 57,208 $ → clôture 60,384 $)",
+   "detail": "2026-11-26 : amplitude 2.8 %, mèche basse 32 %, volume ×0.54 (plus-bas 59,842 $ → clôture 60,496 $)",
    "rule": "Amplitude ≥ 6 %, mèche basse ≥ 50 %, clôture dans la moitié haute, volume ≥ ×1.8",
    "lag": "clôture journalière (UTC)"
   },
   "spot": {
    "label": "Retour des acheteurs au comptant",
    "on": false,
-   "detail": "Prime Coinbase -0.006 % · ETF 25 Nov 2026 : -453 M$ (après 6 j de sorties)",
+   "detail": "Prime Coinbase -0.011 % · ETF 25 Nov 2026 : -453 M$ (après 6 j de sorties)",
    "rule": "Prime Coinbase ≥ +0.08 % ou 1re entrée ETF après ≥ 5 j de sorties",
    "lag": "prime : temps réel · ETF : J-1"
   }
@@ -48,7 +48,7 @@
  "warning": {
   "label": "Hausse portée par le levier (ne pas courir après)",
   "on": false,
-  "detail": "Positions ouvertes +4.8 % · funding +0.0007 % · prix +0.8 %",
+  "detail": "Positions ouvertes +4.8 % · funding +0.0099 % · prix +0.9 %",
   "rule": "Positions ouvertes ≥ +5 %, funding ≥ +0,01 %, prix ≥ +3 % sur 24 h"
  },
  "active": 0,
@@ -65,8 +65,8 @@
   }
  ],
  "realized_cache": {
-  "realized": 53395,
-  "sth_realized": 73615,
-  "asof": "2026-11-19"
+  "realized": 53253,
+  "sth_realized": 73129,
+  "asof": "2026-11-20"
  }
 }
